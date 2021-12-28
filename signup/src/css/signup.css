@@ -1,0 +1,137 @@
+/* LOGIN 페이지 */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrap {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.login-container {
+  margin: auto;
+  width: 400px;
+  height: 400px;
+}
+
+.wrap-login {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-top{
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 4px solid black;
+}
+
+.login-top h1{
+  font-size: 3rem;
+  font-weight: 450;
+}
+
+.login-middle{
+  flex: 2.5;
+}
+
+.middle {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 4px solid black;
+}
+
+.middle input {
+  background: none;
+  padding: 10px;
+  margin: 5px;
+  width: 350px;
+  height: 45px;
+}
+
+.middle button {
+  background-color: white;
+  border: 3px solid black;
+  margin: 5px;
+  width: 350px;
+  height: 45px;
+  font-size: 1.3rem;
+  font-weight: 450;
+}
+
+button:hover{
+  background-color: black;
+  color: white;
+}
+
+.login-bottom{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bottom{
+  display: flex;
+  flex-direction: row;
+}
+
+.click-signup, .click-forgotID ,.click-forgotPW {
+  flex: 1;
+  text-align: center;
+  padding: 5px;
+}
+
+.click-forgotID {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+
+}
+
+
+/* Join 페이지 */
+
+.join-container {
+  margin: auto;
+  width: 450px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.join-top {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 4px solid black;
+}
+
+.Join-top h1{
+  font-size: 3rem;
+  font-weight: 450;
+}
+
+.join-middle {
+  flex: 5;
+}
+
+.join-bottom {
+  flex: 1;
+}
