@@ -95,10 +95,21 @@
   text-align: center;
   padding: 5px;
 }
+.click-signup a:link { color: black; text-decoration: none;}
+.click-signup a:visited { color: black; text-decoration: none;}
+.click-signup a:hover { color: black; text-decoration: none;}
+
+.click-forgotID a:link { color: black; text-decoration: none;}
+.click-forgotID a:visited { color: black; text-decoration: none;}
+.click-forgotID a:hover { color: black; text-decoration: none;}
+
+.click-forgotPW a:link { color: black; text-decoration: none;}
+.click-forgotPW a:visited { color: black; text-decoration: none;}
+.click-forgotPW a:hover { color: black; text-decoration: none;}
 
 .click-forgotID {
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 
 }
 
@@ -135,16 +146,43 @@
   background: none;
   padding: 10px;
   margin: 5px;
-  width: 170px;
+  width: 90px;
   height: 45px;
   border: black 2px solid;
+  text-align: center;
+}
+
+#year {
+  background: none;
+  padding: 10px;
+  margin: 5px;
+  width: 150px;
+  height: 45px;
+  border: black 2px solid;
+  text-align: center;
 }
 
 #age {
   background: none;
   padding: 10px;
   margin: 5px;
-  width: 170px;
+  width: 90px;
+  height: 45px;
+  text-align: center;
+}
+
+#member_post {
+  background: none;
+  padding: 10px;
+  margin: 5px;
+  width: 90px;
+  height: 45px;
+}
+#member_addr {
+  background: none;
+  padding: 10px;
+  margin: 5px;
+  width: 250px;
   height: 45px;
 }
 
