@@ -1,0 +1,28 @@
+.deInput {
+    color: pink;
+    background: transparent;
+    width: 80%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid white;
+    margin-top: 30px;
+    margin-bottom: 3%;
+    outline: none;
+}
+
+.deText {
+    /* background-color: brown; */
+    text-align: left;
+    font-size: 18px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.deDiv {
+    /* background-color: blue; */
+    /* display: flex; */
+    /* justify-content: center; */
+    text-align: center;
+    
+}
