@@ -97,9 +97,9 @@ export default function mypage() {
         <div className="slide" id="4">
           <div className="content fifth-content">
             <div className="container-fluid">
-              <div className="col-md-6">
+              {/* <div className="col-md-6"> */}
                 <div id="map"></div>
-              </div>
+              {/* </div> */}
               <div>
                   <Inquiry />
               </div>

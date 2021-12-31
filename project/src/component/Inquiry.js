@@ -1,67 +1,45 @@
 import "./main.css"
 
 export default function Inquiry() {
+  const inInput = {
+    color: "pink",
+  }
     return (
+      <div className = "inDiv">
         <div className="col-md-6">
         <form id="contact" action="" method="post">
           <div className="row">
-            <div className="col-md-12">
-              <fieldset>
-                <input
-                  name="name"
-                  type="text"
-                  className="form-control"
-                  id="name"
-                  placeholder="Your name..."
-                  required=""
-                />
+            <div className="col-md-12" id = "test">
+              <h1>문의</h1>
+              <fieldset className = "inField">
+                <input style={inInput} type="text" placeholder="Your name..." required=""/>
               </fieldset>
             </div>
             <div className="col-md-12">
               <fieldset>
-                <input
-                  name="email"
-                  type="email"
-                  className="form-control"
-                  id="email"
-                  placeholder="Your email..."
-                  required=""
-                />
+                <input style = {inInput} name="email" type="email" placeholder="Your email..." required=""></input>
               </fieldset>
             </div>
             <div className="col-md-12">
               <fieldset>
-                <input
-                  name="subject"
-                  type="text"
-                  className="form-control"
-                  id="subject"
-                  placeholder="Subject..."
-                  required=""
-                />
+                <input style = {inInput} name="subject" type="text" placeholder="Subject..." required=""/>
               </fieldset>
             </div>
             <div className="col-md-12">
               <fieldset>
-                <textarea
-                  name="message"
-                  rows="6"
-                  className="form-control"
-                  id="message"
-                  placeholder="Your message..."
-                  required=""
-                ></textarea>
+                <textarea style = {inInput} name="message" rows="6" placeholder="Your message..." required=""></textarea>
               </fieldset>
             </div>
             <div className="col-md-12">
               <fieldset>
-                <button type="submit" id="form-submit" className="btn">
-                  Send Now
+                <button type="submit">
+                  수정하기
                 </button>
               </fieldset>
             </div>
           </div>
         </form>
+      </div>
       </div>
     )
 }
