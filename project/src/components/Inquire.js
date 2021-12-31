@@ -5,10 +5,10 @@ function Inquire() {
     return(
         <>
             {/* <section className="page-section" id="contact"> */}
-                <div className="box">    
+                <div style={{marginLeft : "25%", marginTop : "5%"}} className="box">    
                     <div className="row gx-4 gx-lg-5 justify-content-center">
                         <div className="col-lg-8 col-xl-6 text-center">
-                            <h2 className="mt-0">Feed Back</h2>
+                            <h2 className="mt-0">문의하기</h2>
                             <hr className="divider" />
                             <p className="text-muted mb-5">영스타를 이용하시면서 불편사항, 개선사항들을 보내주세요.</p>
                         </div>

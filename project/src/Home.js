@@ -1,5 +1,8 @@
 import Review from './components/Review';
 import Board from './components/Board';
+// import BoardView from './components/BoardView';
+// import BoardWrite from './components/BoardWrite';
+// import BoardEdit from './components/BoardEdit';
 import Inquire from './components/Inquire';
 import Qna from './components/Qna';
 
@@ -41,13 +44,13 @@ export default function Homepage() {
                 <div className="slide" id="2">
                     <div className="content second-content">
                         <div className="container-fluid">
-                            {/* <Board /> */}
+                            <Board />
                         </div>
                     </div>
                 </div>
 
                 <div className="slide" id="3">
-                    <div className="content third-content">
+                    <div className="content second-content">
                         <div className="container-fluid">
                             <Inquire />
                         </div>

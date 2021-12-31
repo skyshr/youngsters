@@ -5,7 +5,7 @@ function Qna() {
     return(
         <>
             <section className="page-section" id="contact">
-                <div className="box-qna">    
+                <div style={{marginLeft : "25%", marginTop : "5%"}} className="box">    
                     <div className="row gx-4 gx-lg-5 justify-content-center">
                         <div className="col-lg-8 col-xl-6 text-center">
                             <h2 className="mt-0">QnA</h2>
@@ -19,13 +19,12 @@ function Qna() {
                             <button className="fa fa-heart"></button>
                         </div>
                     </div>
+                    <div className="phone">
+                        <i className="fa fa-phone"></i>
+                        <div>010 - 1234 - 5678</div>
+                    </div>
                 </div>
             </section>
-
-            <div className="phone">
-                <i className="fa fa-phone"></i>
-                <div>010 - 1234 - 5678</div>
-            </div>
         </>
     )
 }
