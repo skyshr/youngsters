@@ -22,18 +22,12 @@ function App() {
         };
         
         fetch("http://localhost:3001/idplz", {
-            method : "post", // 통신방법
+            method : "post",
             headers : {
                 "content-type" : "application/json"
             },
             body : JSON.stringify(post),
         })
-    //   .then((res)=>res.json())
-    //   .then((json)=>{
-    //     this.setState({
-    //       testbody : json.text,
-    //     });
-    //   });
     };
 
     const onCall = () => {

@@ -22,27 +22,37 @@ app.get("/", (req,res) => {
     res.send('test')
 });
 
-app.post("/idplz", (req,res) => {
-    const test = req.body.test;
+// app.post("/idplz", (req,res) => {
+//     const test = req.body.test;
+//     console.log(test);
+//     connection.query("INSERT INTO test (test_body) values (?)" ,[test],
+//         function(err,rows,fields) {
+//             if(err){ console.log("실패")}
+//             else(console.log("성공" + rows));
+//         });
+// });
+
+// app.post("/callbody", (req, res) => {
+//     connection.query("SELECT * FROM test", 
+//     function(err,rows,fields) {
+//         if(err) {
+//             console.log("불러오기 실패");
+//         } else {
+//             console.log("불러오기 성공");
+//             res.send(rows[0]);
+//         }
+//     })
+// })
+
+app.post("/inquire", (req,res) => {
+    const test = req.body;
     console.log(test);
-    connection.query("INSERT INTO test (test_body) values (?)" ,[test],
+    connection.query("INSERT INTO Inquire (name, email, number, message) values (?,?,?,?)" ,[test.name, test.email, test.number, test.message],
         function(err,rows,fields) {
             if(err){ console.log("실패")}
-            else(console.log("성공" + rows));
+            else(console.log("성공"));
         });
 });
-
-app.post("/callbody", (req, res) => {
-    connection.query("SELECT * FROM test", 
-    function(err,rows,fields) {
-        if(err) {
-            console.log("불러오기 실패");
-        } else {
-            console.log("불러오기 성공");
-            res.send(rows[0]);
-        }
-    })
-})
 
 app.listen(port, () => {
     console.log(`http://localhost:${port}`);
