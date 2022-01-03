@@ -1,7 +1,6 @@
 import '../css/signup.css'; 
 import React, { useState } from 'react';
 import PostApi from '../componants/postApi';
-import PopupPostCode from '../componants/PopupPostCode';
 
 export default function Join(){
   const [inputage, setInputAge] = useState({
@@ -75,6 +74,12 @@ export default function Join(){
                 </div>
                 <div className='postcontainer'>
                   <PostApi />
+                </div>
+                <div>
+                  <input id='addr1' placeholder='주소' />
+                </div>
+                <div>
+                  <input id='addr2'placeholder='상세주소' />
                 </div>
               </div>
           </div>

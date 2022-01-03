@@ -63,7 +63,7 @@
   height: 45px;
 }
 
-.middle button {
+.middle .login-button {
   background-color: white;
   border: 3px solid black;
   margin: 5px;
@@ -142,6 +142,10 @@
   flex: 5;
 }
 
+.middle {
+  position: relative;
+}
+
 #gender {
   background: none;
   padding: 10px;
@@ -171,21 +175,6 @@
   text-align: center;
 }
 
-#member_post {
-  background: none;
-  padding: 10px;
-  margin: 5px;
-  width: 90px;
-  height: 45px;
-}
-#member_addr {
-  background: none;
-  padding: 10px;
-  margin: 5px;
-  width: 250px;
-  height: 45px;
-}
-
 .join-bottom {
   flex: 1;
   display: flex;
@@ -206,4 +195,49 @@
 .join-bottom button:hover{
   background-color: black;
   color: white;
+}
+
+ /* post popup */ /* post popup */ /* post popup */ /* post popup */
+.postcontainer{
+  display: flex;
+  flex-direction: column;
+}
+/* 우편번호 검색 */
+#wrap-post-search-btn{
+  margin: 5px;
+  padding: 2px;
+  width: 97%;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+
+#post-search-btn {
+  border: 2px solid black;
+  padding: 5px;
+  background-color: white;
+}
+#post-search-btn:hover{
+  background-color: black;
+  color: white;
+}
+
+/* 주소API 닫는 창 */
+#postCode_btn {
+  position: absolute;
+  bottom: 1%;
+  right: 0%;
+  padding: 5px;
+  border-style: none;
+  font-size: 1.5rem;
+  background-color: white;
+}
+
+#postCode_btn:hover{
+  background-color: black;
+  color: white;
+}
+
+.addr {
+  border: black 2px solid;
 }
