@@ -63,7 +63,7 @@
   height: 45px;
 }
 
-.middle button {
+.middle .login-button {
   background-color: white;
   border: 3px solid black;
   margin: 5px;
@@ -95,10 +95,21 @@
   text-align: center;
   padding: 5px;
 }
+.click-signup a:link { color: black; text-decoration: none;}
+.click-signup a:visited { color: black; text-decoration: none;}
+.click-signup a:hover { color: black; text-decoration: none;}
+
+.click-forgotID a:link { color: black; text-decoration: none;}
+.click-forgotID a:visited { color: black; text-decoration: none;}
+.click-forgotID a:hover { color: black; text-decoration: none;}
+
+.click-forgotPW a:link { color: black; text-decoration: none;}
+.click-forgotPW a:visited { color: black; text-decoration: none;}
+.click-forgotPW a:hover { color: black; text-decoration: none;}
 
 .click-forgotID {
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 
 }
 
@@ -131,21 +142,37 @@
   flex: 5;
 }
 
-#gender {
+.middle {
+  position: relative;
+}
+
+.gender {
   background: none;
   padding: 10px;
   margin: 5px;
-  width: 170px;
+  width: 90px;
   height: 45px;
   border: black 2px solid;
+  text-align: center;
+}
+
+#year {
+  background: none;
+  padding: 10px;
+  margin: 5px;
+  width: 150px;
+  height: 45px;
+  border: black 2px solid;
+  text-align: center;
 }
 
 #age {
   background: none;
   padding: 10px;
   margin: 5px;
-  width: 170px;
+  width: 90px;
   height: 45px;
+  text-align: center;
 }
 
 .join-bottom {
@@ -168,4 +195,49 @@
 .join-bottom button:hover{
   background-color: black;
   color: white;
+}
+
+ /* post popup */ /* post popup */ /* post popup */ /* post popup */
+.postcontainer{
+  display: flex;
+  flex-direction: column;
+}
+/* 우편번호 검색 */
+#wrap-post-search-btn{
+  margin: 5px;
+  padding: 2px;
+  width: 97%;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+
+#post-search-btn {
+  border: 2px solid black;
+  padding: 5px;
+  background-color: white;
+}
+#post-search-btn:hover{
+  background-color: black;
+  color: white;
+}
+
+/* 주소API 닫는 창 */
+#postCode_btn {
+  position: absolute;
+  bottom: 1%;
+  right: 0%;
+  padding: 5px;
+  border-style: none;
+  font-size: 1.5rem;
+  background-color: white;
+}
+
+#postCode_btn:hover{
+  background-color: black;
+  color: white;
+}
+
+.addr {
+  border: black 2px solid;
 }
