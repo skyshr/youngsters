@@ -61,6 +61,20 @@
 .inField {
     text-align: center;
     font-size: 30px;
+}
+
+.poInput {
     color: pink;
+    /* background: transparent; */
+    
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid white;
+    margin-top: 5px;
+    margin-bottom: 2%;
+    outline: none;
+    display: flex;
+    justify-content: center;
 }
 

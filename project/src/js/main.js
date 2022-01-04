@@ -6,16 +6,15 @@ jQuery(document).ready(function($) {
             $(".seq-preloader").fadeOut(); // will first fade out the loading animation
             $(".sequence").delay(500).fadeOut("slow"); // will fade out the white DIV that covers the website.
         })
-      
         
         $(function() {
-  
+
         function showSlide(n) {
             // n is relative position from current slide
-          
+
             // unbind event listener to prevent retriggering
             $body.unbind("mousewheel");
-          
+        
             // increment slide number by n and keep within boundaries
             currSlide = Math.min(Math.max(0, currSlide + n), $slide.length-1);
             
@@ -30,11 +29,11 @@ jQuery(document).ready(function($) {
             $($('a')[currSlide]).addClass('active');
             
         }
-      
+    
         function bind() {
-             $body.bind('false', mouseEvent);
-          }
-      
+            $body.bind('false', mouseEvent);
+        }
+
         function mouseEvent(e, delta) {
             // On down scroll, show next slide otherwise show prev slide
             showSlide(delta >= 0 ? -1 : 1);
@@ -49,11 +48,11 @@ jQuery(document).ready(function($) {
             showSlide(diff); // show that slide
             e.preventDefault();
         });
-      
+    
         $(window).resize(function(){
           // Keep current slide to left of window on resize
-          var displacment = window.innerWidth*currSlide;
-          $slides.css('transform', 'translateX(-'+displacment+'px)');
+        var displacment = window.innerWidth*currSlide;
+        $slides.css('transform', 'translateX(-'+displacment+'px)');
         });
         
         // cache
@@ -61,7 +60,7 @@ jQuery(document).ready(function($) {
         var currSlide = 0;
         var $slides = $('.slides');
         var $slide = $('.slide');
-      
+    
         // give active class to first link
         $($('nav a')[0]).addClass('active');
         
@@ -79,7 +78,7 @@ jQuery(document).ready(function($) {
                 $(".header").addClass("active");
             } else {
                 //remove the background property so it comes transparent again (defined in your css)
-               $(".header").removeClass("active");
+                $(".header").removeClass("active");
             }
         });
 
