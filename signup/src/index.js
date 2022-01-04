@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Join from './pages/Join';
-// import Login from './pages/Login';
+import Login from './pages/Login';
 // import Post from './componants/postApi'
 // import Modal from './componants/modalApi'
 // import ModalPage from './pages/ModalPage';

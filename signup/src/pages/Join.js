@@ -1,50 +1,86 @@
 import '../css/signup.css'; 
 import React, { useState } from 'react';
 import PostApi from '../componants/postApi';
-import PopupPostCode from '../componants/PopupPostCode';
 
-export default function Join(){
-  const [inputage, setInputAge] = useState({
-    age : '' + '세',
-    year : '2002'
+export default function Join(props){
+
+  
+  const [inputs, setInputs] = useState({
+    id : "",
+    pw : "",
+    name : "",
+    gender : "",
+    year : '2002',    
+    age : "",
+    useraddr : '',
+    useraddrdet : ''
   });
 
-  const {age, year} = inputage;
-
-  const date = new Date()
-  const yyyy = date.getFullYear()+1;
-  const resultAge = (yyyy-year);
+  const {id, pw, name, gender, year, age, useraddr, useraddrdet} = inputs;
 
   const onChange = (e) =>{
-    const { value, name } = e.target;
-    setInputAge({
-      ...inputage,
+    const { name, value } = e.target;
+
+    setInputs({
+      ...inputs,
       [name] : value
     })
   }
 
-    return(
+  const onSubmit = () => {
+    const post ={
+      pid : inputs.id,
+      ppw: inputs.pw,
+      pname: inputs.name,
+      pgender : inputs.gender,
+      pyear : inputs.year,
+      page : inputs.age,
+      puseraddr : inputs.useraddr,
+      puseraddrdet : inputs.useraddrdet
+    };
+
+    console.log(post);
+
+    fetch("http://localhost:3001/signup", {
+      method : "post",
+      headers : {
+        "content-type" : "application/json"
+      },
+      body : JSON.stringify(post)
+    })
+    .then((res)=> res.json())
+    .then((json)=>{
+      console.log(json);
+    })
+  }
+
+  // 출생년도 및 나이 구하기
+  const date = new Date()
+  const yyyy = date.getFullYear()+1;
+  const resultAge = (yyyy-year);
+
+  return(
     <>
       <div className='wrap'>
-        <form action='post' className='join-container'>
+        <div action='post' className='join-container'>
           <div className='join-top'>
             <h1>JOIN</h1>
           </div>
           <div className='join-middle'>
               <div className='middle'>
                 <div>
-                  <input id='id' type='email' placeholder='사용할 아이디(email 형식)' />
+                  <input id='id' name='id' value={id} type='email' placeholder='사용할 아이디(email 형식)' onChange={onChange} />
                 </div>
                 <div>
-                  <input id='password' type='password' minLength="4" placeholder='비밀번호 (4자리 이상)' />
+                  <input id='pw' name='pw' value={pw} type='password' minLength="4" placeholder='비밀번호 (4자리 이상)'  onChange={onChange} />
                 </div>
                 <div>
-                  <input type='text' placeholder='이름' />
+                  <input id='name' name='name' value={name}  type='text' placeholder='이름'  onChange={onChange} />
                 </div>
                 <div>
-                  <select id='gender' placeholder='성별'>
-                    <option value='male'>남자</option>
-                    <option value='female'>여자</option>
+                  <select id='gender' name='gender' value={gender} className='gender' placeholder='성별' onChange={onChange}>
+                    <option value='남자'>남자</option>
+                    <option value='여자'>여자</option>
                   </select>
                   <select id='year' name='year' value={year} onChange={onChange} maxLength="4" type='text' placeholder='출생년도'>
                     <option value='1980'>1980년</option>
@@ -71,17 +107,20 @@ export default function Join(){
                     <option value='2001'>2001년</option>
                     <option value='2002'>2002년</option>
                   </select>
-                  <input id='age' name='age' value={resultAge+'세'} onChange={onChange} maxLength="2" type='text' placeholder='나이' />
+                  <input id='age' name='age' value={age} onChange={onChange} maxLength="2" type='number' placeholder='나이' />
                 </div>
                 <div className='postcontainer'>
-                  <PostApi />
+                  <div>
+                    <PostApi />
+                  </div>
                 </div>
+                <input id='useraddrdet' name='useraddrdet' value={useraddrdet}  onChange={onChange} className='addr' placeholder='상세주소' />
               </div>
           </div>
           <div className='join-bottom'>
-            <button type='submit'>JOIN</button>
+            <button type='submit' onClick={onSubmit}>JOIN</button>
           </div>
-        </form>
+        </div>
       </div>
     </>
   )
