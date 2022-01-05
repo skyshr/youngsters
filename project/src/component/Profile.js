@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "./main.css";
 import React from "react";
 
-// import { json } from "body-parser";
 
 export default function Profile() {
 const [state, setState] = useState({
@@ -10,6 +9,7 @@ const [state, setState] = useState({
     id: "",
     psw: "",
     adr: "",
+    sessionid: "",
 })
 
 const [check, setCheck] = useState(true);
@@ -19,6 +19,7 @@ const [inputs, setInputs] = useState({
     id: "",
     psw: "",
     adr:"",
+    sessionid: "",
 })
 
 const {name, id, psw, adr} = inputs
@@ -43,11 +44,14 @@ useEffect(
     .then((res) => res.json())
     .then((json) => {
         console.log(json)
+        sessionStorage.setItem('idkey', json.idkey)
+        console.log('idkey: ' + sessionStorage.getItem('idkey'));
         setState({
             name: json.users,
             id: json.id,
             psw: json.psw,
-            adr: json.adr
+            adr: json.adr,
+            sessionid: json.idkey
         })
     })
     
@@ -59,27 +63,54 @@ const onClick = () => {
 }
 
 const btnClick = () => {
-    // console.log(Object.keys(inputs).map(key=>inputs[key]))
-    // console.log({...inputs => key})
-    for (var [key, value] of Object.entries(inputs)) {
-        // console.log(key);
-        // console.log(value);
-        if (value!="") {
-            setState({...state,
-                [key] : value
-        }) 
-    }
-}
-console.log(state);
-setCheck(true);
-}
-    // setState({...inputs,
-    // }
-    // )
 
-    // }
+    if (name==="") inputs.name=state.name;
+    if (id==="") inputs.id=state.id;
+    if (psw==="") inputs.psw=state.psw;
+    if (adr==="") inputs.adr=state.adr;
+    inputs.sessionid = state.sessionid;
+    console.log(inputs);
+
+    // setState(inputs);
+    // setInputs({
+    //     name: "",
+    //     id: "",
+    //     psw: "",
+    //     adr:"",
+    // })
+    fetch("http://localhost:3001/text", 
+        {
+        method: "put",
+        headers: {
+            "content-type": "application/json",
+        },
+        body: JSON.stringify(inputs)
+    })
+    // .then((res) => res.json())
+    // .then((json)=> {
+    //     console.log(json);
+    // })
+    .then(()=> {
+        console.log('1')
+        state.sessionid = inputs.idkey;
+        setState(inputs);
+    }).then(()=> {
+        console.log('2')
+        setInputs({
+            name: "",
+            id: "",
+            psw: "",
+            adr:"",
+        })
+    }).then(()=>{
+        console.log('3')
+        setCheck(true)
+    })
+    
 
     // setCheck(true)
+}
+
 
 if(check) {
 return (
