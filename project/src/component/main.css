@@ -1,5 +1,5 @@
 .deInput {
-    color: pink;
+    color: black;
     background: transparent;
     width: 100%;
     border-top: none;
@@ -14,7 +14,7 @@
 .deText {
     text-align: left;
     font-size: 18px;
-    color: white;
+    color: black;
     margin-bottom: none;
 }
 
@@ -26,7 +26,7 @@
 
 
 .gaInput {
-    color: pink;
+    color: black;
     background: transparent;
     width: 100%;
     border-top: none;
@@ -64,7 +64,7 @@
 }
 
 .poInput {
-    color: pink;
+    color: black;
     /* background: transparent; */
     
     border-top: none;
@@ -78,3 +78,8 @@
     justify-content: center;
 }
 
+.prbtn {
+    background-color: wheat;
+    width: 100px;
+    height: 30px;
+}

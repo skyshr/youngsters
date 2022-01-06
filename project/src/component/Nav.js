@@ -3,7 +3,7 @@ import React from "react"
 
 export default function Nav() {
     return(
-    <nav>
+    <nav style = {{backgroundColor: "pink"}}>
         <div className="logo">
             <img src="img/logo.png" alt="" />
         </div>

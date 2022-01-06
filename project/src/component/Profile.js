@@ -34,7 +34,7 @@ const handler = e => {
 
 useEffect(
     () => {
-        fetch("http://localhost:3001/text", 
+        fetch("http://localhost:3001/profile", 
         {
         method: "get",
         headers: {
@@ -78,7 +78,7 @@ const btnClick = () => {
     //     psw: "",
     //     adr:"",
     // })
-    fetch("http://localhost:3001/text", 
+    fetch("http://localhost:3001/profile", 
         {
         method: "put",
         headers: {
@@ -128,7 +128,7 @@ return (
             <p>비밀번호 {state.psw}</p>
             <p>주소 {state.adr}</p>
             <div className="main-btn">
-            <button type = "button" onClick = {onClick} >수정하기</button>
+            <button className = "prbtn" type = "button" onClick = {onClick} >수정하기</button>
             
         </div>
     </div>
@@ -159,7 +159,7 @@ else{
                     <input name = "adr" className = "poInput" value = {adr} type = "text" placeholder = {state.adr} onChange = {handler} />
                 </p>
                 <div className="main-btn">
-                <button type = "button" onClick = {btnClick}>저장하기</button>
+                <button className = "prbtn" type = "button" onClick = {btnClick}>저장하기</button>
                 
             </div>
         </div>
