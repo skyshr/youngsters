@@ -1,7 +1,7 @@
 import Review from './components/Review';
 import Board from './components/Board';
-// import BoardView from './components/BoardView';
-// import BoardWrite from './components/BoardWrite';
+import BoardView from './components/BoardView';
+import BoardWrite from './components/BoardWrite';
 // import BoardEdit from './components/BoardEdit';
 import Inquire from './components/Inquire';
 import Qna from './components/Qna';
@@ -24,38 +24,22 @@ export default function Homepage() {
                 {/* <li><a href="#5"><i className="fa fa-envelope"></i> <em>Contact</em></a></li> */}
             </ul>
             </nav>
-                
+
             <div className="slides">
                 <div className="slide" id="1">
-                    <div className="content third-content">
-                        <div className="container-fluid">
-                            <Review />
-                        </div>
-                    </div>
+                    <Review />
                 </div>
 
                 <div className="slide" id="2">
-                    <div className="content second-content">
-                        <div className="container-fluid">
-                            <Board />
-                        </div>
-                    </div>
+                    <Board />
                 </div>
 
                 <div className="slide" id="3">
-                    <div className="content second-content">
-                        <div className="container-fluid">
-                            <Inquire />
-                        </div>
-                    </div>
+                    <Inquire />
                 </div>
 
                 <div className="slide" id="4">
-                    <div className="content second-content">
-                        <div className="container-fluid">
-                            <Qna />
-                        </div>
-                    </div>
+                    <Qna />
                 </div>
             </div>
 

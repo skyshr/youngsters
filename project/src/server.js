@@ -45,14 +45,71 @@ app.get("/", (req,res) => {
 // })
 
 app.post("/inquire", (req,res) => {
-    const test = req.body;
-    console.log(test);
-    connection.query("INSERT INTO Inquire (name, email, number, message) values (?,?,?,?)" ,[test.name, test.email, test.number, test.message],
+    const inq = req.body;
+    console.log(inq);
+    connection.query("INSERT INTO Inquire (name, email, number, message) values (?,?,?,?)" ,[inq.name, inq.email, inq.number, inq.message],
         function(err,rows,fields) {
             if(err){ console.log("실패")}
             else(console.log("성공"));
         });
 });
+
+app.post("/boardwrite", (req,res) => {
+    const write = req.body;
+    // console.log(write);
+    connection.query("INSERT INTO Board (title, writer, password, content, regdate, modidate, hit, likeuser) values(?, ?, ?, ?, now(), now(), 0, 0)" ,[write.title, write.writer, write.password, write.content],
+    function(err,rows,fields) {
+        if(err){ console.log("실패" + rows + fields)}
+        else {
+            console.log("성공")
+            // console.log(res)
+        };
+    });
+});
+
+app.get("/boardview", (req, res) => {
+    // const view = req.view;
+    connection.query("SELECT * FROM Board ", 
+    function(err,rows,fields) {
+        if(err) {
+            console.log("불러오기 실패");
+        } else {
+            console.log("불러오기 성공");
+            res.send(rows);
+        }
+    })
+})
+
+app.put("/boardedit", (req, res) => {
+    const edit = req.body;
+    console.log(edit); 
+    connection.query(`UPDATE board SET content=?, modidate=now() WHERE idx=${edit.idx} and password="${edit.password}"`, [edit.content],
+        function(err, rows, fields) {
+            if(err) {
+                console.log("수정 실패")
+                // res.send(false)
+            } else {
+                console.log("수정 성공");
+                res.send(true)
+            }
+        }
+    )
+})
+
+app.get("/board", (req, res) => {
+    // const main = req.body;
+    // console.log("메인" + main);
+    console.log('hi');
+    connection.query("SELECT * FROM Board", 
+    function(err,rows,fields) {
+        if(err) {
+            console.log("메인 불러오기 실패");
+        } else {
+            console.log(rows);
+            res.send(rows);
+        }
+    })
+})
 
 app.listen(port, () => {
     console.log(`http://localhost:${port}`);

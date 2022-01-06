@@ -1,58 +1,114 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './css.css';
+import BoardView from './BoardView';
+import Board from './Board';
 
-function BoardEdit() {
+function BoardEdit({test}) {
+    const [edit, setEdit] = useState("edit")
+    const [change,setChange] = useState(
+        {
+            idx : test.idx,
+            content : "",
+            password : test.password
+        }
+    )
+    
+    const onSubmitView = () =>{
+        const put = {
+            idx : change.idx,
+            content : change.content,
+            password : change.password
+        };
+
+        fetch("http://localhost:3001/boardedit", {
+            method : "put",
+            headers : {
+                "content-type" : "application/json"
+            },
+            body : JSON.stringify(put)
+        })
+        .then((res) => res.json())
+        .then((json) => {
+            console.log(json)
+            if(json) {
+                setEdit("main")
+            }
+            else {
+                alert("error")
+            }
+        })
+
+        
+    }
+    const onSubmitMain = () =>{
+        setEdit("main")
+    }
+
+    const onChange = (e) => {
+        const {name, value} = e.target;
+
+        setChange(
+            {
+                ...change, [name] : value
+            }
+        )
+    }
+
+    if(edit === "edit"){
     return(
         <>
-            <section className="page-section" id="contact">
-                <div className="board_box">    
-                    <div className="row gx-4 gx-lg-5 justify-content-center">
-                        <div style={{marginLeft : "20%", marginTop : "5%"}} className="col-lg-8 col-xl-6 text-center">
-                            <h2 className="mt-0">게시판</h2>
-                            <hr className="divider" />
-                            <p className="text-muted mb-5">여러분의 생각과 고민을 적어주세요!</p>
-                        </div>
-                    </div>
-                    <div className="board_write_wrap">
-                        <div className="board_write">
-                            <div className="title">
-                                <dl>
-                                    <dt>제목</dt>
-                                    <dd><input type="text" placeholder="제목 입력" value="글 제목이 들어갑니다" /></dd>
-                                </dl>
+            <div className="content second-content">
+                <div className="container-fluid">
+                    <section className="page-section" id="contact">
+                        <div className="board_box">    
+                            <div className="row gx-4 gx-lg-5 justify-content-center">
+                                <div style={{marginLeft : "17%", marginTop : "5%"}} className="col-lg-8 col-xl-6 text-center">
+                                    <h2 className="mt-0">게시판</h2>
+                                    <hr className="divider" />
+                                    <p className="text-muted mb-5">여러분의 생각과 고민을 적어주세요!</p>
+                                </div>
                             </div>
-                            <div className="info">
-                                <dl>
-                                    <dt>글쓴이</dt>
-                                    <dd><input type="text" placeholder="글쓴이 입력" value="김이름" /></dd>
-                                </dl>
-                                <dl>
-                                    <dt>비밀번호</dt>
-                                    <dd><input type="password" placeholder="비밀번호 입력" value="1234" /></dd>
-                                </dl>
-                            </div>
-                            <div className="cont">
-                                <textarea placeholder="내용 입력">
-                                    글 내용이 들어갑니다.
-                                    글 내용이 들어갑니다.
-                                    글 내용이 들어갑니다.
-                                    글 내용이 들어갑니다.
-                                    글 내용이 들어갑니다.
-                                    글 내용이 들어갑니다.
-                                    글 내용이 들어갑니다.
-                                    글 내용이 들어갑니다.
-                                </textarea>
+                            <div className="board_write_wrap">
+                                <div className="board_write">
+                                    <div className="title">
+                                        <dl>
+                                            <dt>제목</dt>
+                                            <dd>{test.title}</dd>
+                                        </dl>
+                                    </div>
+                                    <div className="info">
+                                        <dl>
+                                            <dt>글쓴이</dt>
+                                            <dd>{test.writer}</dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>비밀번호</dt>
+                                            <dd>{test.password}</dd>
+                                        </dl>
+                                    </div>
+                                    <div className="cont">
+                                        <textarea name='content' value={change.content} onChange={onChange}>
+                                            {test.content}
+                                        </textarea>
+                                    </div>
+                                </div>
+                                <div className="bt_wrap">
+                                    <a onClick={onSubmitView} className="on">수정</a>
+                                    <a onClick={onSubmitMain} href="view.html">취소</a>
+                                </div>
                             </div>
                         </div>
-                        <div className="bt_wrap">
-                            <a href="view.html" className="on">수정</a>
-                            <a href="view.html">취소</a>
-                        </div>
-                    </div>
+                    </section>
                 </div>
-            </section>
+            </div>
         </>
-    )
+    )} 
+    // else if (edit === "main"){
+    //     return(
+    //         <Board test = {test}/>
+    //     )
+    // }   
+    // console.log(test); 
 }
 
 export default BoardEdit;
