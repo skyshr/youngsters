@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Join from './pages/Join';
 import Login from './pages/Login';
+import Game from './pages/Game';
 // import Post from './componants/postApi'
 // import Modal from './componants/modalApi'
 // import ModalPage from './pages/ModalPage';
@@ -11,7 +12,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Join />
+    <Game />
   </React.StrictMode>,
   document.getElementById('root')
 );

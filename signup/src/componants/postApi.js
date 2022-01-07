@@ -3,7 +3,11 @@ import PopupDom from './PopupDom';
 import '../css/signup.css';
 import DaumPostcode from "react-daum-postcode";
 
-const PostApi = (props) => {
+const PostApi = (test) => {
+    // console.log(test.inputs[0]);
+
+    var a = test.inputs[0];
+
     // 팝업창 상태 관리
     const [isPopupOpen, setIsPopupOpen] = useState(false)
     
@@ -31,24 +35,22 @@ const PostApi = (props) => {
     };
 
     // 팝업창 DB추출
-    const [adress, setAdress] = useState('');
+    // const [adress, setAdress] = useState('');
+    
 
     const handlePostCode = (data) => {
         let fullAddress = data.address;
-        setAdress(fullAddress)
+        // console.log('inputs: ' + data.inputs[0])
+        // setAdress(fullAddress)
+        // inputs.useraddr = fullAddress;
+        
+        a.useraddr = fullAddress;
+        console.log(fullAddress);
+        
+        test.inputs[1](a)
+        console.log(test.input[1]);
     }
 
-    const {useraddr} = adress;
-
-    const onChange = (e) =>{
-        const { name, value } = e.target;
-
-        setAdress({
-        ...adress,
-        [name] : value
-        })
-    }
-    
     return(
         <>
         <div id='wrap-post-search-btn'>
@@ -59,7 +61,7 @@ const PostApi = (props) => {
                 {isPopupOpen && (
                     <PopupDom>
                         <div>
-                            <DaumPostcode name={useraddr} value={useraddr} onChange={onChange} style={postCodeStyle} onClose={closePostCode} onComplete={handlePostCode}  />
+                            <DaumPostcode style={postCodeStyle} onClose={closePostCode} onComplete={handlePostCode}  />
                         </div>
                         {/* // 닫기 버튼 생성기능 */}
                         <button type='button' onClick={closePostCode} id='postCode_btn'>X</button>
@@ -68,7 +70,7 @@ const PostApi = (props) => {
                 )}
             </div>
         </div>
-        <input id='useraddr' className='addr' readOnly value={adress} placeholder='주소' />
+        <input id='useraddr' className='addr' readOnly value={a.useraddr} placeholder='주소' />
         
     </>
     )

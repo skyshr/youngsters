@@ -4,16 +4,15 @@ import PostApi from '../componants/postApi';
 
 export default function Join(props){
 
-  
   const [inputs, setInputs] = useState({
     id : "",
     pw : "",
     name : "",
     gender : "",
-    year : '2002',    
+    year : "",    
     age : "",
-    useraddr : '',
-    useraddrdet : ''
+    useraddr : "",
+    useraddrdet : ""
   });
 
   const {id, pw, name, gender, year, age, useraddr, useraddrdet} = inputs;
@@ -54,10 +53,10 @@ export default function Join(props){
     })
   }
 
-  // 출생년도 및 나이 구하기
-  const date = new Date()
-  const yyyy = date.getFullYear()+1;
-  const resultAge = (yyyy-year);
+  // // 출생년도 및 나이 구하기
+  // const date = new Date()
+  // const yyyy = date.getFullYear()+1;
+  // const resultAge = (yyyy-year);
 
   return(
     <>
@@ -78,11 +77,13 @@ export default function Join(props){
                   <input id='name' name='name' value={name}  type='text' placeholder='이름'  onChange={onChange} />
                 </div>
                 <div>
-                  <select id='gender' name='gender' value={gender} className='gender' placeholder='성별' onChange={onChange}>
-                    <option value='남자'>남자</option>
-                    <option value='여자'>여자</option>
+                  <select id='gender' name='gender' value={gender} onChange={onChange} className='gender' placeholder='성별' >
+                    <option value="">선택</option>
+                    <option value="남자">남자</option>
+                    <option value="여자">여자</option>
                   </select>
                   <select id='year' name='year' value={year} onChange={onChange} maxLength="4" type='text' placeholder='출생년도'>
+                    <option value="">선택</option>
                     <option value='1980'>1980년</option>
                     <option value='1981'>1981년</option>
                     <option value='1982'>1982년</option>
@@ -111,7 +112,7 @@ export default function Join(props){
                 </div>
                 <div className='postcontainer'>
                   <div>
-                    <PostApi />
+                    <PostApi inputs={[inputs, setInputs]}/>
                   </div>
                 </div>
                 <input id='useraddrdet' name='useraddrdet' value={useraddrdet}  onChange={onChange} className='addr' placeholder='상세주소' />
