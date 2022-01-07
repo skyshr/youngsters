@@ -1,18 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Join from './pages/Join';
+// import Join from './pages/Join';
 import Login from './pages/Login';
-import Game from './pages/Game';
-// import Post from './componants/postApi'
-// import Modal from './componants/modalApi'
-// import ModalPage from './pages/ModalPage';
+import GameContainer from './pages/GameContainer';
+// import Counter from'./pages/Counter';
+// import PersistentCounter from './pages/PersistentCounter';
 import reportWebVitals from './reportWebVitals';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Game />
+    <GameContainer />
   </React.StrictMode>,
   document.getElementById('root')
 );

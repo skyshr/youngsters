@@ -1,15 +1,11 @@
 import '../css/signup.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export default function Login(){
-    const [inputs, setInputs] = useState(
-    () => JSON.parse(window.localStorage.getItem("inputs")) || 0
-  );
-
-  useEffect(() => {
-    window.localStorage.setItem("inputs", JSON.stringify(inputs));
-  }, [inputs]
-  );
+    const [inputs, setInputs] = useState({
+      id: "",
+      pw: "",
+  })
 
   const onChange = (e) => {
       const {name, value} = e.target;
@@ -59,8 +55,8 @@ export default function Login(){
             </div>
             <div className='login-middle'>
               <div className='middle'>
-                <input type="email" name="id" value={inputs.id||""} onChange={onChange} placeholder='아이디 또는 이메일'></input>
-                <input type='password' name="pw" value={inputs.pw||""} onChange={onChange}  placeholder='비밀번호'></input>
+                <input type="email" name="id" value={inputs.id} onChange={onChange} placeholder='아이디 또는 이메일'></input>
+                <input type='password' name="pw" value={inputs.pw} onChange={onChange}  placeholder='비밀번호'></input>
                 <button className='login-button' onClick={onSubmit}>LOGIN</button>
               </div>
             </div>
