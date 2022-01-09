@@ -6,7 +6,7 @@ http://www.templatemo.com/tm-512-moonlight
 
 */
 
-@keyframes seq-preloader {
+/* @keyframes seq-preloader {
   50% {
     opacity: 1;
   }
@@ -86,7 +86,7 @@ http://www.templatemo.com/tm-512-moonlight
 .seq-preload-indicator-fallback .seq-preload-circle-3 {
   width: 16px;
   height: 16px;
-}
+} */
 
 
 /* MAIN CSS */
