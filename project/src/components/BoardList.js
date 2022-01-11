@@ -5,7 +5,7 @@ import Board from './Board';
 function BoardList(value) {
     console.log(value.value);
 
-    const [view, setView] = useState("view");
+    const [view, setView] = useState("main");
     const [list, setList] = useState({
         idx : "",
         title : "",
@@ -45,6 +45,19 @@ function BoardList(value) {
                     setList(data);
                 }
             }
+        }).then(() => {
+            fetch("http://localhost:3001/boardcommentview", {
+                method : "get",
+                headers : {
+                    "content-type" : "application/json"
+                },
+            })
+            .then((res) => res.json())
+            .then((json) => {
+                // console.log(json);
+                setComments(json);
+                setView("view")
+            })
         })
     },[])
     
@@ -65,35 +78,16 @@ function BoardList(value) {
         .then((res) => res.json())
         .then((json) => {
             console.log(json);
-            setComment({
-                idx : json.idx,
-                userid : json.userid,
-                comment : json.comment
-            });
-        })
-
-        setComment({
-            idx : "",
-            userid : "",
-            comment : ""
-        })
-
-        event.preventDefault();
-    }
-
-    useEffect(()=> {
-        fetch("http://localhost:3001/boardcommentview", {
-            method : "get",
-            headers : {
-                "content-type" : "application/json"
-            },
-        })
-        .then((res) => res.json())
-        .then((json) => {
-            console.log(json);
             setComments(json);
+            setComment({
+                idx : "",
+                userid : "",
+                comment : ""
+            })
         })
-    },[])
+
+        // event.preventDefault();
+    }
 
     const onSubmitMain = () => {
         setView("main") 
@@ -110,8 +104,8 @@ function BoardList(value) {
     }
 
     // console.log(list);
-    console.log(comment);
-    console.log(comments);
+    // console.log(comment);
+    // console.log(comments);
 
     if(view === "view"){
     return(
@@ -154,18 +148,25 @@ function BoardList(value) {
                                     {list.content}
                                     </div>
                                 </div>
-                                {/* if({list.idx} == {comments.idx}){ */}
-                                <div style={{display : "flex", justifyContent : "center"}}>
-                                    <div style={{width : "10%", height : "30px"}}>{comments.userid}</div>
-                                    <div style={{width : "70%", height : "30px"}}>{comments.comment}</div>
-                                </div>
+                                { 
+                                    comments.map(val =>
+                                        {if (list.idx==val.idx) {
+                                            return (
+                                                <div style={{display : "flex", justifyContent : "center"}}>
+                                                    <div style={{width : "10%", height : "30px"}}>{val.userid}</div>
+                                                    <div style={{width : "70%", height : "30px"}}>{val.comment}</div>
+                                                </div>
+                                            )
+                                        }}
+                                )
+                                }
                                 {/* } */}
                                 {/* {comment.userid!="" &&  */}
-                                    <form>
+                                    <div>
                                         <textarea style={{resize : "none"}} name='userid' value={comment.userid} onChange={onChange}/>
                                         <textarea style={{width : "70%", resize : "none"}} name='comment' value={comment.comment} onChange={onChange}/>
                                         <div><button onClick={onSubmitcomment}>댓글 달기</button></div>
-                                    </form>
+                                    </div>
                                 {/* } */}
                                 <div className="bt_wrap">
                                     <button className="on" onClick={onSubmitMain}>목록</button>

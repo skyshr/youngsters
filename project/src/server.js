@@ -128,7 +128,11 @@ app.post("/boardcomment", (req,res) => {
         function(err,rows,fields) {
             if(err){ console.log("댓글 달기 실패" + rows)}
             else(console.log("댓글 달기 성공"));
-            res.send(rows);
+            connection.query(`SELECT * FROM comments`, (err,rows) => {
+                if(err) throw err; 
+                else res.send(rows);
+                console.log(rows);
+            })
         });
 });
 
@@ -150,7 +154,6 @@ app.put("/hit", (req, res) => {
 })
 
 app.get("/boardcommentview", (req, res) => {
-    console.log("댓글 보여라 !")
     connection.query(`SELECT * FROM comments`, 
     function(err,rows,fields) {
         if(err) {
