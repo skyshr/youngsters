@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import Join from './pages/Join';
+import Join from './pages/Join';
 import Login from './pages/Login';
 import GameContainer from './pages/GameContainer';
 // import Counter from'./pages/Counter';
@@ -11,7 +11,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <GameContainer />
+    <Join />
   </React.StrictMode>,
   document.getElementById('root')
 );
