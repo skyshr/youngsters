@@ -97,8 +97,6 @@ app.put("/boardedit", (req, res) => {
 })
 
 app.get("/board", (req, res) => {
-    // const main = req.body;
-    // console.log("메인" + main);
     console.log('hi');
     connection.query("SELECT * FROM Board", 
     function(err,rows,fields) {
@@ -106,6 +104,58 @@ app.get("/board", (req, res) => {
             console.log("메인 불러오기 실패");
         } else {
             console.log(rows);
+            res.send(rows);
+        }
+    })
+})
+
+app.get("/boardlist", (req, res) => {
+    const list = req.body.test;
+    connection.query(`SELECT * FROM Board`, 
+    function(err,rows,fields) {
+        if(err) {
+            console.log("list fail");
+        } else {
+            res.send(rows);
+        }
+    })
+})
+
+app.post("/boardcomment", (req,res) => {
+    const comm = req.body;
+    console.log(comm);
+    connection.query(`INSERT INTO comments (idx, userid, comment) values (${comm.idx},?,?)` ,[comm.userid, comm.comment],
+        function(err,rows,fields) {
+            if(err){ console.log("댓글 달기 실패" + rows)}
+            else(console.log("댓글 달기 성공"));
+            res.send(rows);
+        });
+});
+
+app.put("/hit", (req, res) => {
+    // console.log("hit test !!")
+    const hit = req.body;
+    console.log(hit)
+    connection.query(`UPDATE board SET hit=hit+1 WHERE idx = ${hit.clickId}`,
+        function(err, rows, fields) {
+            if(err) {
+                console.log("조회수 실패" + rows)
+                // res.send(false)
+            } else {
+                console.log("조회수 성공");
+                // res.send(true)
+            }
+        }
+    )
+})
+
+app.get("/boardcommentview", (req, res) => {
+    console.log("댓글 보여라 !")
+    connection.query(`SELECT * FROM comments`, 
+    function(err,rows,fields) {
+        if(err) {
+            console.log("댓글 보이기 실패");
+        } else {
             res.send(rows);
         }
     })

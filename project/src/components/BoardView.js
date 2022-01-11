@@ -96,8 +96,8 @@ function BoardView({write}) {
                                     </div>
                                 </div>
                                 <div className="bt_wrap">
-                                    <a className="on" onClick={onSubmitMain}>목록</a>
-                                    <a onClick={onSubmitEdit}>수정</a>
+                                    <button className="on" onClick={onSubmitMain}>목록</button>
+                                    <button onClick={onSubmitEdit}>수정</button>
                                 </div>
                             </div>
                         </div>
@@ -106,11 +106,11 @@ function BoardView({write}) {
             </div>
         </>
     )}
-    //  else if(view === "main"){
-    //     return(
-    //         <Board test = {test}/>
-    //     )
-    // } 
+     else if(view === "main"){
+        return(
+            <Board test = {test}/>
+        )
+    } 
     else if(view === "edit"){
         return(
             <BoardEdit test = {test}/>

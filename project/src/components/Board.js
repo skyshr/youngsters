@@ -1,11 +1,22 @@
-// import { json } from 'express';
 import React, { useEffect, useState } from 'react';
+import BoardList from './BoardList';
+import BoardView from './BoardView';
 import BoardWrite from './BoardWrite';
 import './css.css';
 
 function Board() {
-    const [board, setBoard] = useState(true);
-    // const [data, setData] = useState({});
+    const [value, setValue] = useState("");
+    const [board, setBoard] = useState("");
+    const [data, setData] = useState({
+        idx : "",
+        title : "",
+        writer : "",
+        password : "",
+        regdate : "",
+        modidate : "",
+        hit : "",
+        likeuser : ""
+    });
 
     useEffect(() => {
         console.log('board')
@@ -15,18 +26,40 @@ function Board() {
                 "content-type" : "application/json"
             },
         })   
-        // .then((res) => res.json())
-        // .then((json) => {
-        //     console.log(json);
-
-        // })
+        .then((res) => res.json())
+        .then((json) => {
+            console.log(json);
+            setData(json)
+            setBoard("board")
+        })
     }, [])
 
+    const onClick = (e) => {
+        const clickId = e.target.id
+        setValue(clickId);
+
+        const test = {
+            clickId
+        }
+
+        fetch("http://localhost:3001/hit", {
+            method : "put",
+            headers : {
+                "content-type" : "application/json"
+            },
+            body : JSON.stringify(test)
+        })
+
+        setBoard("read");
+    }
+
     const onSubmit = () => {
-        setBoard(false);
+        setBoard("write");
     };
 
-    if(board){
+    console.log(value);
+
+    if(board=="board"){
     return(
         <>
             <div className="content second-content">
@@ -49,13 +82,15 @@ function Board() {
                                         <div className="date">작성일</div>
                                         <div className="count">조회</div>
                                     </div>
-                                    <div>
-                                        <div className="num">1</div>
-                                        <div className="title">1</div>
-                                        <div className="writer">1</div>
-                                        <div className="date">1</div>
-                                        <div className="count">1</div>
+                                    {data.map(val => 
+                                    <div className='bottom'>
+                                        <div className="num">{val.idx}</div>
+                                        <div id={val.idx} className="title" style={{cursor : "pointer"}} onClick={onClick} key="uniqueId1">{val.title}</div>
+                                        <div className="writer">{val.writer}</div>
+                                        <div className="date">{val.modidate}</div>
+                                        <div className="count">{val.hit}</div>
                                     </div>
+                                    )}
                                 </div>
                                 <div className="board_page">
                                     {/* <a href="#" className="num on">1</a> */}
@@ -69,10 +104,18 @@ function Board() {
                 </div>
             </div>
         </>
-    )} else {
+    )} 
+    else if (board=="read"){
+        return (
+            <BoardList value={value}/>
+        )
+    }
+    else {
         return (
         <BoardWrite />
-        )}
+        )
+    }
 }
+
 
 export default Board;

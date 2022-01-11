@@ -8,7 +8,7 @@ function BoardEdit({test}) {
     const [change,setChange] = useState(
         {
             idx : test.idx,
-            content : "",
+            content : test.content,
             password : test.password
         }
     )
@@ -93,8 +93,8 @@ function BoardEdit({test}) {
                                     </div>
                                 </div>
                                 <div className="bt_wrap">
-                                    <a onClick={onSubmitView} className="on">수정</a>
-                                    <a onClick={onSubmitMain} href="view.html">취소</a>
+                                    <button onClick={onSubmitView} className="on">수정</button>
+                                    <button onClick={onSubmitMain} href="view.html">취소</button>
                                 </div>
                             </div>
                         </div>
@@ -103,12 +103,12 @@ function BoardEdit({test}) {
             </div>
         </>
     )} 
-    // else if (edit === "main"){
-    //     return(
-    //         <Board test = {test}/>
-    //     )
-    // }   
-    // console.log(test); 
+    else if (edit === "main"){
+        return(
+            <Board test = {test}/>
+        )
+    }   
+    console.log(test); 
 }
 
 export default BoardEdit;

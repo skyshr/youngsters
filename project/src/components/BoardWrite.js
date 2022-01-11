@@ -94,8 +94,8 @@ function BoardWrite() {
                                         </div>
                                     </div>
                                     <div className="bt_wrap">
-                                        <a className="on" onClick={onSubmitView} type='submit'>등록</a>
-                                        <a onClick={onSubmitMain}>취소</a>
+                                        <button className="on" onClick={onSubmitView} type='submit'>등록</button>
+                                        <button onClick={onSubmitMain}>취소</button>
                                     </div>
                                 </div>
                             </div>
@@ -107,11 +107,11 @@ function BoardWrite() {
             return(
                 <BoardView write={write}/>
         )}
-        //  else if(state === "main"){
-        //     return(
-        //         <Board />
-        //     )
-        // }
+         else if(state === "main"){
+            return(
+                <Board />
+            )
+        }
 }
 
 export default BoardWrite;
