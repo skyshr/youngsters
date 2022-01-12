@@ -2,12 +2,12 @@ import {Outlet, Link} from 'react-router-dom'
 import { useState } from 'react'
 import './nav.css';
 
-const Layout = ({setTest}) => {
-  const [login, setLogin] = useState();
+const Layout = () => {
+  // const [login, setLogin] = useState(sessionStorage.getItem('loginstatus')||"logout");
   const onClick = () => {
-    sessionStorage.setItem("loginstatus", "logout")
-    setLogin("logout");
-    // window.location.href = '/'
+    sessionStorage.clear();
+    // setLogin("logout");
+    window.location.href = '/';
     // window.location.reload = '/';
     // props.history.push('/');
   }
@@ -23,15 +23,14 @@ const Layout = ({setTest}) => {
               <Link to ="/board">Board</Link>
             </li>
           }
+          { sessionStorage.getItem("loginstatus") == "okay" &&
           <li className='test'>
-            { sessionStorage.getItem("loginstatus") != "okay"
-            ? <Link to ="/join">Signup</Link>
-            : <Link to ="/mypage" 
+            <Link to ="/mypage" 
             onClick={() => {
-              setTest("mypage")
+            // setTest("mypage")
             }}>Mypage</Link>
-            }
           </li>
+          }
           <li className='test'>
             { sessionStorage.getItem("loginstatus") != "okay"
             ? <Link to ="/login">Login</Link>

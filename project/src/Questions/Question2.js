@@ -4,8 +4,9 @@ export default function Question2(props) {
     let text = ["짜장면", "김치찌개", "떡볶이", "초밥"]
 
     const onClick = (e) => {
-        console.log(e.target.id)
-        console.log(props.state[0])
+        // console.log(e.target.id)
+        // console.log(props.state[0])
+        sessionStorage.setItem('q2', e.target.id);
         props.state[1]("3");
     }
     return (

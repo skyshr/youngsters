@@ -28,7 +28,8 @@ export default function Question4(props) {
         console.log("time: " + time);
         console.log("finaltime: " + (clickTime - time)/1000)
         console.log(props.state[0])
-        setTime((clickTime-time)/1000)
+        // setTime((clickTime-time)/1000);
+        sessionStorage.setItem('q4', String((clickTime - time)/1000))
         props.state[1]("5");
     }
 
