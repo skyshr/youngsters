@@ -2,8 +2,8 @@
     width : 100%;
     height : 200px;
     /* background-color:hotpink ; */
-    margin-bottom: 5%;
-    margin-left: 2%;
+    margin-bottom: 10%;
+    margin-left: 5%;
 }
 
 .Left-box {
@@ -11,6 +11,7 @@
     height: 200px;
     /* background-color: #00bfff; */
     float:  left;
+    margin-left: 10.7%;
 }
 
 .Right-box {
@@ -28,6 +29,6 @@
 }
 
 .col-md-9 {
-    margin-top: 5%;
-background-color: black;
+    margin-top: 3%;
+    /* background-color: black; */
 }

@@ -4,14 +4,214 @@ const port = 3001;
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const pool = require("./mysqlcon"); 
+const multer = require("multer");
+const path = require('path');
+const { connect } = require("http2");
+
+const corsOptions = {
+    origin: true,
+    methods: ["GET", "POST", "PUT"],
+    credentials: true,
+}
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "./");},
+        filename: function (req, file, cb) {
+            const ext = file.mimetype.split("/")[1];
+            cb(null, `uploads/${file.originalname}-${Date.now()}.${ext}`);
+        }
+});
+
+const upload = multer({
+    storage: storage
+});
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.get('/', (req, res) =>{
     res.send('test...')
 })
+
+//시은
+app.use('/', express.static(path.join(__dirname, '/')));
+
+app.post("/api/image", upload.single('image'), (req, res, err) => {
+    console.log('here');
+    console.log(req.file);
+    console.log(req.body);
+    // console.log(req.body);
+    pool.getConnection((err, connection) => {
+        if (!req.file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF)$/)) {
+            res.send({ msg: 'Only image files (jpg, jpeg, png) are allowed!'})
+        }else {
+            const image = req.file.filename;
+            const id = req.body.idkey;
+
+            console.log('여기');
+            console.log(image);
+            
+            const sqlInsert = "UPDATE userinfo SET `img` = ? WHERE idkey = ?;"
+            connection.query(sqlInsert, [image, id] , (err, result) => {
+                if(err) {
+                    console.log("여기냐?")
+                    res.send({
+                        msg: err
+                    })
+                    connection.release()
+                }
+                if (result) {
+                    console.log("성공이다")
+                    res.send({
+                        
+                        data: image,
+                        msg: 'Your image has been updated!'
+                    })
+                    connection.release()
+                }
+            })
+        }
+    })
+})
+
+// app.get("/api/image", (req, res) => {
+//     db.getConnection((err, connection) => {
+//         const sqlInsert = "SELECT * FROM userinfo;"
+//         connection.query(sqlInsert, (err, result) => {
+//             console.log("여기와ㅏㅏㅏ")
+
+//             if (err) {
+//                 console.log(err)
+//                 res.send({
+//                     msg: err
+//                 })
+//                 connection.release()
+//             }
+//             if (result) {
+//                 // console.log("data: " + result[0].Data.toString('utf-8'));
+//                 res.send(result);
+//                 connection.release()
+//             }
+//         })
+//     })
+// })
+
+app.get("/profile", (req, res) => {
+    pool.getConnection((err, connection) => {
+    connection.query("SELECT * FROM userinfo", 
+        function(err, rows) {
+            if(err) {
+                throw err;
+            }else {
+                console.log(rows)
+                res.send(rows)
+                connection.release();
+            }
+        })
+    })
+});
+
+app.put("/profile", (req, res) => {
+    console.log('hi')
+    console.log(req.body);
+    pool.getConnection((err, connection) => {
+        connection.query(`UPDATE userinfo SET username = '${req.body.name}', userid = '${req.body.id}', userpw = '${req.body.psw}', useraddr = '${req.body.adr}' WHERE idkey = '${req.body.sessionid}'`, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            else {
+                console.log('성공!')
+                res.send('true')
+                connection.release();
+            }
+        })
+    })
+})
+
+
+app.get("/details", (req, res) => {
+    pool.getConnection((err, connection) => {
+        connection.query("SELECT * FROM details", 
+        function(err, rows) {
+            if(err) {
+                throw err;
+            }else {
+                console.log(rows)
+                res.send(rows)
+                connection.release();
+            }
+        })
+    })
+});
+
+app.put("/details", (req, res) => {
+    console.log('여기는와??')
+    console.log(req.body);
+    pool.getConnection((err, connection) => {
+        if (err) throw err;
+        connection.query(`UPDATE details SET pro = '${req.body.pro}', edu = '${req.body.edu}', job = '${req.body.job}', hob = '${req.body.hob}', fam = '${req.body.fam}' WHERE idkey = '${req.body.sessionid}'`, (err, result) => {
+            if (err) {
+                console.log('err');
+                // connection.query(`INSERT INTO details (idkey, pro, edu, job, hob, fam) VALUES (${req.body.sessionid}, '${req.body.pro}','${req.body.edu}', '${req.body.job}','${req.body.hob}', '${req.body.fam}'`, (err, result) => {
+                //     if (err) throw err
+                //     connection.release();
+                //     console.log("데이터 삽입 성공");
+                // })
+            }
+            else {
+                console.log(result)
+                console.log(result.changedRows==1);
+                // connection.release();
+                if(result.changedRows!=1) {
+                    connection.query(`INSERT INTO details (idkey, pro, edu, job, hob, fam) VALUES (${req.body.sessionid}, '${req.body.pro}','${req.body.edu}', '${req.body.job}','${req.body.hob}', '${req.body.fam}')`, (err, result) => {
+                    if (err) throw err
+                    // connection.release();
+                    console.log("데이터 삽입 성공");
+                    })
+                }
+                connection.release();
+                // console.log('데이터 수정 성공!')
+                res.send(true)
+            }
+        })
+    })
+})
+
+app.get("/inquiry", (req, res) => {
+    pool.getConnection((err, connection) => {
+        connection.query("SELECT * FROM inquire", 
+        function(err, rows, fields) {
+            if(err) {
+                console.log("err")
+            }else {
+                console.log(rows)
+                res.send(rows)
+            }
+        })    
+        connection.release()
+    })
+});
+
+app.put("/inquiry", (req, res) => {
+    pool.getConnection((err, connection) => {
+        console.log(req.body);
+        connection.query(`UPDATE inquire SET title = '${req.body.title}', message = '${req.body.message}' WHERE num = ${req.body.num}`, (err, result) => {
+            if (err) {
+                console.log('err')
+            }
+            else {
+                console.log('성공!')
+                res.send('true')
+            }
+        })
+        connection.release()
+    })
+
+})
+
+//기영
 
 app.get('/game', (req, res) => {
     console.log("game get!");
@@ -45,6 +245,8 @@ app.post("/game", (req, res) => {
         })
     })
 })
+
+//혜인
 
 app.get("/login", (req,res)=>{
     pool.getConnection((err, connection) => {
@@ -118,84 +320,6 @@ app.post("/signup", (req,res)=>{
 //     })
 // });
 
-app.get("/profile", (req, res) => {
-    pool.getConnection((err, connection) => {
-    connection.query("SELECT * FROM userinfo", 
-        function(err, rows) {
-            if(err) {
-                throw err;
-            }else {
-                console.log(rows)
-                res.send(rows)
-            }
-        })
-    })
-});
-
-app.put("/profile", (req, res) => {
-    console.log('hi')
-    console.log(req.body);
-    pool.getConnection((err, connection) => {
-        connection.query(`UPDATE userinfo SET username = '${req.body.name}', userid = '${req.body.id}', userpw = '${req.body.psw}', useraddr = '${req.body.adr}' WHERE idkey = '${req.body.sessionid}'`, (err, result) => {
-            if (err) {
-                throw err;
-            }
-            else {
-                console.log('성공!')
-                res.send('true')
-            }
-        })
-    })
-})
-
-
-app.get("/details", (req, res) => {
-    pool.getConnection((err, connection) => {
-        connection.query("SELECT * FROM details", 
-        function(err, rows) {
-            if(err) {
-                throw err;
-            }else {
-                console.log(rows)
-                res.send(rows)
-                connection.release();
-            }
-        })
-    })
-});
-
-app.put("/details", (req, res) => {
-    console.log('여기는와??')
-    console.log(req.body);
-    pool.getConnection((err, connection) => {
-        if (err) throw err;
-        connection.query(`UPDATE details SET pro = '${req.body.pro}', edu = '${req.body.edu}', job = '${req.body.job}', hob = '${req.body.hob}', fam = '${req.body.fam}' WHERE idkey = '${req.body.sessionid}'`, (err, result) => {
-            if (err) {
-                console.log('err');
-                // connection.query(`INSERT INTO details (idkey, pro, edu, job, hob, fam) VALUES (${req.body.sessionid}, '${req.body.pro}','${req.body.edu}', '${req.body.job}','${req.body.hob}', '${req.body.fam}'`, (err, result) => {
-                //     if (err) throw err
-                //     connection.release();
-                //     console.log("데이터 삽입 성공");
-                // })
-            }
-            else {
-                console.log(result)
-                console.log(result.changedRows==1);
-                // connection.release();
-                if(result.changedRows!=1) {
-                    connection.query(`INSERT INTO details (idkey, pro, edu, job, hob, fam) VALUES (${req.body.sessionid}, '${req.body.pro}','${req.body.edu}', '${req.body.job}','${req.body.hob}', '${req.body.fam}')`, (err, result) => {
-                    if (err) throw err
-                    // connection.release();
-                    console.log("데이터 삽입 성공");
-                    })
-                }
-                connection.release();
-                // console.log('데이터 수정 성공!')
-                res.send(true)
-            }
-        })
-    })
-})
 
 
 //민욱
@@ -291,6 +415,84 @@ app.get("/board", (req, res) => {
                 res.send(rows);
             }
         })
+        // connection.release();
+    })
+})
+
+app.get("/boardlist", (req, res) => {
+    const list = req.body.test;
+    pool.getConnection((err, connection) => {
+        if (err) throw err;
+        connection.query(`SELECT * FROM Board`, 
+        function(err,rows) {
+            if(err) {
+                console.log("list fail");
+            } else {
+                res.send(rows);
+                connection.release();
+            }
+        })
+        // connection.release();
+    })
+})
+
+app.post("/boardcomment", (req,res) => {
+    const comm = req.body;
+    console.log(comm);
+    pool.getConnection((err, connection) => {
+        if (err) throw err;
+        connection.query(`INSERT INTO comments (idx, userid, comments) values (${comm.idx},?,?)` ,[comm.userid, comm.comment],
+        function(err,rows) {
+            if(err){ console.log("댓글 달기 실패" + rows)}
+            else {
+                console.log("댓글 달기 성공");
+                connection.query(`SELECT * FROM comments`, (err,rows) => {
+                    if(err) throw err; 
+                    res.send(rows);
+                    connection.release();
+                    // console.log(rows);
+                })
+            }
+        });
+        // connection.release();
+    })
+});
+
+app.put("/hit", (req, res) => {
+    // console.log("hit test !!")
+    const hit = req.body;
+    console.log(hit)
+    pool.getConnection((err, connection) => {
+        if (err) throw err;
+        connection.query(`UPDATE board SET hit=hit+1 WHERE idx = ${hit.clickId}`,
+            function(err, rows) {
+                if(err) {
+                    console.log("조회수 실패" + rows)
+                    // res.send(false)
+                } else {
+                    console.log("조회수 성공");
+                    connection.release();
+                    // res.send(true)
+                }
+            }
+        )
+        // connection.release();
+    })
+})
+
+app.get("/boardcommentview", (req, res) => {
+    pool.getConnection((err, connection) => {
+        if (err) throw err;
+        connection.query(`SELECT * FROM comments`, 
+        function(err,rows) {
+            if(err) {
+                console.log("댓글 보이기 실패");
+            } else {
+                res.send(rows);
+                connecttion.release();
+            }
+        })
+        // connecttion.release();
     })
 })
 
