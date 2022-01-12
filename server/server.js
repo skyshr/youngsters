@@ -255,8 +255,11 @@ app.get("/login", (req,res)=>{
             if(err){
                 throw err;
             }
-            connection.release();
-            res.send(result)
+            connection.query(`SELECT * FROM game`, (err, result1) => {
+                if (err) throw err;
+                res.send({"result": result, "game": result1})
+                connection.release();
+            })
         });
     })
 });

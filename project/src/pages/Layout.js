@@ -23,14 +23,17 @@ const Layout = () => {
               <Link to ="/board">Board</Link>
             </li>
           }
-          { sessionStorage.getItem("loginstatus") == "okay" &&
           <li className='test'>
+          { sessionStorage.getItem("loginstatus") == "okay" 
+          ?
             <Link to ="/mypage" 
             onClick={() => {
             // setTest("mypage")
             }}>Mypage</Link>
-          </li>
+          : 
+            <Link to ='/join'>Signup</Link>
           }
+          </li>
           <li className='test'>
             { sessionStorage.getItem("loginstatus") != "okay"
             ? <Link to ="/login">Login</Link>

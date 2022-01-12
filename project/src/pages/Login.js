@@ -16,7 +16,7 @@ export default function Login(){
       })
   }
 
-  const onSubmit = (e) => {
+  const onSubmit = () => {
       const post ={
           pid : inputs.id,
           ppw: inputs.pw
@@ -33,17 +33,31 @@ export default function Login(){
       .then((res) => res.json())
       .then((json) => {
           let test = false;
-          for (let data of json) {
+          for (let data of json['result']) {
             if (data.userid == inputs.id && data.userpw == inputs.pw) {
-              test = true;
-              sessionStorage.setItem('idkey', data.idkey);
-              sessionStorage.setItem('id', data.userid);
-              sessionStorage.setItem('gender', data.gender);
-              break;
+              for (let game of json['game']) {
+                if (game.idkey==data.idkey) {
+                  alert("로그인 성공!")
+                  sessionStorage.setItem('loginstatus', "okay");
+                  document.location.href = '/';
+                }
+              }
+              if (sessionStorage.getItem('q8')!=undefined) {
+                test = true;
+                sessionStorage.setItem('idkey', data.idkey);
+                sessionStorage.setItem('id', data.userid);
+                sessionStorage.setItem('gender', data.gender);
+                break;
+              }
+              else {
+                test = "game";
+              }
             }
           }
 
-          if (test) {
+          console.log(test);
+
+          if (test==true) {
             fetch("http://localhost:3001/game", {
                 method : "post", // 통신방법
                 headers : {
@@ -67,6 +81,7 @@ export default function Login(){
               document.location.href = '/';
             })
           }
+          else if (test=="game") alert("설문 완료 후 로그인 하세요.");
           else alert("다시 입력하세요");
           // if (json) {
           //     console.log("true!");

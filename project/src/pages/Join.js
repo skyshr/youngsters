@@ -28,35 +28,46 @@ export default function Join(){
   }
 
   const onSubmit = () => {
-    const post ={
-      pid : inputs.id,
-      ppw: inputs.pw,
-      pname: inputs.name,
-      pgender : inputs.gender,
-      pyear : inputs.year,
-      page : inputs.age,
-      puseraddr : inputs.useraddr,
-      puseraddrdet : inputs.useraddrdet
-    };
+    if (inputs.id=="") alert("아이디를 입력하세요");
+    else if (inputs.pw=="") alert("비밀번호를 입력하세요");
+    else if (inputs.name=="") alert("이름을 입력하세요");
+    else if (inputs.gender=="") alert("성별을 입력하세요");
+    else if (inputs.year=="") alert("출생년도를 입력하세요");
+    else if (inputs.age=="") alert("나이를 입력하세요");
+    else if (inputs.useraddr=="") alert("주소를 입력하세요.");
+    else if (inputs.useraddrdet=="")alert("상세주소를 입력하세요.")
 
-    console.log(post);
-
-    fetch("http://localhost:3001/signup", {
-      method : "post",
-      headers : {
-        "content-type" : "application/json"
-      },
-      body : JSON.stringify(post)
-    })
-    .then((res)=> res.json())
-    .then((json)=>{
-      console.log(json);
-      if (json) {
-        alert("회원 가입 성공!")
-        setState(!state);
-      }
-      else alert("중복된 아이디입니다")
-    })
+    else {
+      const post ={
+        pid : inputs.id,
+        ppw: inputs.pw,
+        pname: inputs.name,
+        pgender : inputs.gender,
+        pyear : inputs.year,
+        page : inputs.age,
+        puseraddr : inputs.useraddr,
+        puseraddrdet : inputs.useraddrdet
+      };
+  
+      console.log(post);
+  
+      fetch("http://localhost:3001/signup", {
+        method : "post",
+        headers : {
+          "content-type" : "application/json"
+        },
+        body : JSON.stringify(post)
+      })
+      .then((res)=> res.json())
+      .then((json)=>{
+        console.log(json);
+        if (json) {
+          alert("회원 가입 성공!")
+          setState(!state);
+        }
+        else alert("중복된 아이디입니다")
+      })
+    }
   }
 
   if (state) {
