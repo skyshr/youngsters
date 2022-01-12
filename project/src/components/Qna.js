@@ -4,8 +4,8 @@ import './Qna.css'
 function Qna() {
     return(
         <>
-            <div className="content second-content">
-                <div className="container-fluid">
+            {/* <div className="content second-content"> */}
+                {/* <div className="container-fluid"> */}
                     <section className="page-section" id="contact">
                         <div style={{marginLeft : "25%", marginTop : "5%"}} className="box">    
                             <div className="row gx-4 gx-lg-5 justify-content-center">
@@ -27,8 +27,8 @@ function Qna() {
                             </div>
                         </div>
                     </section>
-                </div>
-            </div>
+                {/* </div> */}
+            {/* </div> */}
         </>
     )
 }

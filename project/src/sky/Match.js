@@ -1,15 +1,6 @@
 import { useEffect, useState } from "react"
 
 export default function Match() {
-    let q1 = sessionStorage.getItem('q1')
-    let q2 = sessionStorage.getItem('q2')
-    let q3 = sessionStorage.getItem('q3')
-    let q4 = sessionStorage.getItem('q4')
-    let q5 = sessionStorage.getItem('q5')
-    let q6 = sessionStorage.getItem('q6')
-    let q7 = sessionStorage.getItem('q7')
-    let q8 = sessionStorage.getItem('q8')
-    let qParams = [q1, q2, q3, q4, q5, q6, q7, q8];
     const [info, setInfo] = useState("")
     const [state, setState] = useState(false)
     const [tmp, setTmp] = useState("");
@@ -25,13 +16,22 @@ export default function Match() {
         .then((res) => res.json())
         .then((json) => {
             let test = []
-            let test1 = []
+            let qParams = [];
+
+            for (let data of json['game']) {
+                if (data['idkey']==sessionStorage.getItem('idkey')){
+                    qParams = [data['q1'], data['q2'], data['q3'], data['q4'], data['q5'], data['q6'], data['q7'], data['q8']];
+                    break;
+                }
+            }
+
             for (let value=0; value<json['game'].length; value++) {
                 if (json['game'][value].gender!=sessionStorage.getItem('gender')) {
                     // console.log(data);
                     // console.log("params: " + qParams);
                     let matchPoint = questionCheck(qParams, Object.values(json['game'][value]));
                     matchPoint.push('./img/women/' + json['userinfo'][value].img);
+                    matchPoint.push(json['userinfo'][value].username);
                     test.push(matchPoint);
                     // test1.push(json['userinfo'][value]);
                 }
@@ -41,6 +41,7 @@ export default function Match() {
                 else if (a[1]==b[1]) return 0
                 else return 1 
             })
+            // console.log("test[0]: " + test[0]);
             setInfo(test);
             setState(true);
             // setTmp(test1);
@@ -50,14 +51,14 @@ export default function Match() {
     if (state) {
         return (
             <div style={{display: "flex"}} >
-                <div key={info[0][1]}>
-                    <img src={info[0][2]} /> {info[0][1]}
+                <div>
+                    <img src={info[0][2]} /> {info[0][1]} : {info[0][3]}
                 </div>
-                <div key={info[1][1]}>
-                    <img src={info[1][2]} /> {info[1][1]}
+                <div>
+                    <img src={info[1][2]} /> {info[1][1]} : {info[1][3]}
                 </div>  
-                <div key={info[2][1]}>
-                    <img src={info[2][2]} /> {info[2][1]}
+                <div>
+                    <img src={info[2][2]} /> {info[2][1]} : {info[2][3]}
                 </div>    
                 {/* {info.map(value => 
                 <div key={value[1]}>
@@ -77,6 +78,7 @@ export default function Match() {
 }
 
 function questionCheck(q1, q2) {
+    // console.log(q1, q2);
     let point = 0;
     let fireArr = ['어벤져스 엔드게임', '노트북', '떡볶이', '네오'];
     let waterArr = ['용의자 X의 헌신', '아바타', "짜장면", '춘식이', '어피치'];
@@ -118,7 +120,7 @@ function questionCheck(q1, q2) {
         }
     }
 
-    // console.log(point);
+    // console.log("여기:" + point);
     // console.log(fire, water, earth, air, ether);
 
     let total = fire + water + earth + air + ether;

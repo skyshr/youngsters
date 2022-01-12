@@ -13,7 +13,7 @@ const Layout = () => {
   }
   return(
     <>
-      <div style={{position: "absolute", top: "3%", backgroundColor: "purple", width: "100%", height: "4%"}}>
+      <div style={{position: "fixed", top: "3%", backgroundColor: "purple", width: "100%", height: "4%"}}>
         <ul style={{display: "inline"}}>
           <li className='test'>
             <Link to ="/">Home</Link>

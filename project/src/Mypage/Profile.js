@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useLayoutEffect } from "react";
 import "./main.css";
 import React from "react";
 
 
 export default function Profile() {
+const [imgstate, setImgstate] = useState('')
+const [image, setImage] = useState('');
+const [fileImage, setFileImage] = useState("") 
 const [state, setState] = useState({
     name: "",
     id: "",
@@ -31,7 +34,7 @@ const handler = e => {
     })
 }
 
-useEffect(
+useLayoutEffect(
     () => {
         fetch("http://localhost:3001/profile", 
         {
@@ -53,10 +56,25 @@ useEffect(
                     psw: val.userpw,
                     adr: val.useraddr,
                 })
+                setImage("http://localhost:3001/" + val.img)
             }
         }
     })
-    
+    // .then(() => {
+    //     fetch(`http://localhost:3001/api/image`, {
+    //         method: 'GET',
+    //         headers: {
+    //             "Content-Type": 'application/json, charset=UTF-8',
+    //             'Accept': 'application/json, text/html',
+    //         },
+    //         credentials: 'include',
+    //     }).then(data => data.json())
+    //     .then((data)=> {
+    //         console.log(data.image)
+    //         setImage('http://localhost:3001/' + data.image)
+    //     })
+
+    // })
     }, []//교수님 질문사항
 ) 
 
@@ -74,12 +92,9 @@ const btnClick = () => {
     console.log(inputs);
 
     // setState(inputs);
-    // setInputs({
-    //     name: "",
-    //     id: "",
-    //     psw: "",
-    //     adr:"",
-    // })
+
+    const file = document.getElementById('logoimg').files[0];
+    console.log(file);
     fetch("http://localhost:3001/profile", 
         {
         method: "put",
@@ -107,12 +122,38 @@ const btnClick = () => {
         })
     }).then(()=>{
         console.log('3')
-        setCheck(true)
+        if (file!= undefined) {
+            const formData = new FormData()
+            formData.append('image', file)
+            formData.append('idkey', inputs.sessionid);
+            fetch(`http://localhost:3001/api/image`, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'multipart/form-data',
+                },
+                credentials: 'include',
+            })
+            .then(res => res.json())
+            .then(res => {
+                // setUploadStatus(res.msg)
+                setImage("http://localhost:3001/" + res.data)
+                setCheck(true)
+            });
+        }
     })
     
 
     // setCheck(true)
 }
+
+const imageHandler = (event) => {
+    const file = event.target.files[0];
+    console.log(file);
+        setFileImage(URL.createObjectURL(event.target.files[0]))
+        console.log("fileimg: " + fileImage)
+        setImgstate(state+1)
+    }
 
 
 if(check) {
@@ -120,7 +161,7 @@ return (
     <>
     <div className="col-md-3">
         <div className="author-image">
-            <img src="img/author_image.png" alt="" />
+            <img src={image} alt="캐릭터" />
         </div>
     </div>
         <div className="col-md-9">
@@ -143,7 +184,9 @@ else{
         <>
         <div className="col-md-3">
             <div className="author-image">
-                <img src="img/author_image.png" alt="" />
+                    {image && imgstate==0 && <img src = {image} alt = "img"/>}
+                    {fileImage && imgstate!=0 && (<img src={fileImage}/>)}
+                <input type="file" name="image" accept="image/*" multiple={false} onChange = {imageHandler} className="prInput" id="logoimg" />
             </div>
         </div>
             <div className="col-md-9">
