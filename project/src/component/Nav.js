@@ -23,7 +23,7 @@ export default function Nav() {
                 <a href="#3"><i className="fa fa-pencil"></i> <em>이상형정보</em></a>
             </li>
             <li>
-                <a href="#4"><i className="fa fa-image"></i> <em>내문의확인</em></a>
+                <a href="#5"><i className="fa fa-image"></i> <em>내문의확인</em></a>
             </li>
         </ul>
     </nav>

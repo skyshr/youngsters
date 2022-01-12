@@ -330,6 +330,8 @@ nav a:hover::before {
 	margin-top: 15px;
 	border-radius: 30px;
 	max-width: 100%;
+	/* width: 260px; */
+	height: 260px;
 	overflow: hidden;
 	float: left;
 	margin-right: 35px;
@@ -351,7 +353,7 @@ nav a:hover::before {
 .first-content p {
 	color: #fff;
 	font-size: 13px;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	font-weight: 300;
 	letter-spacing: 2px;
 	line-height: 26px;

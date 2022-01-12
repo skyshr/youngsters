@@ -9,6 +9,7 @@ export default function Details() {
     job: "",
     hob: "",
     fam: "",
+    sessionid: "",
   })
 
 const [check, setCheck] = useState(true);
@@ -17,9 +18,9 @@ const [inputs, setInputs] = useState({
     pro: "",
     edu: "",
     job: "",
-    hob:"",
-    fam:"",
-    sessionid: "",
+    hob: "",
+    fam: "",
+    sessionid: sessionStorage.getItem('idkey'),
 })
 
 const {pro, edu, job, hob, fam} = inputs
@@ -39,21 +40,17 @@ useEffect(
         method: "get",
         headers: {
             "content-type": "application/json",
-        },  
+        },
     })
     .then((res) => res.json())
     .then((json) => {
         console.log(json)
-        sessionStorage.setItem('dekey', json.dekey)
-        console.log('dekey: ' + sessionStorage.getItem('dekey'));
-        setState({
-            pro: json.pro,
-            edu: json.edu,
-            job: json.job,
-            hob: json.hob,
-            fam: json.fam,
-            sessionid: json.dekey
-        })
+        console.log('idkey: ' + sessionStorage.getItem('idkey'));
+        for (let data of json) {
+          if (data.idkey == sessionStorage.getItem('idkey')) {
+            setState(data)
+          }
+        }
     })
     
     }, []
@@ -70,7 +67,7 @@ const btnClick = () => {
     if (job === "") inputs.job = state.job;
     if (hob === "") inputs.hob = state.hob;
     if (fam === "") inputs.fam = state.fam;
-    inputs.sessionid = state.sessionid;
+    // inputs.sessionid = state.sessionid;
     console.log(inputs);
 
     fetch("http://localhost:3001/details", 
@@ -84,7 +81,7 @@ const btnClick = () => {
 
     .then(()=> {
         console.log('1')
-        state.sessionid = inputs.idkey;
+        // state.sessionid = inputs.idkey;
         setState(inputs);
     }).then(() => {
         console.log('2')
@@ -94,6 +91,7 @@ const btnClick = () => {
             job: "",
             hob: "",
             fam: "",
+            sessionid: sessionStorage.getItem("idkey")
         })
     }).then(()=>{
         console.log('3')
