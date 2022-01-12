@@ -255,7 +255,6 @@ app.get("/login", (req,res)=>{
             if(err){
                 throw err;
             }
-            connection
             connection.release();
             res.send(result)
         });
