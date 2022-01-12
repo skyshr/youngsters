@@ -8,18 +8,6 @@ export default function Question8(props){
 
     const {J, P} = mbti;
 
-    // const onChange = (e) => {
-    //     const { name, value } = e.target;
-
-    //     setMbti(e.target.value)
-    //     console.log(e.target.value)
-
-    // }
-
-    // const resetButton = () => {
-    //     setMbti('');
-    // }
-
     const onSubmit = (e) => {
         const mbtiList = document.getElementsByName('mbti');
         var a = "";
@@ -29,29 +17,14 @@ export default function Question8(props){
                 a = node.value;
             }
         }
-        console.log(a);
-        console.log(typeof(a))
-
-        // fetch("http://localhost:3001/game", {
-        //     method : "post",
-        //     headers : {
-        //         "content-type" : "application/json"
-        //     },
-        //     body : JSON.stringify({data: a})
-        // })
-        // .then((res)=>res.json())
-        // .then((json)=> {
-        //     console.log(json)
-        // })
 
         const { name, value } = e.target;
 
         setMbti(e.target.value)
         console.log(e.target.value)
+        sessionStorage.setItem("q8", e.target.value)
 
         props.state[1]("9");
-
-        // localStorage.setItem("quiz4", e.target.value)
     }
 
     return(

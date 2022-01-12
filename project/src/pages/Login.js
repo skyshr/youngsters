@@ -37,14 +37,35 @@ export default function Login(){
             if (data.userid == inputs.id && data.userpw == inputs.pw) {
               test = true;
               sessionStorage.setItem('idkey', data.idkey);
+              sessionStorage.setItem('id', data.userid);
+              sessionStorage.setItem('gender', data.gender);
               break;
             }
           }
 
           if (test) {
-            alert("로그인 성공!")
-            sessionStorage.setItem('loginstatus', "okay");
-            document.location.href = '/';
+            fetch("http://localhost:3001/game", {
+                method : "post", // 통신방법
+                headers : {
+                "content-type" : "application/json"
+                },
+                body : JSON.stringify({idkey: sessionStorage.getItem('idkey'),
+                gender: sessionStorage.getItem('gender'),
+                q1: sessionStorage.getItem('q1'),
+                q2: sessionStorage.getItem('q2'),
+                q3: sessionStorage.getItem('q3'),
+                q4: sessionStorage.getItem('q4'),
+                q5: sessionStorage.getItem('q5'),
+                q6: sessionStorage.getItem('q6'),
+                q7: sessionStorage.getItem('q7'),
+                q8: sessionStorage.getItem('q8'),
+                })
+            })
+            .then(() => {
+              alert("로그인 성공!")
+              sessionStorage.setItem('loginstatus', "okay");
+              document.location.href = '/';
+            })
           }
           else alert("다시 입력하세요");
           // if (json) {

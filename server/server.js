@@ -13,6 +13,39 @@ app.get('/', (req, res) =>{
     res.send('test...')
 })
 
+app.get('/game', (req, res) => {
+    console.log("game get!");
+    pool.getConnection((err, connection) => {
+        console.log("connection success!");
+        connection.query(`SELECT * FROM game`, (err, result) => {
+            if (err) throw err;
+            console.log('data get success!');
+            let game = result;
+
+            connection.query(`SELECT * FROM userinfo`, (err, result1) => {
+                if (err) throw err;
+                console.log('userinfo get success!');
+                let userinfo = result1;
+                res.send({"game": game, "userinfo": userinfo})
+                connection.release();
+            })
+        })
+    })
+})
+
+app.post("/game", (req, res) => {
+    console.log("game post!");
+    pool.getConnection((err, connection) => {
+        if (err) throw err;
+        console.log("connection success!");
+        connection.query(`INSERT INTO game (idkey, gender, q1, q2, q3, q4, q5, q6, q7, q8) VALUES (${req.body.idkey}, "${req.body.gender}", "${req.body.q1}", "${req.body.q2}", "${req.body.q3}", "${req.body.q4}", "${req.body.q5}", "${req.body.q6}", "${req.body.q7}", "${req.body.q8}")`, (err, result) => {
+            if (err) throw err;
+            res.send(true);
+            connection.release();
+        })
+    })
+})
+
 app.get("/login", (req,res)=>{
     pool.getConnection((err, connection) => {
         console.log("연결 성공!");
@@ -20,10 +53,9 @@ app.get("/login", (req,res)=>{
             if(err){
                 throw err;
             }
-            else {
-                connection.release();
-                res.send(result)
-            }
+            connection
+            connection.release();
+            res.send(result)
         });
     })
 });
@@ -63,28 +95,28 @@ app.post("/signup", (req,res)=>{
     })
 });
 
-app.post("/game", (req,res)=>{
-    const usermbit = req.body.data;
-    console.log(usermbit);
-    pool.getConnection((err, connection) => {
-        // connection.query(`INSERT INTO userinfo (userid, userpw, username, gender, useryear, age, useraddr, useraddrdet)
-        // VALUES ("${userid}", "${userpw}", "${username}", "${usergender}", "${useryear}", "${userage}", "${useraddr}", "${useraddrdet}")`,
-        // (err, result) => {
+// app.post("/game", (req,res)=>{
+//     const usermbit = req.body.data;
+//     console.log(usermbit);
+//     pool.getConnection((err, connection) => {
+//         // connection.query(`INSERT INTO userinfo (userid, userpw, username, gender, useryear, age, useraddr, useraddrdet)
+//         // VALUES ("${userid}", "${userpw}", "${username}", "${usergender}", "${useryear}", "${userage}", "${useraddr}", "${useraddrdet}")`,
+//         // (err, result) => {
 
-        console.log("연결 성공!")
-        connection.query(`INSERT INTO mbtigame (Q1) VALUES ("${usermbit}")`,
-        (err, result) => {
-            if(err){
-                throw err;
-            } else {
-                console.log("MBTI 정보 입력!");
-                connection.release();
-                res.send(true);
-            }
+//         console.log("연결 성공!")
+//         connection.query(`INSERT INTO mbtigame (Q1) VALUES ("${usermbit}")`,
+//         (err, result) => {
+//             if(err){
+//                 throw err;
+//             } else {
+//                 console.log("MBTI 정보 입력!");
+//                 connection.release();
+//                 res.send(true);
+//             }
             
-        });
-    })
-});
+//         });
+//     })
+// });
 
 app.get("/profile", (req, res) => {
     pool.getConnection((err, connection) => {
@@ -126,6 +158,7 @@ app.get("/details", (req, res) => {
             }else {
                 console.log(rows)
                 res.send(rows)
+                connection.release();
             }
         })
     })
@@ -176,7 +209,10 @@ app.post("/inquire", (req,res) => {
         connection.query("INSERT INTO Inquire (name, email, number, message) values (?,?,?,?)" ,[inq.name, inq.email, inq.number, inq.message],
         function(err) {
             if(err) console.log("실패");
-            else console.log("성공");
+            else {
+                console.log("성공");
+                connection.release();
+            }
         });
     })
 });
