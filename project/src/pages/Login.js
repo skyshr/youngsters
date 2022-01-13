@@ -38,12 +38,16 @@ export default function Login(){
               for (let game of json['game']) {
                 if (game.idkey==data.idkey) {
                   alert("로그인 성공!")
+                  sessionStorage.setItem('idkey', data.idkey);
+                  sessionStorage.setItem('id', data.userid);
+                  sessionStorage.setItem('gender', data.gender);
                   sessionStorage.setItem('loginstatus', "okay");
                   document.location.href = '/';
+                  return;
                 }
               }
               if (sessionStorage.getItem('q8')!=undefined) {
-                test = true;
+                test = "okay";
                 sessionStorage.setItem('idkey', data.idkey);
                 sessionStorage.setItem('id', data.userid);
                 sessionStorage.setItem('gender', data.gender);
@@ -57,7 +61,7 @@ export default function Login(){
 
           console.log(test);
 
-          if (test==true) {
+          if (test=="okay") {
             fetch("http://localhost:3001/game", {
                 method : "post", // 통신방법
                 headers : {
@@ -76,9 +80,10 @@ export default function Login(){
                 })
             })
             .then(() => {
-              alert("로그인 성공!")
               sessionStorage.setItem('loginstatus', "okay");
+              alert("로그인 성공!")
               document.location.href = '/';
+              return;
             })
           }
           else if (test=="game") alert("설문 완료 후 로그인 하세요.");
