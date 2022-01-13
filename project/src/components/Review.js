@@ -5,17 +5,17 @@ import './css.css';
 function Review() {
     return(
         <>
-            <div className="content third-content">
-                <div className="container-fluid">
+            <div style={{backgroundColor : "white"}} className="content third-content">
+                {/* <div className="container-fluid"> */}
                     <div className="row gx-4 gx-lg-5 justify-content-center">
                         <div style={{marginLeft : "17%", marginTop : "5%"}} className="col-lg-8 col-xl-6 text-center">
                             <h2 style={{
                                 fontSize : "36px",
                                 textTransform : "uppercase",
                                 fontWeight : "700",
-                                color: "#fff",
+                                color: "#c3a0ff",
                                 letterSpacing : "0.5px",
-                                borderBottom : "2px solid #fff",
+                                borderBottom : "2px solid #c3a0ff",
                                 display: "inline-block",
                                 paddingBottom : "10px",
                                 marginBottom : "20px",
@@ -25,7 +25,7 @@ function Review() {
                             <p style={{
                                 fontSize : "13px",
                                 fontWeight : "300",
-                                color: "#fff",
+                                color: "#c3a0ff",
                                 letterSpacing : "0.5px",
                                 lineHeight : "24px",
                                 marginBottom : "30px"
@@ -153,7 +153,7 @@ function Review() {
                             </div>
                         </div>
                     </div>
-                </div>
+                {/* </div> */}
             </div>
         </>
     )

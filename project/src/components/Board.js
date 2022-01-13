@@ -62,9 +62,9 @@ function Board() {
     if(board=="board"){
     return(
         <>
-            <div className="content second-content">
-                <div className="container-fluid">
-                    <section className="page-section" id="contact">
+            <div style={{backgroundColor : "pink"}} className="content second-content">
+                {/* <div className="container-fluid"> */}
+                    {/* <section className="page-section" id="contact"> */}
                         <div className="board_box">    
                             <div className="row gx-4 gx-lg-5 justify-content-center">
                                 <div style={{marginLeft : "17%", marginTop : "5%"}} className="col-lg-8 col-xl-6 text-center">
@@ -100,8 +100,8 @@ function Board() {
                                 </div>
                             </div>
                         </div>
-                    </section>
-                </div>
+                    {/* </section> */}
+                {/* </div> */}
             </div>
         </>
     )} 

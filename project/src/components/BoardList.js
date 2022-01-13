@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './css.css';
 import Board from './Board';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons'; // ♡
+import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons'; // ♥︎
 
 function BoardList(value) {
-    console.log(value.value);
+    // console.log(value.value);
 
     const [view, setView] = useState("main");
     const [list, setList] = useState({
@@ -25,7 +28,14 @@ function BoardList(value) {
     const [comments, setComments] = useState({
         idx : "",
         userid : "",
-        comment : ""
+        comment : "",
+        userlike : "",
+        pk : ""
+    })
+
+    const [state, setState] = useState({
+        pk : "",
+        likeHeart : false
     })
 
     useEffect(()=> {
@@ -103,6 +113,37 @@ function BoardList(value) {
         )
     }
 
+    const handleLike = (e) => {
+        console.log(e.target)
+        const pk = e.currentTarget.id
+
+        setState({
+            likeHeart : !state.likeHeart
+        })
+        console.log(state);
+
+        const put = {
+            pk : pk,
+            likeHeart : !state.likeHeart
+        }
+
+        
+    // console.log(comments.filter(obj => obj.pk == pk)[0]);
+
+
+        fetch("http://localhost:3001/boardlike", {
+            method : "put",
+            headers : {
+                "content-type" : "application/json"
+            },
+            body : JSON.stringify(put)
+        })
+        .then((res) => res.json())
+        .then((json) => {
+            setComments(json)
+        })
+    }
+
     // console.log(list);
     // console.log(comment);
     // console.log(comments);
@@ -110,8 +151,8 @@ function BoardList(value) {
     if(view === "view"){
     return(
         <>
-            <div className="content second-content">
-                <div className="container-fluid">
+            <div style={{backgroundColor : "pink"}} className="content second-content">
+                {/* <div className="container-fluid"> */}
                     <section className="page-section" id="contact">
                         <div className="board_box">    
                             <div className="row gx-4 gx-lg-5 justify-content-center">
@@ -155,26 +196,35 @@ function BoardList(value) {
                                                 <div style={{display : "flex", justifyContent : "center"}}>
                                                     <div style={{width : "10%", height : "30px"}}>{val.userid}</div>
                                                     <div style={{width : "70%", height : "30px"}}>{val.comment}</div>
+                                                    <span>
+                                                        <FontAwesomeIcon 
+                                                        onClick={handleLike}
+                                                        icon={state.likeHeart ? solidHeart : regularHeart}
+                                                        id={val.pk}/>
+                                                    </span>
+                                                    <span>{val.userlike}</span>
                                                 </div>
                                             )
                                         }}
                                 )
                                 }
-                                {/* } */}
-                                {/* {comment.userid!="" &&  */}
                                     <div>
                                         <textarea style={{resize : "none"}} name='userid' value={comment.userid} onChange={onChange}/>
                                         <textarea style={{width : "70%", resize : "none"}} name='comment' value={comment.comment} onChange={onChange}/>
                                         <div><button onClick={onSubmitcomment}>댓글 달기</button></div>
                                     </div>
-                                {/* } */}
+                                    <div style={{marginTop : "30px"}}>
+                                    <span id="heartIcon">
+                                        
+                                    </span>
+                                    </div>
                                 <div className="bt_wrap">
                                     <button className="on" onClick={onSubmitMain}>목록</button>
                                 </div>
                             </div>
                         </div>
                     </section>
-                </div>
+                {/* </div> */}
             </div>
         </>
     )}

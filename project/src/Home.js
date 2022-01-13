@@ -11,7 +11,7 @@ export default function Homepage() {
         <>
             <nav>
             <div className="logo">
-                <img src="img/logo.png" alt="" />
+                <img style={{width : "100px"}} src="img/main.png" alt="" />
             </div>
             <div className="mini-logo">
                 <img src="img/mini_logo.png" alt="" />
@@ -20,7 +20,7 @@ export default function Homepage() {
                 <li><a href="#1"><i className="fa fa-heart"></i> <em>후기</em></a></li>
                 <li><a href="#2"><i className="fa fa-clipboard"></i> <em>게시판</em></a></li>
                 <li><a href="#3"><i className="fa fa-comment"></i> <em>문의하기</em></a></li>
-                <li><a href="#4"><i className="fa fa-question"></i> <em>QnA</em></a></li>
+                {/* <li><a href="#4"><i className="fa fa-question"></i> <em>QnA</em></a></li> */}
                 {/* <li><a href="#5"><i className="fa fa-envelope"></i> <em>Contact</em></a></li> */}
             </ul>
             </nav>
@@ -36,10 +36,6 @@ export default function Homepage() {
 
                 <div className="slide" id="3">
                     <Inquire />
-                </div>
-
-                <div className="slide" id="4">
-                    <Qna />
                 </div>
             </div>
 

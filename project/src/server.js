@@ -124,7 +124,7 @@ app.get("/boardlist", (req, res) => {
 app.post("/boardcomment", (req,res) => {
     const comm = req.body;
     console.log(comm);
-    connection.query(`INSERT INTO comments (idx, userid, comment) values (${comm.idx},?,?)` ,[comm.userid, comm.comment],
+    connection.query(`INSERT INTO comments (idx, userid, comment, userlike) values (${comm.idx},?,?,0)` ,[comm.userid, comm.comment],
         function(err,rows,fields) {
             if(err){ console.log("댓글 달기 실패" + rows)}
             else(console.log("댓글 달기 성공"));
@@ -151,6 +151,44 @@ app.put("/hit", (req, res) => {
             }
         }
     )
+})
+
+app.put("/boardlike", (req, res) => {
+    console.log(req.body)
+    const body = req.body;
+    const like = req.body.likeHeart;
+    if(like == false){
+    connection.query(`UPDATE comments SET userlike=userlike-1 WHERE pk = ${body.pk}`,
+        function(err, rows, fields) {
+            if(err) {
+                console.log("좋아요 실패")
+                // res.send(false)
+            } else {
+                console.log("좋아요 성공");
+                connection.query(`SELECT * FROM comments`, (err, rows) => {
+                    if(err) throw err
+                    else res.send(rows);
+                    // console.log(rows);
+                })
+            }
+        }
+    )} else {
+        connection.query(`UPDATE comments SET userlike=userlike+1 WHERE pk = ${body.pk}`,
+        function(err, rows, fields) {
+            if(err) {
+                console.log("싫어요 실패")
+                // res.send(false)
+            } else {
+                console.log("싫어요 성공");
+                connection.query(`SELECT * FROM comments`, (err, rows) => {
+                    if(err) throw err
+                    else res.send(rows);
+                    // console.log(rows);
+                })
+            }
+        }
+    )
+    }
 })
 
 app.get("/boardcommentview", (req, res) => {

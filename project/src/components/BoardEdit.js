@@ -57,8 +57,8 @@ function BoardEdit({test}) {
     if(edit === "edit"){
     return(
         <>
-            <div className="content second-content">
-                <div className="container-fluid">
+            <div style={{backgroundColor : "pink"}} className="content second-content">
+                {/* <div className="container-fluid"> */}
                     <section className="page-section" id="contact">
                         <div className="board_box">    
                             <div className="row gx-4 gx-lg-5 justify-content-center">
@@ -99,7 +99,7 @@ function BoardEdit({test}) {
                             </div>
                         </div>
                     </section>
-                </div>
+                {/* </div> */}
             </div>
         </>
     )} 

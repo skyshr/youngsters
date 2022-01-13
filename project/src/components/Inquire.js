@@ -48,8 +48,8 @@ function Inquire() {
 
     return(
         <>
-            <div className="content second-content">
-                <div className="container-fluid">
+            <div style={{backgroundColor : "pink"}} className="content second-content">
+                {/* <div className="container-fluid"> */}
                     <div style={{marginLeft : "25%", marginTop : "5%"}} className="box">    
                         <div className="row gx-4 gx-lg-5 justify-content-center">
                             <div className="col-lg-8 col-xl-6 text-center">
@@ -84,7 +84,7 @@ function Inquire() {
                             </div>
                         </div>
                     </div>
-                </div>
+                {/* </div> */}
             </div>
         </>
     )
