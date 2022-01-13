@@ -178,6 +178,39 @@ app.put("/details", (req, res) => {
 
 })
 
+app.get("/game", (req, res) => {
+    db.getConnection((err, connection) => {
+        connection.query("SELECT * FROM game", 
+        function(err, rows, fields) {
+            if(err) {
+                console.log("err")
+            }else {
+                console.log(rows)
+                res.send(rows)
+            }
+        })    
+        connection.release()
+    })
+
+});
+
+app.put("/game", (req, res) => {
+    db.getConnection((err, connection) => {
+        console.log(req.body.sessionid);
+        connection.query(`UPDATE game SET color = '${req.body.color}', movies = '${req.body.movies}', music = '${req.body.music}', food = '${req.body.food}', characters = '${req.body.characters}' WHERE idkey = ${req.body.sessionid}`, (err, result) => {
+            if (err) {
+                console.log('err')
+            }
+            else {
+                console.log('성공!')
+                res.send('true')
+            }
+        })
+        connection.release()
+    })
+
+})
+
 app.get("/inquiry", (req, res) => {
     db.getConnection((err, connection) => {
         connection.query("SELECT * FROM inquire", 

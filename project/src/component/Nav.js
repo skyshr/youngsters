@@ -3,7 +3,7 @@ import React from "react"
 
 export default function Nav() {
     return(
-    <nav style = {{backgroundColor: "pink"}}>
+    <nav style = {{backgroundColor: "#ffd9fe"}}>
         <div className="logo">
             <img src="img/logo.png" alt="" />
         </div>
@@ -23,7 +23,10 @@ export default function Nav() {
                 <a href="#3"><i className="fa fa-pencil"></i> <em>이상형정보</em></a>
             </li>
             <li>
-                <a href="#5"><i className="fa fa-image"></i> <em>내문의확인</em></a>
+                <a href="#4"><i className="fa fa-image"></i> <em>내문의확인</em></a>
+            </li>
+            <li>
+                <a href="#5"><i className="fa fa-image"></i> <em>여자이상형</em></a>
             </li>
         </ul>
     </nav>

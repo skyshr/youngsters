@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Inquiry() {
   const tlqkf = {
-    color: "pink",
+    color: " #ffd9fe",
   }
   const [state, setState] = useState({
     title : "",
@@ -112,8 +112,8 @@ if(check){
               </fieldset>
             </div>
             
-            <div className="col-md-12">
-                <button className = "prbtn" onClick = {onClick} type="button">
+            <div>
+                <button onClick = {onClick} type="button">
                   수정하기
                 </button>
             </div>
@@ -133,12 +133,12 @@ if(check){
 
           <div className="col-md-12">
             <fieldset>
-              <input style = {tlqkf} name="title" value = {title} type="text" placeholder = {state.title} onChange = {handler}/>
+              <input name="title" value = {title} type="text" placeholder = {state.title} onChange = {handler}/>
             </fieldset>
           </div>
           <div className="col-md-12">
             <fieldset>
-              <textarea style = {tlqkf} name="message" rows="6" value = {message} placeholder = {state.message} onChange = {handler}></textarea>
+              <textarea name="message" rows="6" value = {message} placeholder = {state.message} onChange = {handler}></textarea>
             </fieldset>
           </div>
           

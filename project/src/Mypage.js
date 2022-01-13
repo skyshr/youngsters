@@ -3,9 +3,9 @@ import Nav from "./component/Nav"
 import Profile from "./component/Profile";
 import Details from "./component/Details";
 import Game from "./component/Game";
-// import Inquire from "./component/Inquire";
+import Men from "./component/Men";
 import Inquiry from "./component/Inquiry";
-// import Profilecopy from "./component/Profilecopy"
+import Women from "./component/Women";
 
 export default function mypage() {
   return (
@@ -30,7 +30,7 @@ export default function mypage() {
       
         <div className="slide" id="1">
           
-          <div className="content first-content" style={{backgroundColor: "#ffc7c5"}}>
+          <div className="content first-content" style={{backgroundColor: " #ffd9fe"}}>
             <div className="container-fluid">
                 <div>
                     <Profile />
@@ -40,14 +40,14 @@ export default function mypage() {
         </div>
 
         <div className="slide" id="2">
-          <div className="content second-content" style={{backgroundColor: "#feb7c2"}}>
+          <div className="content second-content" style={{backgroundColor: " #ffd9fe"}}>
             <div className="container-fluid">
               <div>
                   <Details/>
               </div>
               <div className="col-md-6">
                 <div className="right-image">
-                  <img src="img/about_image.jpg" alt="" />
+                  <img src="img/flower.jpeg" alt="" />
                 </div>
               </div>
             </div>
@@ -55,35 +55,21 @@ export default function mypage() {
         </div>
 
         <div className="slide" id="3">
-          <div className="content second-content" style={{backgroundColor: "#fdc3c2"}}>
+          <div className="content second-content" style={{backgroundColor: "#ffd9fe"}}>
             <div className="container-fluid">
               <div>
                   <Game/>
               </div>
               <div className="col-md-6">
                 <div className="right-image">
-                  <img src="img/about_image.jpg" alt="" />
+                  <img src="img/oneday.jpeg" alt="" />
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        {/* <div className="slide" id="4">
-          <div className="content fifth-content" style={{backgroundColor: "#ffc9dd"}}>
-            <div className="container-fluid">
-              {/* <div className="col-md-6"> */}
-                {/* <div id="map"></div> */}
-              {/* </div> */}
-              {/* <div> */}
-                  {/* <Inquire /> */}
-              {/* </div> */}
-            {/* </div> */}
-          {/* </div> */}
-        {/* </div> */} 
-
         <div className="slide" id="5">
-          <div className="content fifth-content" style={{backgroundColor: "#ffc9dd"}}>
+          <div className="content fifth-content" style={{backgroundColor: "#ffd9fe"}}>
             <div className="container-fluid">
               <div className="col-md-6">
                 <div id="map"></div>
@@ -94,7 +80,18 @@ export default function mypage() {
             </div>
           </div>
         </div>
-
+        <div className="slide" id="5">
+          <div className="content fifth-content" style={{backgroundColor: "#ffd9fe"}}>
+            <div className="container-fluid">
+              <div className="col-md-6">
+                <div id="map"></div>
+              </div>
+              <div>
+                  <Women />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="footer">
