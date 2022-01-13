@@ -29,23 +29,36 @@ export default function Login(){
       console.log(post)
 
       fetch("http://localhost:3001/login", {
-          method : "post", // 통신방법
+          method : "get", // 통신방법
           headers : {
           "content-type" : "application/json"
           },
-          body : JSON.stringify(post),
       })
       .then((res) => res.json())
       .then((json) => {
-          console.log(json);
-          if (json) {
-              console.log("true!");
-              alert("로그인 성공!");
-              document.location.href='/';
+          let test = false;
+          for (let data of json) {
+            if (data.userid == inputs.id && data.userpw == inputs.pw) {
+              test = true;
+              sessionStorage.setItem('idkey', data.idkey);
+              break;
+            }
           }
-          else {
-              alert("다시 입력하세요.")
+
+          if (test) {
+            alert("로그인 성공!")
+            sessionStorage.setItem('loginstatus', "okay");
+            document.location.href = '/';
           }
+          else alert("다시 입력하세요");
+          // if (json) {
+          //     console.log("true!");
+          //     alert("로그인 성공!");
+          //     document.location.href='/';
+          // }
+          // else {
+          //     alert("다시 입력하세요.")
+          // }
       })
   }
 

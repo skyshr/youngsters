@@ -7,11 +7,23 @@ import GameContainer from './pages/GameContainer';
 // import Counter from'./pages/Counter';
 // import PersistentCounter from './pages/PersistentCounter';
 import reportWebVitals from './reportWebVitals';
+import Router from './Router';
+import Question5 from './Questions/Question5';
+import Mypage from './Mypage/Mypage'
 
+// const store = createStore()
 
 ReactDOM.render(
   <React.StrictMode>
+<<<<<<< HEAD
     <Join />
+=======
+    {/* <Game /> */}
+    {/* <Join /> */}
+    <Router />
+    {/* <Question5 /> */}
+    {/* <Mypage /> */}
+>>>>>>> c80a2edb02214fd27cceba2c198ea74c91701f83
   </React.StrictMode>,
   document.getElementById('root')
 );

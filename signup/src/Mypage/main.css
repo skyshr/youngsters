@@ -1,0 +1,85 @@
+.deInput {
+    color: black;
+    background: transparent;
+    width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid white;
+    margin-top: 5px;
+    margin-bottom: 2%;
+    outline: none;
+}
+
+.deText {
+    text-align: left;
+    font-size: 18px;
+    color: black;
+    margin-bottom: none;
+}
+
+.deDiv {
+    text-align: center;
+    
+}
+
+
+
+.gaInput {
+    color: black;
+    background: transparent;
+    width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid white;
+    margin-top: 5px;
+    margin-bottom: 2%;
+    outline: none;
+}
+
+.gaText {
+    text-align: left;
+    font-size: 18px;
+    color: white;
+    margin-bottom: none;
+}
+
+.gaDiv {
+    text-align: center;
+    
+}
+
+
+
+.inDiv {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.inField {
+    text-align: center;
+    font-size: 30px;
+}
+
+.poInput {
+    color: black;
+    /* background: transparent; */
+    
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid white;
+    margin-top: 5px;
+    margin-bottom: 2%;
+    outline: none;
+    display: flex;
+    justify-content: center;
+}
+
+.prbtn {
+    background-color: wheat;
+    width: 100px;
+    height: 30px;
+}

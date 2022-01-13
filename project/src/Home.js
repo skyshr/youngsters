@@ -1,14 +1,24 @@
+import Router from "./Router"
+import Nav from "./Mypage/Nav"
+import Profile from "./Mypage/Profile"
+import { useState } from "react"
+import MwHome from "./MwHome"
+import NavMw from "./components/NavMw"
+
 export default function Homepage() {
+    // console.log(window.localStorage.href);
+    const [test, setTest] = useState("home")
     return (
         <>
-            <div className="sequence">
+            {/* <div className="sequence">
                 <div className="seq-preloader">
                     <svg width="39" height="16" viewBox="0 0 39 16" xmlns="http://www.w3.org/2000/svg" className="seq-preload-indicator"><g fill="#F96D38"><path className="seq-preload-circle seq-preload-circle-1" d="M3.999 12.012c2.209 0 3.999-1.791 3.999-3.999s-1.79-3.999-3.999-3.999-3.999 1.791-3.999 3.999 1.79 3.999 3.999 3.999z"/><path className="seq-preload-circle seq-preload-circle-2" d="M15.996 13.468c3.018 0 5.465-2.447 5.465-5.466 0-3.018-2.447-5.465-5.465-5.465-3.019 0-5.466 2.447-5.466 5.465 0 3.019 2.447 5.466 5.466 5.466z"/><path className="seq-preload-circle seq-preload-circle-3" d="M31.322 15.334c4.049 0 7.332-3.282 7.332-7.332 0-4.049-3.282-7.332-7.332-7.332s-7.332 3.283-7.332 7.332c0 4.05 3.283 7.332 7.332 7.332z"/></g></svg>
                 </div>
-            </div>
+            </div> */}
 
+            <Router setTest={setTest}/>
 
-            <nav>
+            {/* <nav>
             <div className="logo">
                 <img src="img/logo.png" alt="" />
             </div>
@@ -20,12 +30,17 @@ export default function Homepage() {
                 <li><a href="#2"><i className="fa fa-user"></i> <em>About</em></a></li>
                 <li><a href="#3"><i className="fa fa-pencil"></i> <em>Entries</em></a></li>
                 <li><a href="#4"><i className="fa fa-image"></i> <em>Work</em></a></li>
-                <li><a href="#5"><i className="fa fa-envelope"></i> <em>Contact</em></a></li>
             </ul>
-            </nav>
-                
-            <div className="slides">
-                <div className="slide" id="1">
+            </nav> */}
+
+            {window.location.href=='board' && 
+                <>
+                    <NavMw /> 
+
+                    <MwHome />
+                </>
+            }
+                {/* <div className="slide" id="1">
                     <div className="content first-content">
                     <div className="container-fluid">
                         <div className="col-md-3">
@@ -300,44 +315,13 @@ export default function Homepage() {
                         <div className="container-fluid">
                             <div className="col-md-6">
                                 <div id="map">
-                                    {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3647.3030413476204!2d100.5641230193719!3d13.757206847615207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf51ce6427b7918fc!2sG+Tower!5e0!3m2!1sen!2sth!4v1510722015945" width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen></iframe> */}
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3647.3030413476204!2d100.5641230193719!3d13.757206847615207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf51ce6427b7918fc!2sG+Tower!5e0!3m2!1sen!2sth!4v1510722015945" width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen></iframe>
                                 </div>
-                            </div>
-                            <div className="col-md-6">
-                                <form id="contact" action="" method="post">
-                                    <div className="row">
-                                        <div className="col-md-12">
-                                        <fieldset>
-                                            <input name="name" type="text" className="form-control" id="name" placeholder="Your name..." required="" />
-                                        </fieldset>
-                                        </div>
-                                        <div className="col-md-12">
-                                        <fieldset>
-                                            <input name="email" type="email" className="form-control" id="email" placeholder="Your email..." required="" />
-                                        </fieldset>
-                                        </div>
-                                        <div className="col-md-12">
-                                        <fieldset>
-                                            <input name="subject" type="text" className="form-control" id="subject" placeholder="Subject..." required="" />
-                                        </fieldset>
-                                        </div>
-                                        <div className="col-md-12">
-                                        <fieldset>
-                                            <textarea name="message" rows="6" className="form-control" id="message" placeholder="Your message..." required=""></textarea>
-                                        </fieldset>
-                                        </div>
-                                        <div className="col-md-12">
-                                        <fieldset>
-                                            <button type="submit" id="form-submit" className="btn">Send Now</button>
-                                        </fieldset>
-                                        </div>
-                                    </div>
-                                </form>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div> */}
+            {/* </div> */}
 
             <div className="footer">
                 <div className="content">
