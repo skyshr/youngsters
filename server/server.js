@@ -491,7 +491,7 @@ app.get("/boardcommentview", (req, res) => {
                 console.log("댓글 보이기 실패");
             } else {
                 res.send(rows);
-                connecttion.release();
+                connection.release();
             }
         })
         // connecttion.release();
