@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PopupDom from './PopupDom';
-import '../css/signup.css';
+import '../css/postApi.css'; 
 import DaumPostcode from "react-daum-postcode";
 
 const PostApi = (test) => {
@@ -27,11 +27,11 @@ const PostApi = (test) => {
         position: "absolute",
         top :"0%",
         left : "0%",
-        width: "450px",
-        height: "413px",
-        borderRight : "3px solid black",
-        borderLeft : "3px solid black",
-        borderBottom : "3px solid black"
+        width: "500px",
+        height: "400px",
+        borderRight : "3px solid white",
+        borderLeft : "3px solid white",
+        borderBottom : "3px solid white"
     };
 
     // 팝업창 DB추출

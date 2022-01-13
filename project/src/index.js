@@ -9,7 +9,6 @@ import Routers from './routes/Routes';
 
 ReactDOM.render(
   <React.StrictMode>
-
     <Homepage />
     {/* <Mypage /> */}
     {/* <Router /> */}

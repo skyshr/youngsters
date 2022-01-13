@@ -5,7 +5,7 @@ import Layout from "./pages/Layout";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Nopage from "./pages/Nopage";
-import Join from "./pages/Join";
+import Signup from "./pages/signup";
 import Mypage from "./Mypage/Mypage";
 // import Board from "./components/Board";
 import Boardpage from "./components/Boardpage";
@@ -19,7 +19,7 @@ export default function Router(){
           <Route path = "board" element = {<Boardpage />} />
           <Route path = "mypage" element = {<Mypage />} />
           <Route path = "*" element = {<Nopage />} />
-          <Route path = "join" element = {<Join />} />
+          <Route path = "signup" element = {<Signup />} />
           <Route path = "login" element = {<Login />} />
         </Route>
       </Routes>
