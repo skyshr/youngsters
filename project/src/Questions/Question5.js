@@ -27,25 +27,11 @@ export default function Question5(props){
                 a = node.value;
             }
         }
-        console.log(a);
-        console.log(typeof(a))
-
-        // fetch("http://localhost:3001/game", {
-        //     method : "post",
-        //     headers : {
-        //         "content-type" : "application/json"
-        //     },
-        //     body : JSON.stringify({data: a})
-        // })
-        // .then((res)=>res.json())
-        // .then((json)=> {
-        //     console.log(json)
-        // })
 
         setMbti(e.target.value)
         console.log(e.target.value)
 
-        // localStorage.setItem("quiz1", e.target.value)
+        sessionStorage.setItem("q5", e.target.value)
 
         props.state[1]("6")
     }

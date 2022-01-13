@@ -59,11 +59,6 @@ export default function Join(){
     })
   }
 
-  // // 출생년도 및 나이 구하기
-  // const date = new Date()
-  // const yyyy = date.getFullYear()+1;
-  // const resultAge = (yyyy-year);
-
   if (state) {
     return(
       <>

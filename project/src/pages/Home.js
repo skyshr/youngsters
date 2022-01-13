@@ -1,23 +1,24 @@
 import { useEffect, useState } from 'react'
 import QHome from '../Questions/QHome';
-import Test from '../Questions/Test';
+import Match from '../sky/Match';
+// import Test from '../Questions/Test';
 
 export default function Home(){
-  const [done, setDone] = useState(false);
+  const [login, setLogin] = useState(false);
   // console.log("login:" + login);
 
   useEffect(()=> {
-    if (sessionStorage.getItem("done")=="okay") {
-      setDone(true);
+    if (sessionStorage.getItem("loginstatus")=="okay") {
+      setLogin(true);
     }
-    else setDone(false)
+    else setLogin(false)
   }, [])
   return(
     <>
       <h1 style={{marginTop:"5%"}}>Home</h1>
-        {done
-        ? <Test /> 
-        : <QHome done={setDone}/>}
+        {login
+        ? <Match /> 
+        : <QHome login={setLogin}/>}
     </>
   )
 }

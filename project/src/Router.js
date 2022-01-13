@@ -10,11 +10,11 @@ import Mypage from "./Mypage/Mypage";
 // import Board from "./components/Board";
 import Boardpage from "./components/Boardpage";
 
-export default function Router({setTest}){
+export default function Router(){
   return(
     <BrowserRouter>
       <Routes>
-        <Route path = "/" element = {<Layout setTest={setTest}/>}>
+        <Route path = "/" element = {<Layout />}>
           <Route index element={<Home/>} />
           <Route path = "board" element = {<Boardpage />} />
           <Route path = "mypage" element = {<Mypage />} />

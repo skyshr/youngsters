@@ -8,7 +8,8 @@ export default function Question1(props) {
         // console.log('hi');
         // console.log(props.test)
         console.log(e.target.id);
-        console.log(props.state[0])
+        sessionStorage.setItem('q1', e.target.id);
+        // console.log(props.state[0])
         props.state[1]("2");
         // console.log(test);
         // console.log(props.test);

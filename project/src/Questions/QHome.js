@@ -30,7 +30,7 @@ export default function QHome(props) {
             { state=="8" &&
                 <Question8 state={[state, setState]}/>}
             { state=="9" &&
-                <Final done={props.done}/>}
+                <Final login={props.login}/>}
         </>
     )
 }

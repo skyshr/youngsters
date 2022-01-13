@@ -12,8 +12,9 @@ export default function Question3(props) {
     // console.log("set: ", set);
 
     const onClick = (e) => {
-        console.log(e.target.id)
-        console.log(props.state[0])
+        // console.log(e.target.id)
+        // console.log(props.state[0])
+        sessionStorage.setItem('q3', e.target.id);
         props.state[1]("4");
     }
     return (
