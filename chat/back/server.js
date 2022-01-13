@@ -5,7 +5,7 @@ const httpServer = require("http").createServer();
 const pool = require('./mysqlcon');
 const io = require("socket.io")(httpServer, {
   cors: {
-    origin: "*",
+    origin: "http://localhost:3000",
     methods: ["GET", "POST"],
   },
 });//cors 오류로 인한 설정
