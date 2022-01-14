@@ -53,13 +53,34 @@ export default function Match() {
         return (
             <div style={{display: "flex"}} >
                 <div>
-                    <img src={info[0][2]} /> {info[0][1]} : {info[0][3]}
+                    <div>
+                        <img src={info[0][2]} />
+                    </div> 
+                    
+                    <div>
+                        <div>{info[0][1]} : {info[0][3]}</div>    
+                        <button>이상형 등록하기</button>
+                    </div>
                 </div>
                 <div>
-                    <img src={info[1][2]} /> {info[1][1]} : {info[1][3]}
+                    <div>
+                        <img src={info[1][2]} /> 
+                    </div>
+                    
+                    <div>
+                        <div>{info[1][1]} : {info[1][3]}</div>    
+                        <button>이상형 등록하기</button>
+                    </div>
                 </div>  
                 <div>
-                    <img src={info[2][2]} /> {info[2][1]} : {info[2][3]}
+                    <div>
+                        <img src={info[2][2]} />
+                    </div>
+
+                    <div>
+                        <div>{info[2][1]} : {info[2][3]}</div>    
+                        <button>이상형 등록하기</button>
+                    </div>
                 </div>    
                 {/* {info.map(value => 
                 <div key={value[1]}>
