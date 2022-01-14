@@ -62,7 +62,7 @@ export default function mypage() {
               </div>
               <div className="col-md-6">
                 <div className="right-image">
-                  <img src="img/oneday.jpeg" alt="" />
+                  <img src="img/img.jpeg" alt="" />
                 </div>
               </div>
             </div>
@@ -83,9 +83,9 @@ export default function mypage() {
         <div className="slide" id="5">
           <div className="content fifth-content" style={{backgroundColor: "#ffd9fe"}}>
             <div className="container-fluid">
-              <div className="col-md-6">
+              {/* <div className="col-md-6"> */}
                 <div id="map"></div>
-              </div>
+              {/* </div> */}
               <div>
                   <Women />
               </div>

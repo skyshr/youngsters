@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const FlexBox = styled.div`
     display: flex;
     flex-wrap: wrap;
-    height: 100vh;
+    /* height: 100vh; */
     .title {
         position: absolute;
         z-index: 2;
@@ -22,12 +22,12 @@ export const FlexBox = styled.div`
         position: relative;
     }
     .imgs {
-        padding-top: 18%;
+        /* padding-top: 18%; */
         display: block; 
-        margin: 0px auto;
-        text-align: center;
-        width: 45%;
-        height: 79%;
+        /* margin: 0px auto; */
+        /* text-align: center; */
+        width: auto;
+        height: 60%;
         transition: 0.5s;
         cursor: pointer;
     }

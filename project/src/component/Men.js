@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FlexBox } from './styled';
 
 const items = [
@@ -106,7 +106,7 @@ export default function Men() {
     const [displays, setDisplays] = useState([]);
     const [winners, setWinners] = useState([]);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         items.sort(() => Math.random() - 0.5);
         setMen(items);
         setDisplays([items[0], items[1]]);
