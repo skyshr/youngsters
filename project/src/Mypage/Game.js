@@ -13,19 +13,13 @@ export default function Game() {
             </h1>
             
             <h1 className = "gaText">
-              키
+              영화
               <br/>
               <input className = "gaInput"/>
             </h1>
             
             <h1 className = "gaText">
-              성별
-              <br/>
-              <input className = "gaInput"/>
-            </h1>
-            
-            <h1 className = "gaText">
-              취미
+              음악
               <br/>
               <input className = "gaInput"/>
             </h1>
@@ -35,8 +29,14 @@ export default function Game() {
               <br/>
               <input className = "gaInput"/>
             </h1>
-
+            
             <h1 className = "gaText">
+              캐릭터
+              <br/>
+              <input className = "gaInput"/>
+            </h1>
+
+            {/* <h1 className = "gaText">
               노래
               <br/>
               <input className = "gaInput"/>
@@ -52,7 +52,7 @@ export default function Game() {
               꿈
               <br/>
             <input className = "gaInput"/>
-            </h1>
+            </h1> */}
             
           <div className="main-btn">
               <a href="#3">수정하기</a>

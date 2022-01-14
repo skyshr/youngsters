@@ -2,11 +2,11 @@ import "./main.css"
 import React from "react"
 
 export default function Nav({page, setPage}) {
-    const onClick = (e) => {
-        console.log(page)
-        console.log(e.target.id);
-        setPage(Number(e.target.id))
-    }
+    // const onClick = (e) => {
+    //     console.log(page)
+    //     console.log(e.target.id);
+    //     setPage(Number(e.target.id))
+    // }
 
     return(
     <nav>
@@ -18,7 +18,7 @@ export default function Nav({page, setPage}) {
             <img src="img/mini_logo.png" alt="" />
         </div>
         
-        <ul>
+        {/* <ul>
             <li>
                 <div style={{cursor: "pointer"}} onClick={onClick}><i className="fa fa-home"></i> <em id="0">프로필</em></div>
             </li>
@@ -31,9 +31,9 @@ export default function Nav({page, setPage}) {
             <li>
                 <div style={{cursor: "pointer"}} onClick={onClick}><i className="fa fa-image"></i> <em id="3">내문의확인</em></div>
             </li>
-        </ul>
+        </ul> */}
 
-        {/* <ul>
+        <ul style={{position: "absolute", top: "20%"}}>
             <li>
                 <a href="#1"> <i className="fa fa-home"></i> <em>프로필</em></a>
             </li>
@@ -46,7 +46,7 @@ export default function Nav({page, setPage}) {
             <li>
                 <a href="#4"><i className="fa fa-image"></i> <em>내문의확인</em></a>
             </li>
-        </ul> */}
+        </ul>
     </nav>
     )
 }
