@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import PostApi from '../componants/postApi';
 import Login from './Login';
 
+
+
 export default function Join(){
   const [state, setState] = useState(true);
   const [inputs, setInputs] = useState({
@@ -18,6 +20,7 @@ export default function Join(){
   });
 
   const {id, pw, name, gender, year, age, useraddr, useraddrdet} = inputs;
+
 
   const onChange = (e) =>{
     const { name, value } = e.target;
@@ -72,6 +75,26 @@ export default function Join(){
   }
 
   if (state) {
+
+        //비밀번호 유효성 검사
+        const checkPassword = (e) => {
+          var regExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,10}$/ 
+          //  8 ~ 10자 영문, 숫자 조합
+          // 형식에 맞는 경우 true 리턴
+          if(!regExp.test(e.target.value)){
+            alert("비밀번호를 재설정하세요")
+          }
+          // console.log('비밀번호 유효성 검사 :: ', regExp.test(e.target.value))
+      }
+      // 이메일 유효성 검사
+      const checkEmail = (e) => {
+          var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
+          // 형식에 맞는 경우 true 리턴
+          if(!regExp.test(e.target.value)){
+            alert("이메일 형식으로 입력하세요")
+          }
+          // console.log('이메일 유효성 검사 :: ', regExp.test(e.target.value))
+      }
     return(
       <>
         <div className='signup'>
@@ -82,10 +105,10 @@ export default function Join(){
             <div className='join-middle'>
                 <div className='middle'>
                   <div>
-                    <input id='id' name='id' value={id} type='email' placeholder='사용할 아이디(email 형식)' onChange={onChange} />
+                    <input id='id' name='id' value={id} type='email' placeholder='사용할 아이디(email 형식)' onChange={onChange} onBlur={checkEmail} />
                   </div>
                   <div>
-                    <input id='pw' name='pw' value={pw} type='password' minLength="4" placeholder='비밀번호 (4자리 이상)'  onChange={onChange} />
+                    <input id='pw' name='pw' value={pw} type='password' minLength="4" placeholder='비밀번호(8 ~ 10자 영문, 숫자 조합)'  onChange={onChange} onBlur={checkPassword}/>
                   </div>
                   <div>
                     <input id='name' name='name' value={name}  type='text' placeholder='이름'  onChange={onChange} />
@@ -93,8 +116,8 @@ export default function Join(){
                   <div>
                     <select className="select" id='gender' name='gender' value={gender} onChange={onChange} className='gender' placeholder='성별' >
                       <option className='option' value="">선택</option>
-                      <option value="남자">남자</option>
-                      <option value="여자">여자</option>
+                      <option value="남자">남</option>
+                      <option value="여자">여</option>
                     </select>
                     <select id='year' name='year' value={year} onChange={onChange} maxLength="4" type='text' placeholder='출생년도'>
                       <option value="">선택</option>
