@@ -1,15 +1,25 @@
 // import "./Mypage.css";
+import { Helmet } from 'react-helmet'
 import Nav from "./Nav"
 import Profile from "./Profile";
 import Details from "./Details";
 import Game from "./Game";
 import Inquiry from "./Inquiry";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Mypage() {
   const [page, setPage] = useState(0);
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'js/main.js';
+    script.async = true;
+    document.body.appendChild(script)
+  }, []);
   return (
     <>
+      {/* <Helmet>
+        <script src="js/main.js" />
+      </Helmet> */}
       <div>
         <Nav page={page} setPage={setPage}/>
       </div>

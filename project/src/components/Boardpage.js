@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import Board from "./Board";
 import Inquire from "./Inquire";
 import NavMw from "./NavMw";
@@ -7,8 +8,17 @@ import Review from "./Review";
 
 export default function Boardpage() {
   const [page, setPage] = useState(0);
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'js/main.js';
+    script.async = true;
+    document.body.appendChild(script)
+  }, []);
   return (
     <>
+      {/* <Helmet>
+        <script src="js/main.js" />
+      </Helmet> */}
       <div>
         <NavMw page={page} setPage={setPage}/>
       </div>
@@ -51,7 +61,7 @@ export default function Boardpage() {
         </a>
 
       </div>
-
+      
       {/* <div className="footer">
         <div className="content">
         </div>

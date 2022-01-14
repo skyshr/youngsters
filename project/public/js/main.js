@@ -51,11 +51,11 @@ jQuery(document).ready(function($) {
             e.preventDefault();
         });
       
-        $(window).resize(function(){
-          // Keep current slide to left of window on resize
-          var displacment = window.innerWidth*currSlide;
-          $slides.css('transform', 'translateX(-'+displacment+'px)');
-        });
+        // $(window).resize(function(){
+        //   // Keep current slide to left of window on resize
+        //   var displacment = window.innerWidth*currSlide;
+        //   $slides.css('transform', 'translateX(-'+displacment+'px)');
+        // });
         
         // cache
         var $body = $('body');
@@ -67,22 +67,22 @@ jQuery(document).ready(function($) {
         $($('nav a')[0]).addClass('active');
         
         // add event listener for mousescroll
-        $body.bind('false', mouseEvent);
+        // $body.bind('false', mouseEvent);
     })        
 
 
-        $('#form-submit .date').datepicker({
-        });
+        // $('#form-submit .date').datepicker({
+        // });
 
 
-        $(window).on("scroll", function() {
-            if($(window).scrollTop() > 100) {
-                $(".header").addClass("active");
-            } else {
-                //remove the background property so it comes transparent again (defined in your css)
-               $(".header").removeClass("active");
-            }
-        });
+        // $(window).on("scroll", function() {
+        //     if($(window).scrollTop() > 100) {
+        //         $(".header").addClass("active");
+        //     } else {
+        //         //remove the background property so it comes transparent again (defined in your css)
+        //        $(".header").removeClass("active");
+        //     }
+        // });
 
 
 });
