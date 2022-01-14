@@ -3,7 +3,7 @@ export default function Final(props) {
     //     props.done({})
     // }
     const join = () => {
-        window.location.href = '/join';
+        window.location.href = '/signup';
     }
 
     const login = () => { 

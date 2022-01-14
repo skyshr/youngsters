@@ -9,7 +9,7 @@ function BoardEdit({test}) {
         {
             idx : test.idx,
             content : test.content,
-            password : test.password
+            title : test.title
         }
     )
     
@@ -17,7 +17,7 @@ function BoardEdit({test}) {
         const put = {
             idx : change.idx,
             content : change.content,
-            password : change.password
+            title : change.title
         };
 
         fetch("http://localhost:3001/boardedit", {
@@ -73,7 +73,7 @@ function BoardEdit({test}) {
                                         <div className="title">
                                             <dl>
                                                 <dt>제목</dt>
-                                                <dd>{test.title}</dd>
+                                                <dd><textarea name='title' value={change.title} onChange={onChange}>{test.title}</textarea></dd>
                                             </dl>
                                         </div>
                                         <div className="info">
