@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import QHome from '../Questions/QHome';
-import Match from '../sky/Match';
+import Match from './Match';
 // import Test from '../Questions/Test';
 
 export default function Home(){
@@ -16,9 +16,7 @@ export default function Home(){
   return(
     <>
       <h1 style={{marginTop:"5%"}}>Home</h1>
-        {login
-        ? <Match /> 
-        : <QHome login={setLogin}/>}
+        {login ? <Match /> : <QHome login={setLogin}/>}
     </>
   )
 }

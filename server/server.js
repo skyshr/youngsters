@@ -255,9 +255,11 @@ app.get("/login", (req,res)=>{
             if(err){
                 throw err;
             }
-            connection
-            connection.release();
-            res.send(result)
+            connection.query(`SELECT * FROM game`, (err, result1) => {
+                if (err) throw err;
+                res.send({"result": result, "game": result1})
+                connection.release();
+            })
         });
     })
 });
@@ -489,7 +491,7 @@ app.get("/boardcommentview", (req, res) => {
                 console.log("댓글 보이기 실패");
             } else {
                 res.send(rows);
-                connecttion.release();
+                connection.release();
             }
         })
         // connecttion.release();

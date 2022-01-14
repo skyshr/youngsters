@@ -1,0 +1,64 @@
+ /* post popup */ /* post popup */ /* post popup */ /* post popup */
+ .postcontainer{
+  display: flex;
+  flex-direction: column;
+}
+/* 우편번호 검색 */
+#wrap-post-search-btn{
+  margin-top: 15px;
+  padding: 2px;
+  width: 97%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* .join-bottom button{
+  background-color: white;
+  border: 3px solid white;
+  margin: auto;
+  width: 350px;
+  height: 45px;
+  font-size: 1.3rem;
+  border-radius: 20px;
+  font-weight: 650;
+  color: #c3a0ff;
+} */
+
+#post-search-btn {
+  width: 125px;
+  height: 30px;
+  padding: 5px;
+  background-color: white;
+  border: 2px solid white;
+  color: #c3a0ff;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+button:hover{
+  background-color: #f28eff27;
+  color: white;
+  font-weight: bold;
+}
+
+/* 주소API 닫는 창 */
+#postCode_btn {
+  position: absolute;
+  bottom: 9%;
+  right: 0%;
+  padding: 5px;
+  border-style: none;
+  font-size: 2.5rem;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+}
+
+#postCode_btn:hover{
+  color: #c24fd1;
+}
+
+.addr {
+  border: white 2px solid;
+}
