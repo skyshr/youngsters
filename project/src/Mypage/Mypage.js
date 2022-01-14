@@ -15,9 +15,9 @@ export default function Mypage() {
       </div>
 
       <div className="slides">
-        {page == 0 &&
+        {/* {page == 0 && */}
           <div className="slide" id="1">
-            <div className="content first-content" style={{backgroundColor: "rgb(12,194,194)"}}>
+            <div className="content first-content" style={{backgroundColor: "#ffd9fe"}}>
               <div className="container-fluid">
                   <div>
                       <Profile/>
@@ -25,46 +25,46 @@ export default function Mypage() {
               </div>
             </div>
           </div>
-        }
+        {/* } */}
 
-        {page == 1 &&
+        {/* {page == 1 && */}
           <div className="slide" id="2">
-            <div className="content second-content" style={{backgroundColor: "rgb(12,194,194)"}}>
+            <div className="content second-content" style={{backgroundColor: "#ffd9fe"}}>
               <div className="container-fluid">
                 <div>
                     <Details/>
                 </div>
                 <div className="col-md-6">
                   <div className="right-image">
-                    <img src="img/about_image.jpg" alt="" />
+                    <img src="img/flower.jpeg" alt="" />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        }
+        {/* } */}
 
-        {page == 2 &&
+        {/* {page == 2 && */}
           <div className="slide" id="3">
-            <div className="content second-content" style={{backgroundColor: "rgb(12,194,194)"}}>
+            <div className="content second-content" style={{backgroundColor: "#ffd9fe"}}>
               <div className="container-fluid">
                 <div>
                     <Game/>
                 </div>
                 <div className="col-md-6">
                   <div className="right-image">
-                    <img src="img/about_image.jpg" alt="" />
+                    <img src="img/img.jpeg" alt="" />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        }
+        {/* } */}
 
         
-        {page == 3 && 
+        {/* {page == 3 &&  */}
           <div className="slide" id="4">
-            <div className="content fifth-content" style={{backgroundColor: "rgb(12,194,194)"}}>
+            <div className="content fifth-content" style={{backgroundColor: "#ffd9fe"}}>
               <div className="container-fluid">
                 <div className="col-md-6">
                   <div id="map"></div>
@@ -75,7 +75,7 @@ export default function Mypage() {
               </div>
             </div>
           </div>
-        }
+        {/* } */}
       </div>
 
       <div className="footer">
