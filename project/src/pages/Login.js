@@ -38,6 +38,7 @@ const onSubmit = () => {
                   alert("로그인 성공!")
                   sessionStorage.setItem('idkey', data.idkey);
                   sessionStorage.setItem('id', data.userid);
+                  sessionStorage.setItem('username', data.username);
                   sessionStorage.setItem('gender', data.gender);
                   sessionStorage.setItem('loginstatus', "okay");
                   document.location.href = '/';
@@ -48,6 +49,7 @@ const onSubmit = () => {
                 test = "okay";
                 sessionStorage.setItem('idkey', data.idkey);
                 sessionStorage.setItem('id', data.userid);
+                sessionStorage.setItem('username', data.username);
                 sessionStorage.setItem('gender', data.gender);
                 break;
               }

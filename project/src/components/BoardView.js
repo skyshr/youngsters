@@ -28,9 +28,10 @@ function BoardView({write}) {
         })
         .then((res) => res.json())
         .then((json) => {
-            // console.log(json);
+            console.log(json);
             for (let data of json) {
-                if (data.title == write.title && data.writer == write.writer && data.password == write.password && data.content == write.content) {
+                // console.log(data.title)
+                if (data.title == write.title  && data.content == write.content) {
                     // console.log(write);
                     // test.idx = data.idx
                     // test.regdate = data.regdate
