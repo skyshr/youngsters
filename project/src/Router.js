@@ -16,11 +16,11 @@ export default function Router(){
       <Routes>
         <Route path = "/" element = {<Layout />}>
           <Route index element={<Home/>} />
-          <Route path = "board" element = {<Boardpage />} />
-          <Route path = "mypage" element = {<Mypage />} />
+          <Route exact path = "/board" element = {<Boardpage />} />
+          <Route path = "/mypage" element = {<Mypage />} />
           <Route path = "*" element = {<Nopage />} />
-          <Route path = "signup" element = {<Signup />} />
-          <Route path = "login" element = {<Login />} />
+          <Route path = "/signup" element = {<Signup />} />
+          <Route path = "/login" element = {<Login />} />
         </Route>
       </Routes>
     </BrowserRouter>
