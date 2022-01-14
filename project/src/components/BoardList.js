@@ -199,7 +199,7 @@ function BoardList(value) {
                                                     <span>
                                                         <FontAwesomeIcon 
                                                         onClick={handleLike}
-                                                        icon={state.likeHeart ? solidHeart : regularHeart}
+                                                        icon={state.likeHeart ? solidHeart : solidHeart}
                                                         id={val.pk}/>
                                                     </span>
                                                     <span>{val.userlike}</span>
