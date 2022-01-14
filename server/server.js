@@ -213,9 +213,41 @@ app.put("/inquiry", (req, res) => {
 
 //기영
 
+app.post('/ideal', (req, res) => {
+    console.log('ideal');
+    console.log(req.body);
+    pool.getConnection((err,connection) => {
+        if (err) throw err;
+        connection.query(`SELECT * FROM idealmatch where useridkey=${req.body.idkey}`, (err, result) => {
+            if (err) throw err;
+            if (result.length > 3) {
+                res.send({messages: "over limit"})
+                connection.release();
+            }
+            else {
+                for (let data of result) {
+                    console.log(data)
+                    if (data.chosenidkey == req.body.value) {
+                        res.send({messages: "alerady in use"});
+                        connection.release();
+                        return;
+                    }
+                }
+                connection.query(`INSERT into idealmatch (useridkey, chosenidkey) values (${req.body.idkey}, ${req.body.value})`, (err, result1) => {
+                    if (err) throw err;
+                    res.send({messages: "success"});
+                    connection.release();
+                })
+            }
+
+        })
+    })
+}) 
+
 app.get('/game', (req, res) => {
     console.log("game get!");
     pool.getConnection((err, connection) => {
+        if (err) throw err;
         console.log("connection success!");
         connection.query(`SELECT * FROM game`, (err, result) => {
             if (err) throw err;

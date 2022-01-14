@@ -1,3 +1,8 @@
+.wrap {
+  position: fixed;
+  /* top: 1%; */
+}
+
 .wrap-nav {
   display: flex;
   width: 100vw;
@@ -44,7 +49,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* background-color: rgba(255, 255, 255, 1); */
+  background-color: rgba(255, 255, 255, 1);
 }
 
 #user-container {

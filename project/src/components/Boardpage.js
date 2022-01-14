@@ -14,7 +14,6 @@ export default function Boardpage() {
       </div>
 
       <div className="slides">
-        {/* {page == 0 &&  */}
         <a id="1">
           <div className="slide" id="1">
             <div className="content third-content" style={{backgroundColor: "#ffc7c5"}}>
@@ -26,9 +25,7 @@ export default function Boardpage() {
             </div>
           </div>  
         </a> 
-        {/* } */}
 
-        {/* {page == 1 &&  */}
         <a id="2">
           <div className="slide" id="2">
             <div className="content second-content" style={{backgroundColor: "#feb7c2"}}>
@@ -40,9 +37,7 @@ export default function Boardpage() {
             </div>
           </div>
         </a>
-        {/* } */}
-
-        {/* {page == 2 && */}
+      
         <a id="3">
           <div className="slide" id="3">
             <div className="content second-content" style={{backgroundColor: "#fdc3c2"}}>
@@ -54,23 +49,6 @@ export default function Boardpage() {
             </div>
           </div>
         </a>
-        {/* } */}
-
-
-        {/* {page == 3 &&
-          <div className="slide" id="4">
-            <div className="content fifth-content" style={{backgroundColor: "#ffc9dd"}}>
-              <div className="container-fluid">
-                <div className="col-md-6">
-                  <div id="map"></div>
-                </div>
-                <div>
-                    <Qna />
-                </div>
-              </div>
-            </div>
-          </div>
-        } */}
 
       </div>
 

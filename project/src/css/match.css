@@ -1,0 +1,11 @@
+.match-container {
+    margin: 30px;
+}
+
+.info-box {
+    /* align-items: center;
+    align-content: center; */
+    /* justify-content: center; */
+    text-align: center;
+    font-size: medium
+}

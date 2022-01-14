@@ -9,6 +9,7 @@ import Signup from "./pages/signup";
 import Mypage from "./Mypage/Mypage";
 // import Board from "./components/Board";
 import Boardpage from "./components/Boardpage";
+import Test from "./pages/TEST";
 
 export default function Router(){
   return(

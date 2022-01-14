@@ -143,6 +143,7 @@ const btnClick = () => {
                 setCheck(true)
             });
         }
+        else setCheck(true)
     })
     
 

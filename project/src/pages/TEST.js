@@ -1,8 +1,8 @@
 import {Outlet, Link} from 'react-router-dom'
 import { useState } from 'react'
-import '../css/layout.css';
+// import '../css/layout.css';
 
-const Layout = () => {
+const Test = () => {
   // const [login, setLogin] = useState(sessionStorage.getItem('loginstatus')||"logout");
   const onClick = () => {
     sessionStorage.clear();
@@ -62,4 +62,4 @@ const Layout = () => {
   )
 }
 
-export default Layout;
+export default Test;

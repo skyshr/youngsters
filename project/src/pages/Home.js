@@ -15,7 +15,7 @@ export default function Home(){
   }, [])
   return(
     <>
-      <h1 style={{marginTop:"5%"}}>Home</h1>
+      {/* <h1 style={{marginTop:"5%"}}>Home</h1> */}
         {login ? <Match /> : <QHome login={setLogin}/>}
     </>
   )
