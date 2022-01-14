@@ -11,6 +11,9 @@ const Layout = () => {
     // window.location.reload = '/';
     // props.history.push('/');
   }
+
+  var sessonname = sessionStorage.getItem("name");
+
   return(
     <div className='wrap'>
       <ul className='wrap-nav'>
@@ -38,10 +41,16 @@ const Layout = () => {
           <Link to ='/signup'>SIGNUP</Link>
         }
         </li>
-        <li>
+        <li id='user-container'>
           { sessionStorage.getItem("loginstatus") != "okay"
           ? <Link to ="/login">LOGIN</Link>
-          : <Link to ="/" onClick = {onClick}>LOGOUT</Link>
+          : <>
+            <Link to="/mypage"><p id='userwellcome'>안녕하세요 {sessonname} 님</p></Link>
+            <Link to="/chat"><div id='chat'></div></Link>
+            <Link id='userlogout' to ="/" onClick = {onClick}>
+            <div id='logout'></div>
+            </Link>
+            </>
           }
         </li>
       </ul>

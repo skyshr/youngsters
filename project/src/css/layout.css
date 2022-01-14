@@ -9,7 +9,7 @@
 
 .wrap-nav:hover{
   transition: all 0.5s;
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.2);
 }
 
 .wrap-nav .logo{
@@ -45,4 +45,38 @@
   flex-direction: column;
   justify-content: center;
   /* background-color: rgba(255, 255, 255, 1); */
+}
+
+#user-container {
+  width: 22%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* #userlogout {
+} */
+
+#userwellcome {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0px;
+  color: grey;
+  text-shadow: none;
+}
+
+#chat {
+  background-image: url("../pages/img/layout/icon/chatcon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 1.4em;
+  height: 1.4em;
+}
+
+#logout {
+  background-image: url("../pages/img/layout/icon/logouthover.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 2em;
+  height: 1.4em;
 }
