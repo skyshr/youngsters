@@ -55,7 +55,7 @@ const Layout = () => {
         </li>
       </ul>
       <div className='wrap-outlet'>
-      <Outlet />
+        <Outlet />
       </div>
       {/* <Outlet /> */}
     </div>
