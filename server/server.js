@@ -212,6 +212,18 @@ app.put("/inquiry", (req, res) => {
 })
 
 //기영
+app.get('/ideal', (req, res) => {
+    console.log('ideal get');
+    // console.log(req.body);
+    pool.getConnection((err, connection) => {
+        if (err) throw err;
+        connection.query(`SELECT * FROM idealmatch`, (err, result) => {
+            if (err) throw err;
+            res.send(result);
+            connection.release();
+        })
+    })
+})
 
 app.post('/ideal', (req, res) => {
     console.log('ideal');

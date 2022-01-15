@@ -101,16 +101,28 @@ const items = [
     
 ];
 
-export default function Women() {
+export default function Women(props) {
     const [women, setWomen] = useState([]);
     const [displays, setDisplays] = useState([]);
     const [winners, setWinners] = useState([]);
-
+    const [round, setRound] = useState(32);
+    const [test, setTest] = useState(16);
+    console.log(typeof(round));
     useEffect(() => {
         items.sort(() => Math.random() - 0.5);
         setWomen(items);
         setDisplays([items[0], items[1]]);
     }, []);
+
+    const chooseIdeal = () => {
+        alert("이상형으로 등록되었습니다.");
+    }
+
+    const reset = () => {
+        items.sort(() => Math.random() - 0.5);
+        setWomen(items);
+        setDisplays([items[0], items[1]]);
+    }
 
     const clickHandler = wom => (event) => {
         if(women.length <= 2){
@@ -129,19 +141,55 @@ export default function Women() {
             console.log(displays)
         }
         console.log(wom)
-        
+        setTest(test-1);
+        // console.log(test);
+        if (test-1==0) {
+            if (round/2 > 2) {
+                setRound(parseInt(round/2))
+                setTest(round/4)
+            }
+            else if (round/2 == 2) {
+                setRound("결승")
+                setTest("결승")
+            }
+        }
+
+        else if (test=="결승") setRound("당신의 이상형은...")
     };
 
     return <FlexBox>
-        <h1 className="title">이상형월드컵</h1>
-        {displays.map(item => {
-            return <div
-                className="flex-1"
-                key={item.name}
-                onClick={clickHandler(item)}
-                >
-                <img className="imgs" src={item.src} alt="imgs"/>
+            <div className="dimmed_layer_wrapper">
+                <div className="full_layer">
+                    <div className="common_alert">
+                        <button type='button' id='postCode_btn' onClick={props.onClose}>X</button>
+                        {typeof(round) == "number"
+                        ? <h1 className="title">{round}강</h1>
+                        : <h3 className="title">{round}</h3>
+                        }
+                        {displays.length!=1 
+                        ? 
+                        displays.map(item => {
+                            return <div
+                                className="flex-1"
+                                key={item.name}
+                                onClick={clickHandler(item)}
+                                >
+                                <img className="imgs" src={item.src} alt="imgs"/>
+                            </div>
+                        })
+                        :
+                        <div className='winner'>
+                            <div>
+                                <img className="imgs" src={displays[0].src} alt="imgs" />
+                            </div>
+                            <div>
+                                <button className="ideal-btn" onClick={chooseIdeal}>이상형 선택</button>
+                                <button className="reset-btb" onClick={reset}>다시하기</button>
+                            </div>
+                        </div>
+                        }
+                    </div>
+                </div>
             </div>
-        })}
     </FlexBox>;
 }

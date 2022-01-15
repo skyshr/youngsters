@@ -65,8 +65,8 @@ export default function Match() {
         .then((res) => res.json())
         .then((json)=> {
             console.log(json);
-            if (json=="success") alert("등록되었습니다.");
-            else if (json=="already in use") alert("이미 등록된 정보입니다.");
+            if (json.messages=="success") alert("등록되었습니다.");
+            else if (json.messages=="already in use") alert("이미 등록된 정보입니다.");
             else alert("등록은 3명까지만 가능합니다.");
         })
         }

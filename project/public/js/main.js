@@ -7,7 +7,7 @@ jQuery(document).ready(function($) {
         //     $(".sequence").delay(500).fadeOut("slow"); // will fade out the white DIV that covers the website.
         // })
       
-        console.log('hi');
+        // console.log('hi');
         $(function() {
   
         function showSlide(n) {
@@ -18,7 +18,7 @@ jQuery(document).ready(function($) {
           
             // increment slide number by n and keep within boundaries
             currSlide = Math.min(Math.max(0, currSlide + n), $slide.length-1);
-            console.log("current: " + currSlide);
+            // console.log("current: " + currSlide);
             
             var displacment = window.innerWidth*currSlide;
             // translate slides div across to appropriate slide

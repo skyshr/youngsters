@@ -1,0 +1,24 @@
+.dataBox {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.ideal-container{
+    margin: 30px;
+}
+.img-container {
+    width: 250px;
+    height: 320px;
+}
+
+.ideal-info-container {
+    font-size: large;
+}
+
+button {
+    width: 200px;
+    height: 40px;
+    border-radius: 5%;
+    font-size: 1.5rem;
+}

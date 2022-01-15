@@ -1,64 +1,85 @@
-import "./main.css"
+import { useEffect, useState } from "react";
+import "./main.css";
+import './game.css';
+import Women from "../worldcup/Women";
+import PopupDom from "../worldcup/PopupDom";
+import PopupContent from "../worldcup/PopupContent";
+
 
 export default function Game() {
+    const [ideal, setIdeal] = useState([]);
+    const gender = (sessionStorage.getItem('gender')=="남자") ? "women": "men";
+    const [state, setState] = useState(false);
+    useEffect(()=> {
+      console.log('hi');
+      fetch("http://localhost:3001/ideal",
+        {
+        method: "get",
+        headers: {
+            "content-type": "application/json",
+        },
+        })
+        .then((res)=> res.json())
+        .then((json)=> {
+          console.log(json);
+          let tmp = [];
+          let result = [];
+          for (let data of json) {
+            if (data.useridkey==sessionStorage.getItem("idkey")) {
+              tmp.push(Number(data.chosenidkey))
+            }
+          }
+          console.log("tmp: " + tmp);
+          fetch("http://localhost:3001/profile",
+            {
+            method: "get",
+            headers: {
+              "content-type": "application/json"
+            },
+          })
+          .then((res) => res.json())
+          .then((json1) => {
+            // console.log(json1)
+            for (let data of json1) {
+              if (tmp.includes(Number(data.idkey))) {
+                result.push(data);
+              }
+            }
+            setIdeal(result);
+          })
+        })
+    }, [])
+
+    const openPopup = () => {
+      setState(true);
+    }
+
+    const closePopup = () => {
+      setState(false);
+    }
+
     return (
-      <div className="col-md-6">
-      <div className="left-content">
-        <div className = "gaDiv">
+        <>
+          <section className="page-section">
             <h2>이상형</h2>
-            <h1 className = "gaText">
-              색깔
-              <br/>
-              <input className = "gaInput"/>
-            </h1>
-            
-            <h1 className = "gaText">
-              영화
-              <br/>
-              <input className = "gaInput"/>
-            </h1>
-            
-            <h1 className = "gaText">
-              음악
-              <br/>
-              <input className = "gaInput"/>
-            </h1>
-            
-            <h1 className = "gaText">
-              음식
-              <br/>
-              <input className = "gaInput"/>
-            </h1>
-            
-            <h1 className = "gaText">
-              캐릭터
-              <br/>
-              <input className = "gaInput"/>
-            </h1>
-
-            {/* <h1 className = "gaText">
-              노래
-              <br/>
-              <input className = "gaInput"/>
-            </h1>
-
-            <h1 className = "gaText">
-              책
-              <br/>
-              <input className = "gaInput"/>
-            </h1>
-
-            <h1 className = "gaText">
-              꿈
-              <br/>
-            <input className = "gaInput"/>
-            </h1> */}
-            
-          <div className="main-btn">
-              <a href="#3">수정하기</a>
-          </div>
-          </div>
-      </div>
-  </div>
+            <div className="dataBox">
+              {ideal.map(data => 
+              <div className="ideal-container">
+                <div className="img-container"><img src={`img/${gender}/${data.img}`} alt="test"/></div>
+                <div className="ideal-info-container">{data.username}</div>
+              </div>)
+              }
+            </div>
+              
+            <div className="main-btn">
+                <button id="popupDom" onClick={openPopup}>이상형 찾으러 가기</button>
+            </div>
+            {state &&
+                    <PopupDom>
+                        <PopupContent onClose={closePopup}/>
+                    </PopupDom>
+                }
+          </section>
+        </>
     )
 }

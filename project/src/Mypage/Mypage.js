@@ -8,7 +8,6 @@ import Inquiry from "./Inquiry";
 import { useEffect, useState } from "react";
 
 export default function Mypage() {
-  const [page, setPage] = useState(0);
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'js/main.js';
@@ -21,7 +20,7 @@ export default function Mypage() {
         <script src="js/main.js" />
       </Helmet> */}
       <div>
-        <Nav page={page} setPage={setPage}/>
+        <Nav/>
       </div>
 
       <div className="slides">
@@ -61,11 +60,11 @@ export default function Mypage() {
                 <div>
                     <Game/>
                 </div>
-                <div className="col-md-6">
+                {/* <div className="col-md-6">
                   <div className="right-image">
                     <img src="img/img.jpeg" alt="" />
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
