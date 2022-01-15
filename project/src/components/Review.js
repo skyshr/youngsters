@@ -1,21 +1,21 @@
 import React from "react";
 import './Review.css';
-import './css.css';
+import './css.css'
 
 function Review() {
     return(
         <>
-            <div style={{backgroundColor : "white"}} className="content third-content">
+            {/* <div className="content first-content"> */}
                 {/* <div className="container-fluid"> */}
-                    <div className="row gx-4 gx-lg-5 justify-content-center">
+                <div className="row gx-4 gx-lg-5 justify-content-center">
                         <div style={{marginLeft : "17%", marginTop : "5%"}} className="col-lg-8 col-xl-6 text-center">
                             <h2 style={{
                                 fontSize : "36px",
                                 textTransform : "uppercase",
                                 fontWeight : "700",
-                                color: "#c3a0ff",
+                                color: "#fff",
                                 letterSpacing : "0.5px",
-                                borderBottom : "2px solid #c3a0ff",
+                                borderBottom : "2px solid #fff",
                                 display: "inline-block",
                                 paddingBottom : "10px",
                                 marginBottom : "20px",
@@ -25,7 +25,7 @@ function Review() {
                             <p style={{
                                 fontSize : "13px",
                                 fontWeight : "300",
-                                color: "#c3a0ff",
+                                color: "#fff",
                                 letterSpacing : "0.5px",
                                 lineHeight : "24px",
                                 marginBottom : "30px"
@@ -154,7 +154,7 @@ function Review() {
                         </div>
                     </div>
                 {/* </div> */}
-            </div>
+            {/* </div> */}
         </>
     )
 }

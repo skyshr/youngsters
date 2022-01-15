@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import BoardList from './BoardList';
-import BoardView from './BoardView';
 import BoardWrite from './BoardWrite';
 import './css.css';
 
 function Board() {
+    // window.location.href = '/board';
+    const [test, setTest] = useState(true);
     const [value, setValue] = useState("");
     const [board, setBoard] = useState("");
     const [data, setData] = useState({
@@ -19,6 +20,10 @@ function Board() {
     });
 
     useEffect(() => {
+        if (test) {
+            setTest(false)
+            // window.location.href = '/board';
+        }
         console.log('board')
         fetch("http://localhost:3001/board", {
             method : "get",
@@ -62,9 +67,9 @@ function Board() {
     if(board=="board"){
     return(
         <>
-            <div style={{backgroundColor : "pink"}} className="content second-content">
+            {/* <div className="content second-content"> */}
                 {/* <div className="container-fluid"> */}
-                    {/* <section className="page-section" id="contact"> */}
+                    <section className="page-section" id="contact">
                         <div className="board_box">    
                             <div className="row gx-4 gx-lg-5 justify-content-center">
                                 <div style={{marginLeft : "17%", marginTop : "5%"}} className="col-lg-8 col-xl-6 text-center">
@@ -100,12 +105,11 @@ function Board() {
                                 </div>
                             </div>
                         </div>
-                    {/* </section> */}
-                {/* </div> */}
-            </div>
+                    </section>
+                {/* </div>
+            </div> */}
         </>
-    )} 
-    else if (board=="read"){
+    )} else if (board=="read"){
         return (
             <BoardList value={value}/>
         )
@@ -116,6 +120,5 @@ function Board() {
         )
     }
 }
-
 
 export default Board;

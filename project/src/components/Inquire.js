@@ -20,8 +20,8 @@ function Inquire() {
   
     const onSubmit = ()=>{
         const post ={
-            name : state.name,
-            email : state.email,
+            name : sessionStorage.getItem('username'),
+            email : sessionStorage.getItem('id'),
             number : state.number,
             message : state.message
         };
@@ -48,7 +48,7 @@ function Inquire() {
 
     return(
         <>
-            <div style={{backgroundColor : "pink"}} className="content second-content">
+            {/* <div className="content second-content"> */}
                 {/* <div className="container-fluid"> */}
                     <div style={{marginLeft : "25%", marginTop : "5%"}} className="box">    
                         <div className="row gx-4 gx-lg-5 justify-content-center">
@@ -64,11 +64,11 @@ function Inquire() {
                                 <form id="contactForm" data-sb-form-api-token="API_TOKEN">
                                     <div style={{textAlign:"left"}} className="form-floating mb-3">
                                         <label htmlFor="name">Full name</label>
-                                        <input className="form-control" name="name" type="text" placeholder="Enter your name..." data-sb-validations="required" onChange={onChange} value={state.name}/>
+                                        <input readOnly className="form-control" name="name" type="text" placeholder={sessionStorage.getItem('username')} data-sb-validations="required" value={sessionStorage.getItem('username')}/>
                                     </div>
                                     <div style={{textAlign:"left"}} className="form-floating mb-3">
                                         <label htmlFor="email">Email address</label>
-                                        <input className="form-control" name="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" onChange={onChange} value={state.email}/>
+                                        <input readOnly className="form-control" name="email" type="email" placeholder={sessionStorage.getItem('id')} data-sb-validations="required,email" value={sessionStorage.getItem('id')}/>
                                     </div>
                                     <div style={{textAlign:"left"}} className="form-floating mb-3">
                                         <label htmlFor="phone">Phone number</label>
@@ -85,7 +85,7 @@ function Inquire() {
                         </div>
                     </div>
                 {/* </div> */}
-            </div>
+            {/* </div> */}
         </>
     )
 }

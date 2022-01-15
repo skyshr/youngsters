@@ -4,7 +4,7 @@ import './Qna.css'
 function Qna() {
     return(
         <>
-            <div style={{backgroundColor : "pink"}} className="content second-content">
+            {/* <div className="content second-content"> */}
                 {/* <div className="container-fluid"> */}
                     <section className="page-section" id="contact">
                         <div style={{marginLeft : "25%", marginTop : "5%"}} className="box">    
@@ -28,7 +28,7 @@ function Qna() {
                         </div>
                     </section>
                 {/* </div> */}
-            </div>
+            {/* </div> */}
         </>
     )
 }

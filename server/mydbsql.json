@@ -1,0 +1,7 @@
+{
+    "host": "localhost",
+    "user": "root",
+    "password": "poiuqwer!008",
+    "database": "project",
+    "connectionLimit": 10
+}

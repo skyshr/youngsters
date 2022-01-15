@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import Homepage from './Home';
-import Routes from './routes/Routes';
+import Homepage from './Home';
+import Router from './Router';
+import Routers from './routes/Routes';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Routes />
-    {/* <App /> */}
+    <Homepage />
+    {/* <Mypage /> */}
+    {/* <Router /> */}
+    {/* <Routers /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

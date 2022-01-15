@@ -1,0 +1,80 @@
+*{
+  /* background : rgb(12, 194, 194); */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrap-game {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.game-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.game-content {
+	padding: 30px;
+  border: 2px solid black;
+	width: 1000px;
+	height: 500px;
+	display: flex;
+	flex-direction: column;
+}
+
+.infotext {
+	flex: 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-weight: 600;
+	font-size: 1.5rem;
+}
+
+.game {
+	flex: 7;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.reset-btn {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;	
+}
+.game .type{
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex: 1;
+	text-align: center;
+	align-items: center;
+}
+
+.game .type #mbti-e {
+	/* background-image: url("../public/"); */
+	background-size: 100%;
+	width: 200px;
+	height: 200px;
+}
+
+.game .type #mbti-i {
+	/* background-image: url(../resourse/i.png); */
+	background-size: 100%;
+	width: 200px;
+	height: 200px;
+}
+
+
