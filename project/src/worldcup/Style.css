@@ -29,7 +29,7 @@
     background-color:yellowgreen;
     white-space:normal;
     word-break:break-word;
-    text-align:left;
+    text-align:center;
     border-radius:10px;
     padding:30px;
     margin:auto;
@@ -38,6 +38,28 @@
     color: black
 }
 
+.common_alert_main{
+    z-index:2;
+    position:relative;
+    /* display:inline-block; */
+    /* display: flex; */
+    /* vertical-align:middle; */
+    /* width:calc(40%-700px); */
+    min-height: 680px;
+    max-height:80%;
+    min-width: 650px;
+    max-width: 9%;
+    background-color:yellowgreen;
+    white-space:normal;
+    word-break:break-word;
+    text-align:center;
+    border-radius:10px;
+    padding:30px;
+    margin:auto;
+    box-sizing:border-box;
+    font-size: 16px;
+    color: black
+}
 .test {
     color: black
 }

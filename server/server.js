@@ -233,6 +233,8 @@ app.post('/ideal', (req, res) => {
         connection.query(`SELECT * FROM idealmatch where useridkey=${req.body.idkey}`, (err, result) => {
             if (err) throw err;
             if (result.length > 3) {
+                console.log("하이");
+                console.log(result);
                 res.send({messages: "over limit"})
                 connection.release();
             }
@@ -240,7 +242,7 @@ app.post('/ideal', (req, res) => {
                 for (let data of result) {
                     console.log(data)
                     if (data.chosenidkey == req.body.value) {
-                        res.send({messages: "alerady in use"});
+                        res.send({messages: "already in use"});
                         connection.release();
                         return;
                     }

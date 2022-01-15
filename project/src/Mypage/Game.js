@@ -4,14 +4,17 @@ import './game.css';
 import Women from "../worldcup/Women";
 import PopupDom from "../worldcup/PopupDom";
 import PopupContent from "../worldcup/PopupContent";
+import PopupImgContent from "./PopupImgcontent";
 
 
 export default function Game() {
     const [ideal, setIdeal] = useState([]);
     const gender = (sessionStorage.getItem('gender')=="남자") ? "women": "men";
     const [state, setState] = useState(false);
+    const [imgstate, setImgstate] = useState(false);
+    const [img, setImg] = useState('');
     useEffect(()=> {
-      console.log('hi');
+      // console.log('hi');
       fetch("http://localhost:3001/ideal",
         {
         method: "get",
@@ -58,16 +61,32 @@ export default function Game() {
       setState(false);
     }
 
+    const openImgPopup = (e) => {
+      setImg(e.target.src)
+      setImgstate(true);
+    }
+
+    const closeImgPopup = () => {
+      setImgstate(false);
+    }
+
     return (
         <>
           <section className="page-section">
-            <h2>이상형</h2>
+            <h2 className="title">이상형</h2>
             <div className="dataBox">
               {ideal.map(data => 
               <div className="ideal-container">
-                <div className="img-container"><img src={`img/${gender}/${data.img}`} alt="test"/></div>
+                <div className="img-container">
+                  <img className="my-ideal-img" src={`img/${gender}/${data.img}`} alt="test" onClick={openImgPopup}/>
+                </div>
                 <div className="ideal-info-container">{data.username}</div>
               </div>)
+              }
+              {imgstate &&
+                    <PopupDom>
+                        <PopupImgContent onClose={closeImgPopup} img={img}/>
+                    </PopupDom>
               }
             </div>
               
