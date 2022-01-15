@@ -98,6 +98,27 @@ const items = [
     {
         src: "./img/men/m32.jpeg"
     },
+    {
+        src: "./img/men/m33.jpeg"
+    },
+    {
+        src: "./img/men/m34.jpeg"
+    },
+    {
+        src: "./img/men/m35.jpeg"
+    },
+    {
+        src: "./img/men/m36.jpeg"
+    },
+    {
+        src: "./img/men/m37.jpeg"
+    },
+    {
+        src: "./img/men/m38.jpeg"
+    },
+    {
+        src: "./img/men/m39.jpeg"
+    },
     
 ];
 
@@ -105,22 +126,24 @@ export default function Men(props) {
     const [men, setMen] = useState([]);
     const [displays, setDisplays] = useState([]);
     const [winners, setWinners] = useState([]);
-    const [round, setRound] = useState(32);
-    const [test, setTest] = useState(16);
+    const [round, setRound] = useState(parseInt(props.game.slice(0,2)));
+    const [test, setTest] = useState(parseInt(round/2));
+
+    console.log(props.game);
 
     useEffect(() => {
         items.sort(() => Math.random() - 0.5);
-        setMen(items);
+        setMen(items.slice(0,round));
         setDisplays([items[0], items[1]]);
     }, []);
 
     const chooseIdeal = () => {
-        alert("이상형으로 등록되었습니다.");
+        props.setState(true);
     }
 
     const reset = () => {
         items.sort(() => Math.random() - 0.5);
-        setMen(items);
+        setMen(items.slice(0,round));
         setDisplays([items[0], items[1]]);
     }
     const clickHandler = mens => (event) => {
@@ -149,11 +172,11 @@ export default function Men(props) {
             }
             else if (round/2 == 2) {
                 setRound("결승")
-                setTest("결승")
+                setTest("결승!!!")
             }
         }
 
-        else if (test=="결승") setRound("당신의 이상형은...")
+        else if (test=="결승!!!") setRound("당신의 이상형은...")
         
     };
 
@@ -164,7 +187,7 @@ export default function Men(props) {
                     <button type='button' id='postCode_btn' onClick={props.onClose}>X</button>
                     {typeof(round) == "number"
                     ? <h1 className="title">{round}강</h1>
-                    : <h3 className="title">{round}</h3>
+                    : <h1 className="title">{round}</h1>
                     }
                     {displays.length!=1 
                     ? 
@@ -183,7 +206,7 @@ export default function Men(props) {
                             <img className="imgs" src={displays[0].src} alt="imgs" />
                         </div>
                         <div>
-                            <button className="ideal-btn" onClick={chooseIdeal}>이상형 선택</button>
+                            <button className="ideal-btn" onClick={chooseIdeal}>메뉴로 돌아가기</button>
                             <button className="reset-btb" onClick={reset}>다시하기</button>
                         </div>
                     </div>

@@ -37,9 +37,9 @@ export default function PopupContent(props){
             </div>
         );
     else {
-        if (game.endsWith('m')) return <Men onClose={props.onClose}/>
+        if (game.endsWith('m')) return <Men onClose={props.onClose} game={game} setState={setState}/>
         return (
-            <Women onClose={props.onClose}/>
+            <Women onClose={props.onClose} game={game} setState={setState}/>
         )
     }
 }
