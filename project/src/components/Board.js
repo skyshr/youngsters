@@ -67,7 +67,7 @@ function Board() {
     if(board=="board"){
     return(
         <>
-            <div style={{backgroundColor : "#ffb6c1"}} >
+            <div>
                 {/* <div className="container-fluid"> */}
                     <section className="page-section" id="contact">
                         <div className="board_box">    

@@ -48,7 +48,7 @@ function Inquire() {
 
     return(
         <>
-            {/* <div className="content second-content"> */}
+            <div>
                 {/* <div className="container-fluid"> */}
                     <div style={{marginLeft : "25%", marginTop : "5%"}} className="box">    
                         <div className="row gx-4 gx-lg-5 justify-content-center">
@@ -85,7 +85,7 @@ function Inquire() {
                         </div>
                     </div>
                 {/* </div> */}
-            {/* </div> */}
+            </div>
         </>
     )
 }
