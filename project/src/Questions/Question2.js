@@ -16,7 +16,7 @@ export default function Question2(props) {
             {arr.map(val => 
                 <div>
                     <img src = {path + val} 
-                    style = {{margin: "30px", width: "300px", height: "330px", cursor: "pointer"}}
+                    style = {{margin: "30px", width: "330px", height: "360px", cursor: "pointer"}}
                     alt = {val}
                     id={text[arr.indexOf(val)]}
                     onClick = {onClick}

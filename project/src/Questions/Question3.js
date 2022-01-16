@@ -24,7 +24,7 @@ export default function Question3(props) {
             {set.map(val => 
                 <div>
                     <img src={path + val} 
-                    style={{margin: "30px", width: "300px", height: "330px", 
+                    style={{margin: "30px", width: "330px", height: "360px", 
                             cursor: "pointer", border: "3px solid black"}}
                     alt={val} 
                     id={text[arr.indexOf(val)]}
