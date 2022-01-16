@@ -8,12 +8,12 @@
 
 .ideal-container{
     margin: auto;
-    border: 2px solid slateblue;
+    /* border: 2px solid black; */
     border-radius: 3px;
 }
 .img-container {
-    width: 250px;
-    height: 320px;
+    width: 270px;
+    height: auto;
 }
 
 .ideal-info-container {

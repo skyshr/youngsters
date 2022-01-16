@@ -24,6 +24,7 @@ export const FlexBox = styled.div`
         margin: 10px;
         margin-top: 60px;
         border: 2px solid black;
+        height: auto;
 
     }
     .imgs {
@@ -49,7 +50,7 @@ export const FlexBox = styled.div`
         /* margin: auto; */
         /* margin-top: 60px; */
         width: 380px;
-        height: 450px;
+        height: auto;
         margin: auto;
     }
     button{
@@ -62,8 +63,8 @@ export const FlexBox = styled.div`
         background-color: rgb(240,179, 13);
     }
     .ideal-name{
-        margin-top: 30px;
-        font-weight: bolder;
+        margin-top: 40px;
+        font-weight: bold;
         font-size: 42px;
     }
     .win-name{

@@ -289,7 +289,7 @@ export default function Men(props) {
                             key={item.name}
                             onClick={clickHandler(item)}
                             >
-                            <img className="imgs" src={item.src} alt="imgs" />
+                            <img className="imgs" style={{width:"auto", height:"70%"}} src={item.src} alt="imgs" />
                             <div className="ideal-name">{item.username}</div>
                         </div>
                     })
@@ -297,8 +297,8 @@ export default function Men(props) {
                     <div className='winner'>
                         <div>
                             <div>
-                            <img className="imgs" src={displays[0].src} alt="imgs" id={displays[0].idkey} onClick={chooseIdeal}/>
-                            <div className='win-name'>{displays[0].username}</div>
+                                <img className="imgs" src={displays[0].src} style={{width: "100%", paddingTop: "10%"}} alt="imgs" id={displays[0].idkey} onClick={chooseIdeal}/>
+                                <div className='win-name'>{displays[0].username}</div>
                             </div>
                             <div>
                                 <button className="ideal-btn" onClick={backtoMenu}>메뉴로 돌아가기</button>
