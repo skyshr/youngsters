@@ -53,28 +53,28 @@ export default function ChatMain() {
     }
 
     if (state)
-      return (
-          <div>
-              {/* <div className="chat-mainbox"> */}
-                  <div className="main-Chat">
-                    {/* <h3 className="main-title"></h3> */}
-                      {ideal.map(data => 
-                      <div className="wrap-main-ideal-box" id={data.idkey} onClick={onClick} >
-                      <div className="main-ideal-box">
-                          <div className="img-box">
-                            <img className="my-ideal-img" src={`img/${gender}/${data.img}`} id={data.idkey} onClick={onClick} alt="test" />
-                            {/* <button className="chat-btn">대화하기</button> */}
-                          </div>
-                      </div>
-                      <div className="roomname">{data.username} 님의 대화방 입장</div>
-                      </div>)
-                      }
+    return (
+      <div>
+      {/* <div className="chat-mainbox"> */}
+          <div className="main-Chat">
+            {/* <h3 className="main-title"></h3> */}
+              {ideal.map(data => 
+              <div className="wrap-main-ideal-box" id={data.idkey} onClick={onClick} >
+              <div className="main-ideal-box">
+                  <div className="img-box">
+                    <img className="my-ideal-img-c" src={`img/${gender}/${data.img}`} id={data.idkey} onClick={onClick} alt="test" />
+                    {/* <button className="chat-btn">대화하기</button> */}
                   </div>
-              {/* </div> */}
+              </div>
+              <div className="roomname">{data.username} 님의 대화방 입장</div>
+              </div>)
+              }
           </div>
-      )
-    
-    else {
-      return <Chat ideal={ideal} data={data} setState={setState}/>
-    }
+      {/* </div> */}
+  </div>
+    )
+  
+  else {
+    return <Chat ideal={ideal} data={data} setState={setState}/>
+  }
 }

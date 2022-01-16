@@ -130,12 +130,12 @@ function Chat(props) {
   // }
 
   return (
-    <div className="App">
+    <div className="Appt">
       <div className="Box">
         <div className="topBarBox">
-          <button id="wrap-btn-gobackhome" onClick={backtoMenu}> </button>
-          <div id="partnerName">{  } 님</div>
-          
+          <button id="wrap-btn-gobackhome" onClick={backtoMenu}>
+          </button>
+          <div id="partnerName">{sessionStorage.getItem("username")} 님</div>
           <div></div>
         </div>
         <div className="ChatBox" id="chatmessages">
