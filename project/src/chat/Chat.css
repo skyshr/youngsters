@@ -1,6 +1,6 @@
 .App {
-  width: 100vw;
-  height: 92vh;
+  /* width: 100vw; */
+  height: 80vh;
   padding : 0;
   display: flex;
   justify-content: center;
@@ -63,7 +63,7 @@
   position: relative;
 }
 
-/* .ChatBox::-webkit-scrollbar {
+.ChatBox::-webkit-scrollbar {
   width: 10px;
 }
 .ChatBox::-webkit-scrollbar-thumb {
@@ -76,7 +76,7 @@
   background-color: grey;
   border-radius: 10px;
   box-shadow: inset 0px 0px 5px white;
-} */
+}
 
     .Chat{
       display: flex;
@@ -98,6 +98,60 @@
       border:0.2rem solid #84afff56;
       border-radius: 30px;
     }
+
+.InputBox{
+  flex:1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background-color: #84afff56; */
+  /* background-color: #000000; */
+}
+.ChatBox::-webkit-scrollbar-thumb {
+  background-color: #2f3542;
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+.ChatBox::-webkit-scrollbar-track {
+  background-color: grey;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px white;
+} */
+
+.wrap-input {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width:50%;
+  height:5%;
+  border:0.2rem solid #ffd9fe;
+  border-radius: 30px;
+} */
+.Chat {
+  margin: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width:70%;
+  height:5%;
+  border:0.2rem solid #84afff56;
+  border-radius: 30px;
+}
+.RChat{
+  margin: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width:70%;
+  height:5%;
+  border:0.2rem solid #84afff56;
+  border-radius: 30px;
+}
 
 .InputBox{
   flex:1.5;
@@ -151,6 +205,6 @@
     }
 }
 
-.chat-name{ flex: 1;}
-.chat-message{ flex: 1;}
-.chat-time{ flex: 1; font-size: 0.7rem;}
+.chat-name{ flex: 1; font-size: 1.5rem; color: black;}
+.chat-message{ flex: 1; font-size: 1.2rem; color: black}
+.chat-time{ flex: 1; font-size: 0.7rem; color: black}

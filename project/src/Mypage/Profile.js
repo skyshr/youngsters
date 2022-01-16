@@ -57,7 +57,9 @@ useLayoutEffect(
                     adr: val.useraddr,
                 })
                 // val.img = val.img.slice(2);
-                if (val.img.slice(2)=="img/test.gif") setImage("http://localhost:3000/" + val.img)
+                console.log(val.img);
+                if (val.img.slice(2)=="img/test.gif") setImage("http://localhost:3000/" + val.img.slice(2))
+                else if(val.img=="img/test.gif") setImage("http://localhost:3000/" + val.img)
                 else setImage("http://localhost:3001/" + val.img)
             }
         }
@@ -167,7 +169,7 @@ return (
             <img src={image} alt="캐릭터" />
         </div>
     </div>
-        <div className="col-md-9">
+        <div className="col-md-9" style={{marginLeft: "0%"}}>
             
             <h2>프로필</h2><br/>
             <p>이름 {state.name}</p>

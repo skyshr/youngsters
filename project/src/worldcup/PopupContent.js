@@ -20,7 +20,7 @@ export default function PopupContent(props){
             <div className="dimmed_layer_wrapper">
                 <div className="full_layer">
                     <div className="common_alert_main"> 
-                        <h2>이상형 월드컵</h2>
+                        <h2 className='ideal-titletxt' style={{color: "black"}}>이상형 월드컵</h2>
                         <div>
                             <select id="ideal" name="ideal" placeholder='이상형 월드컵'>
                                 <option value="">선택</option>

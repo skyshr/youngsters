@@ -33,7 +33,7 @@ export default function Nav() {
             </li>
         </ul> */}
 
-        <ul style={{position: "absolute", top: "20%"}}>
+        <ul style={{position: "absolute", top: "15%"}}>
             <li>
                 <a href="#1"> <i className="fa fa-home"></i> <em>프로필</em></a>
             </li>

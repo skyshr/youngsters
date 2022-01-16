@@ -30,9 +30,9 @@ export default function Question8(props){
     return(
     <>
       <div className="game-content">
-          <p className="infotext">Q. 문제가 생겼을 때 대처법은?</p>
+          <p style={{textAlign : "center", fontSize : "40px"}} className="infotext">Q. 문제가 생겼을 때 대처법은?</p>
           <div className="game">
-              <div className="type">
+              <div style={{textAlign : "center", fontSize : "30px", float : "left", width : "50%"}} className="type">
                   <label htmlFor="J">
                       <img id="mbti-j" alt=''/>
                       <br/> 한다면 함
@@ -48,7 +48,7 @@ export default function Question8(props){
                   readOnly
                   />  
               </div>
-              <div className="type">
+              <div style={{textAlign : "center", fontSize : "30px"}} className="type">
                   <label htmlFor="P">
                       <img id="mbti-p" alt=''/>
                       <br/> 뭐부터 하지?

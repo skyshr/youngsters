@@ -78,9 +78,9 @@ export default function Game() {
               {ideal.map(data => 
               <div className="ideal-container">
                 <div className="img-container">
-                  <img className="my-ideal-img" src={`img/${gender}/${data.img}`} alt="test" onClick={openImgPopup}/>
+                  <img className="my-ideal-img" style={{width: "auto"}} src={`img/${gender}/${data.img}`} alt="test" onClick={openImgPopup}/>
                 </div>
-                <div className="ideal-info-container">{data.username}</div>
+                <div className="ideal-info-container" style={{fontWeight: "bolder", marginTop: "16px"}}>{data.username}</div>
               </div>)
               }
               {imgstate &&

@@ -4,160 +4,164 @@ import { FlexBox } from './styled';
 const items = [
     {
         idkey: 1,
-        src: "./img/men/m1.jpeg"
+        src: "./img/men/m1.jpeg",
+        username: "안성준"
     },
     {
         idkey: 2,
-        src: "./img/men/m2.jpeg"
+        src: "./img/men/m2.jpeg",
+        username: "위성진"
     },
     {
         idkey: 3,
-        src: "./img/men/m3.jpeg"
+        src: "./img/men/m3.jpeg",
+        username: "노진형"
     },
     {
         idkey: 4,
-        src: "./img/men/m4.jpeg"
+        src: "./img/men/m4.jpeg",
+        username: "서기영"
     },
     {
         idkey: 5,
-        src: "./img/men/m5.jpeg"
+        src: "./img/men/m5.jpeg",
+        username: "박경배"
     },
     {
         idkey: 6,
-        src: "./img/men/m6.jpeg"
+        src: "./img/men/m6.jpeg",
+        username: "스테파노"
     },
     {
         idkey: 7,
-        src: "./img/men/m7.jpeg"
+        src: "./img/men/m7.jpeg",
+        username: "지도일"
     },
     {
         idkey: 8,
-        src: "./img/men/m8.jpeg"
+        src: "./img/men/m8.jpeg",
+        username: "Jidoil"
     },
     {   idkey: 9,
-        src: "./img/men/m9.jpeg"
+        src: "./img/men/m9.jpeg",
+        username: "노진형2"
     },
     {
         idkey: 10,
-        src: "./img/men/m10.jpeg"
+        src: "./img/men/m10.jpeg",
+        username: "권원현"
     },
     {
         idkey: 11,
-        src: "./img/men/m11.jpeg"
+        src: "./img/men/m11.jpeg",
+        username: "김재원2"
     },
     {
         idkey: 12,
-        src: "./img/men/m12.jpeg"
+        src: "./img/men/m12.jpeg",
+        username: "안성욱2"
     },
     {
         idkey: 13,
-        src: "./img/men/m13.jpeg"
+        src: "./img/men/m13.jpeg",
+        username: "김민욱"
     },
     {
         idkey: 14,
-        src: "./img/men/m14.jpeg"
+        src: "./img/men/m14.jpeg",
+        username: "김민욱2"
     },
     {
         idkey: 15,
-        src: "./img/men/m15.jpeg"
+        src: "./img/men/m15.jpeg",
+        username: "이시은"
     },
     {
         idkey: 16,
-        src: "./img/men/m16.jpeg"
+        src: "./img/men/m16.jpeg",
+        username: "김재원"
     },
     {
         idkey: 17,
-        src: "./img/men/m17.jpeg"
+        src: "./img/men/m17.jpeg",
+        username: "김진경"
+
     },
     {
         idkey: 18,
-        src: "./img/men/m18.jpeg"
+        src: "./img/men/m18.jpeg",
+        username: "박승재"
     },
     {
         idkey: 19,
-        src: "./img/men/m19.jpeg"
+        src: "./img/men/m19.jpeg",
+        username: "박이삭"
     },
     {
         idkey: 20,
-        src: "./img/men/m20.jpeg"
+        src: "./img/men/m20.jpeg",
+        username: "김진경2"
     },
     {
         idkey: 21,
-        src: "./img/men/m21.jpeg"
+        src: "./img/men/m21.jpeg",
+        username: "안성욱"
     },
     {
         idkey: 22,
-        src: "./img/men/m22.jpeg"
+        src: "./img/men/m22.jpeg",
+        username: "박태현"
     },
     {
         idkey: 23,
-        src: "./img/men/m23.jpeg"
+        src: "./img/men/m23.jpeg",
+        username: "정종찬"
     },
     {
         idkey: 24,
-        src: "./img/men/m24.jpeg"
+        src: "./img/men/m24.jpeg",
+        username: "정태수"
     },
     {
         idkey: 25,
-        src: "./img/men/m25.jpeg"
+        src: "./img/men/m25.jpeg",
+        username: "이충현"
     },
     {
         idkey: 26,
-        src: "./img/men/m26.jpeg"
+        src: "./img/men/m26.jpeg",
+        username: "위성진2"
     },
     {
         idkey: 27,
-        src: "./img/men/m27.jpeg"
+        src: "./img/men/m27.jpeg",
+        username: "박승재2"
     },
     {
         idkey: 28,
-        src: "./img/men/m28.jpeg"
+        src: "./img/men/m28.jpeg",
+        username: "변정현"
     },
     {
         idkey: 29,
-        src: "./img/men/m29.jpeg"
+        src: "./img/men/m29.jpeg",
+        username: "전민수"
     },
     {
         idkey: 30,
-        src: "./img/men/m30.jpeg"
+        src: "./img/men/m30.jpeg",
+        username: "정종찬"
     },
     {
         idkey: 31,
-        src: "./img/men/m31.jpeg"
+        src: "./img/men/m31.jpeg",
+        username: "박이삭2"
     },
     {
         idkey: 32,
-        src: "./img/men/m32.jpeg"
+        src: "./img/men/m32.jpeg",
+        username: "전민수2"
     },
-    {
-        idkey: 33,
-        src: "./img/men/m33.jpeg"
-    },
-    {
-        idkey: 34,
-        src: "./img/men/m34.jpeg"
-    },
-    {
-        idkey: 35,
-        src: "./img/men/m35.jpeg"
-    },
-    {
-        idkey: 36,
-        src: "./img/men/m36.jpeg"
-    },
-    {
-        idkey: 37,
-        src: "./img/men/m37.jpeg"
-    },
-    {
-        idkey: 38,
-        src: "./img/men/m38.jpeg"
-    },
-    {
-        idkey: 39,
-        src: "./img/men/m39.jpeg"
-    },
-    
 ];
 
 
@@ -208,8 +212,10 @@ export default function Men(props) {
 
     const reset = () => {
         items.sort(() => Math.random() - 0.5);
-        setMen(items.slice(0,round));
+        setMen(items.slice(0,parseInt(props.game.slice(0,2))));
         setDisplays([items[0], items[1]]);
+        setRound(parseInt(props.game.slice(0,2)));
+        setTest(parseInt(props.game.slice(0,2)/2));
     }
 
     const chooseIdeal = (e) => {
@@ -269,7 +275,7 @@ export default function Men(props) {
     return <FlexBox>
         <div className="dimmed_layer_wrapper">
             <div className="full_layer">
-                <div className="common_alert">
+                <div className="common_alert" style={{height: "650px"}}>
                     <button type='button' id='postCode_btn' onClick={props.onClose}>X</button>
                     {typeof(round) == "number"
                     ? <h1 className="title">{round}강</h1>
@@ -283,17 +289,21 @@ export default function Men(props) {
                             key={item.name}
                             onClick={clickHandler(item)}
                             >
-                            <img className="imgs" src={item.src} alt="imgs" />
+                            <img className="imgs" style={{width:"auto", height:"70%"}} src={item.src} alt="imgs" />
+                            <div className="ideal-name">{item.username}</div>
                         </div>
                     })
                     :
                     <div className='winner'>
                         <div>
-                            <img className="imgs" src={displays[0].src} alt="imgs" id={displays[0].idkey} onClick={chooseIdeal}/>
-                        </div>
-                        <div>
-                            <button className="ideal-btn" onClick={backtoMenu}>메뉴로 돌아가기</button>
-                            <button className="reset-btb" onClick={reset}>다시하기</button>
+                            <div>
+                                <img className="imgs" src={displays[0].src} style={{width: "100%", paddingTop: "10%"}} alt="imgs" id={displays[0].idkey} onClick={chooseIdeal}/>
+                                <div className='win-name'>{displays[0].username}</div>
+                            </div>
+                            <div>
+                                <button className="ideal-btn" onClick={backtoMenu}>메뉴로 돌아가기</button>
+                                <button className="reset-btb" onClick={reset}>다시하기</button>
+                            </div>
                         </div>
                     </div>
                     }

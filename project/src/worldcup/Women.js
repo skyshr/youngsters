@@ -147,8 +147,10 @@ export default function Women(props) {
 
     const reset = () => {
         items.sort(() => Math.random() - 0.5);
-        setWomen(items.slice(0, round));
+        setWomen(items.slice(0, parseInt(props.game.slice(0,2))));
         setDisplays([items[0], items[1]]);
+        setRound(parseInt(props.game.slice(0,2)));
+        setTest(parseInt(props.game.slice(0,2)/2));
     }
 
     const chooseIdeal = () => {
@@ -205,13 +207,13 @@ export default function Women(props) {
                                 key={item.name}
                                 onClick={clickHandler(item)}
                                 >
-                                <img className="imgs" src={item.src} alt="imgs"/>
+                                <img className="imgs" style={{width:"auto", height:"80%"}} src={item.src} alt="imgs"/>
                             </div>
                         })
                         :
                         <div className='winner'>
                             <div>
-                                <img className="imgs" src={displays[0].src} alt="imgs" onClick={chooseIdeal}/>
+                                <img className="imgs" src={displays[0].src} style={{width: "100%", paddingTop: "10%"}} alt="imgs" onClick={chooseIdeal}/>
                             </div>
                             <div>
                                 <button className="ideal-btn" onClick={backtoMenu}>메뉴로 돌아가기</button>

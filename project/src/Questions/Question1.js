@@ -16,8 +16,8 @@ export default function Question1(props) {
     }
     return (
         <div>
-            <p>Q. 당신이 좋아하는 영화는?</p>
-            <div style={{display: "flex"}}>
+            <p style={{textAlign : "center", fontSize : "40px"}}>Q. 당신이 좋아하는 영화는?</p>
+            <div style={{display: "flex", justifyContent : "center"}}>
             {arr.map((val, index) => 
                 <div key={index}>
                     <img src={path + val} 
@@ -26,7 +26,7 @@ export default function Question1(props) {
                         id={text[arr.indexOf(val)]}
                         onClick={onClick}
                     />
-                    <div style={{textAlign: "center"}}>{text[arr.indexOf(val)]}</div>
+                    <div style={{textAlign: "center", fontSize : "20px"}}>{text[arr.indexOf(val)]}</div>
                 </div>    
                 )}
             </div>

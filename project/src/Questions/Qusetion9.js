@@ -11,8 +11,8 @@ export default function Question9(props) {
     }
     return (
         <div>
-            <p>Q. 당신의 색상은 무엇인가요?</p>
-            <div style={{display: "flex"}}>
+            <p style={{textAlign : "center", fontSize : "40px"}}>Q. 당신의 색상은 무엇인가요?</p>
+            <div style={{display: "flex", justifyContent : "center"}}>
             {arr.map(val => 
                 <div>
                     <img src={path + val} 

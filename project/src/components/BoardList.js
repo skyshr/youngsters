@@ -151,7 +151,7 @@ function BoardList(value) {
     if(view === "view"){
     return(
         <>
-            {/* <div style={{backgroundColor : "pink"}} className="content second-content"> */}
+            <div>
                 {/* <div className="container-fluid"> */}
                     <section className="page-section" id="contact">
                         <div className="board_box">    
@@ -225,7 +225,7 @@ function BoardList(value) {
                         </div>
                     </section>
                 {/* </div> */}
-            {/* </div> */}
+            </div>
         </>
     )}
      else if(view === "main"){
