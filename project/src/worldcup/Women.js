@@ -147,8 +147,10 @@ export default function Women(props) {
 
     const reset = () => {
         items.sort(() => Math.random() - 0.5);
-        setWomen(items.slice(0, round));
+        setWomen(items.slice(0, parseInt(props.game.slice(0,2))));
         setDisplays([items[0], items[1]]);
+        setRound(parseInt(props.game.slice(0,2)));
+        setTest(parseInt(props.game.slice(0,2)/2));
     }
 
     const chooseIdeal = () => {

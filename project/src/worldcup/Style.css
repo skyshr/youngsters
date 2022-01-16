@@ -22,10 +22,12 @@
     display: flex;
     /* vertical-align:middle; */
     /* width:calc(40%-700px); */
-    min-height: 680px;
+    min-height: 580px;
     max-height:80%;
-    min-width: 650px;
-    max-width: 9%;
+    min-width: 550px;
+    max-width: 7%;
+
+
     background-color:yellowgreen;
     white-space:normal;
     word-break:break-word;
@@ -44,12 +46,15 @@
     /* display:inline-block; */
     /* display: flex; */
     /* vertical-align:middle; */
-    /* width:calc(40%-700px); */
-    min-height: 680px;
+    /* width:calc(20%-400px); */
+    /* min-height: 580px;
     max-height:80%;
-    min-width: 650px;
-    max-width: 9%;
-    background-color:yellowgreen;
+    min-width: 550px;
+    max-width: 100%; */
+    top: 25%;
+    width: 5%;
+    height: auto;
+    background-color:rgb(240, 179, 13);
     white-space:normal;
     word-break:break-word;
     text-align:center;
@@ -58,8 +63,12 @@
     margin:auto;
     box-sizing:border-box;
     font-size: 16px;
-    color: black
+    color: black;
+    
 }
 .test {
     color: black
+}
+.ideal-titletxt {
+    color: black;
 }
