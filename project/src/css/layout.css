@@ -12,18 +12,6 @@
   background-color: rgba(0,0,0,0.2);
 }
 
-.wrap-logo {
-  /* background-color: white; */
-}
-
-.logo {
-  background-image: url('../pages/img/layout/logoempty.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 50%;
-  height: 100%;  
-}
-
 .wrap-nav li{
   width: 10%;
   /* border : 1px solid black; */
@@ -35,8 +23,21 @@
   font-weight: bold;
   color: white;
   text-shadow: 0px 1px 2px #555;
-
 }
+
+
+.wrap-logo {
+  /* background-color: white; */
+}
+
+.logo {
+  background-image: url('../pages/img/layout/logoempty.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 110px;
+  height: 110px;  
+}
+
 .wrap-outlet {
   width: 100%;
   height: 100%;

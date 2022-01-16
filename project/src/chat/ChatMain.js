@@ -56,15 +56,17 @@ export default function ChatMain() {
       return (
           <div>
               {/* <div className="chat-mainbox"> */}
-                  <div className="Chat">
-                    <h3 className="title">chat</h3>
+                  <div className="main-Chat">
+                    {/* <h3 className="main-title"></h3> */}
                       {ideal.map(data => 
-                      <div className="ideal-box">
+                      <div className="wrap-main-ideal-box" id={data.idkey} onClick={onClick} >
+                      <div className="main-ideal-box">
                           <div className="img-box">
                             <img className="my-ideal-img" src={`img/${gender}/${data.img}`} id={data.idkey} onClick={onClick} alt="test" />
                             {/* <button className="chat-btn">대화하기</button> */}
                           </div>
-                          <div className="ideal-info-box">{data.username}</div>
+                      </div>
+                      <div className="roomname">{data.username} 님의 대화방 입장</div>
                       </div>)
                       }
                   </div>

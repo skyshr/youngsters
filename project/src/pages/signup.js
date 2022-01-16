@@ -54,8 +54,6 @@ export default function Join(){
 
   const onSubmit = () => {
     if (checkEmail(inputs.id) || checkPassword(inputs.pw)) return;
-    else if (inputs.name=="") alert("이름을 입력하세요");
-    else if (inputs.gender=="") alert("성별을 입력하세요");
     else if (inputs.year=="") alert("출생년도를 입력하세요");
     else if (inputs.age=="") alert("나이를 입력하세요");
     else if (inputs.useraddr=="") alert("주소를 입력하세요.");
@@ -125,12 +123,12 @@ export default function Join(){
             <div className='join-middle'>
                 <div className='middle'>
                   <div>
-                    {/* <input id='id' name='id' value={id} type='email' placeholder='사용할 아이디(email 형식)' onChange={onChange}/> */}
-                    <input id='id' name='id' value={id} type='email' placeholder='사용할 아이디(email 형식)' onChange={onChange} onBlur={checkEmail} />
+                    <input id='id' name='id' value={id} type='email' placeholder='사용할 아이디(email 형식)' onChange={onChange}/>
+                    {/* <input id='id' name='id' value={id} type='email' placeholder='사용할 아이디(email 형식)' onChange={onChange} onBlur={checkEmail} /> */}
                   </div>
                   <div>
-                    {/* <input id='pw' name='pw' value={pw} type='password' minLength="8" placeholder='비밀번호(8 ~ 10자 영문, 숫자 조합)'  onChange={onChange} /> */}
-                    <input id='pw' name='pw' value={pw} type='password' minLength="8" placeholder='비밀번호(8 ~ 10자 영문, 숫자 조합)'  onChange={onChange} onBlur={checkPassword}/>
+                    <input id='pw' name='pw' value={pw} type='password' minLength="8" placeholder='비밀번호(8 ~ 10자 영문, 숫자 조합)'  onChange={onChange} />
+                    {/* <input id='pw' name='pw' value={pw} type='password' minLength="8" placeholder='비밀번호(8 ~ 10자 영문, 숫자 조합)'  onChange={onChange} onBlur={checkPassword}/> */}
                   </div>
                   <div>
                     <input id='name' name='name' value={name}  type='text' placeholder='이름'  onChange={onChange} />

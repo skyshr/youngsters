@@ -76,14 +76,6 @@ const onSubmit = () => {
                 break;
               }
             }
-            if (sessionStorage.getItem('q8')!=undefined) {
-              test = "okay";
-              sessionStorage.setItem('idkey', data.idkey);
-              sessionStorage.setItem('id', data.userid);
-              sessionStorage.setItem('name', data.username);
-              sessionStorage.setItem('gender', data.gender);
-              break;
-            }
             else {
               test = "nodata";
             }
