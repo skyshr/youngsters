@@ -30,29 +30,30 @@ export default function Join(){
       [name] : value
     })
   }
-  //  //비밀번호 유효성 검사
-  //  const checkPassword = (e) => {
-  //   var regExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,10}$/ 
-  //   //  8 ~ 10자 영문, 숫자 조합
-  //   // 형식에 맞는 경우 true 리턴
-  //   if(!regExp.test(e.target.value)){
-  //     alert("비밀번호를 재설정하세요")
-  //   }
-  //   // console.log('비밀번호 유효성 검사 :: ', regExp.test(e.target.value))
-  // }
-  // // 이메일 유효성 검사
-  // const checkEmail = (e) => {
-  //     var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
-  //     // 형식에 맞는 경우 true 리턴
-  //     if(!regExp.test(e.target.value)){
-  //       alert("이메일 형식으로 입력하세요")
-  //     }
-  //     // console.log('이메일 유효성 검사 :: ', regExp.test(e.target.value))
-  // }
+   //비밀번호 유효성 검사
+   const checkPassword = (value) => {
+    var regExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,10}$/ 
+    //  8 ~ 10자 영문, 숫자 조합
+    // 형식에 맞는 경우 true 리턴
+    if(!regExp.test(value)){
+      alert("비밀번호를 재설정하세요")
+      return true
+    }
+    // console.log('비밀번호 유효성 검사 :: ', regExp.test(e.target.value))
+  }
+  // 이메일 유효성 검사
+  const checkEmail = (value) => {
+      var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
+      // 형식에 맞는 경우 true 리턴
+      if(!regExp.test(value)){
+        alert("이메일 형식으로 입력하세요")
+        return true
+      }
+      // console.log('이메일 유효성 검사 :: ', regExp.test(e.target.value))
+  }
 
   const onSubmit = () => {
-    if (inputs.id=="") alert("아이디를 입력하세요");
-    else if (inputs.pw=="") alert("비밀번호를 입력하세요");
+    if (checkEmail(inputs.id) || checkPassword(inputs.pw)) return;
     else if (inputs.name=="") alert("이름을 입력하세요");
     else if (inputs.gender=="") alert("성별을 입력하세요");
     else if (inputs.year=="") alert("출생년도를 입력하세요");
