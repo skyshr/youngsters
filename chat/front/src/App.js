@@ -121,27 +121,31 @@ function App() {
   return (
     <div className="App">
       <div className="Box">
-        <div className="ChatBox">
-          {chatArr.map((ele) => (
-            <>
-              <div className={classnames('Chat', {RChat : chat.name !== ele.name})}>
-                <div className="chat-name">{ele.name}</div>
-                <div className="chat-message">{ele.message}</div>
-                <div className="chat-time">{ele.time}</div>
-              </div>
-              {/* <div className="Chat">
-                <div className="chat-name">{ele.name}</div>
-                <div className="chat-message">{ele.message}</div>
-                <div className="chat-time">{ele.time}</div>
-              </div> */}
-            </>
-          ))}
-          
-        </div>
+        {/* <div className="wrap-chat"> */}
+          <div className="ChatBox">
+            {chatArr.map((ele) => (
+              <>
+                <div className={classnames('Chat', {RChat : chat.name !== ele.name})}>
+                  <div className="chat-name">{ele.name}</div>
+                  <div className="chat-message">{ele.message}</div>
+                  <div className="chat-time">{ele.time}</div>
+                </div>
+                {/* <div className="Chat">
+                  <div className="chat-name">{ele.name}</div>
+                  <div className="chat-message">{ele.message}</div>
+                  <div className="chat-time">{ele.time}</div>
+                </div> */}
+              </>
+            ))}
+            
+          </div>
+        {/* </div> */}
         <div className="InputBox">
-          <input placeholder="이름" onChange={changeName}></input>
-          <input placeholder="내용" onChange={changeMessage} onKeyPress={onKeyPress} className="message"></input>
-          <button onClick={buttonHandler} onKeyPress={onKeyPress} className="message">등록</button>
+          <div className="wrap-input">
+            {/* <input placeholder="이름" onChange={changeName}></input> */}
+            <input placeholder="input message..." onChange={changeMessage} onKeyPress={onKeyPress} className="message" id="message"></input>
+            <button onClick={buttonHandler} onKeyPress={onKeyPress} className="message" id="btn-message">SEND</button>
+          </div>
         </div>
       </div>
     </div>
