@@ -10,12 +10,14 @@ export default function Final(props) {
         window.location.href = '/login'
     }
     return (
-        <div>
-            <p style={{textAlign : "center", fontSize : "40px"}}>내 매칭정보를 확인해 보세요</p>
-            <span style={{display: "flex", justifyContent : "center"}}>
-            <button onClick = {join}>회원가입</button>
-            <button onClick = {login}>로그인</button>
-            </span>
+        <div className="Q1B">
+            <div className="Q8BB">
+                <p style={{textAlign : "center", fontSize : "40px"}}>내 매칭정보를 확인해 보세요</p>
+                <span style={{display: "flex", justifyContent : "center"}}>
+                <button onClick = {join}>회원가입</button>
+                <button onClick = {login}>로그인</button>
+                </span>
+            </div>
         </div>
     )
 }

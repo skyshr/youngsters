@@ -1,0 +1,69 @@
+.Q1B {
+    background-image: url(../gameimg/back1.jpg);
+    background-size:cover;
+    background-repeat :no-repeat;
+    height: 100%;
+    /* position: absolute; */
+}
+
+.Q1BB {
+    position: absolute;
+    top: 30%;
+    left: 15%;
+}
+
+.Q3B {
+    background-image: url(../gameimg/back1.jpg);
+    background-size:cover;
+    background-repeat :no-repeat;
+    height: 100%;
+    /* position: absolute; */
+}
+
+.Q3BB {
+    position: absolute;
+    top: 30%;
+    left: 18%;
+}
+
+.Q4B {
+    background-image: url(../gameimg/back1.jpg);
+    background-size:cover;
+    background-repeat :no-repeat;
+    height: 100%;
+    /* position: absolute; */
+}
+
+.Q4BB {
+    position: absolute;
+    top: 30%;
+    left: 25%;
+}
+
+.Q5B {
+    background-image: url(../gameimg/back1.jpg);
+    background-size:cover;
+    background-repeat :no-repeat;
+    height: 100%;
+    /* position: absolute; */
+}
+
+.Q5BB {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+}
+
+.Q7BB {
+    position: absolute;
+    top: 30%;
+    left: 15%;
+    width: 70%;
+}
+
+.Q8BB {
+    position: absolute;
+    top: 30%;
+    left: 17%;
+    width: 70%;
+}

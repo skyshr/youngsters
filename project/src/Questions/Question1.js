@@ -1,3 +1,6 @@
+import React from "react"
+import './GameBack.css'
+
 export default function Question1(props) {
     // console.log('state: ' + props.state[0]);
     let path = './img/movie/'
@@ -15,20 +18,22 @@ export default function Question1(props) {
         // console.log(props.test);
     }
     return (
-        <div>
-            <p style={{textAlign : "center", fontSize : "40px"}}>Q. 당신이 좋아하는 영화는?</p>
-            <div style={{display: "flex", justifyContent : "center"}}>
-            {arr.map((val, index) => 
-                <div key={index}>
-                    <img src={path + val} 
-                        style={{margin: "10px", width: "220px", height: "270px", cursor: "pointer"}}
-                        alt={val}
-                        id={text[arr.indexOf(val)]}
-                        onClick={onClick}
-                    />
-                    <div style={{textAlign: "center", fontSize : "20px"}}>{text[arr.indexOf(val)]}</div>
-                </div>    
-                )}
+        <div className="Q1B">
+            <div className="Q1BB">
+                <p style={{textAlign : "center", fontSize : "40px"}}>Q. 당신이 좋아하는 영화는?</p>
+                <div style={{display: "flex", justifyContent : "center"}}>
+                {arr.map((val, index) => 
+                    <div key={index}>
+                        <img src={path + val} 
+                            style={{margin: "10px", width: "220px", height: "270px", cursor: "pointer"}}
+                            alt={val}
+                            id={text[arr.indexOf(val)]}
+                            onClick={onClick}
+                        />
+                        <div style={{textAlign: "center", fontSize : "20px"}}>{text[arr.indexOf(val)]}</div>
+                    </div>    
+                    )}
+                </div>
             </div>
         </div>
     )

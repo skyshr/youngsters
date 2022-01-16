@@ -35,22 +35,24 @@ export default function Question4(props) {
 
     // if (props.state[0]=="4") {
     return (
-        <div  style={{textAlign : "center", fontSize : "40px", justifyContent : "center", display : "grid"}}>
-            Q. &nbsp;스피드 측정 (파란불이 들어오면 클릭하세요!)
-            <div style = {{
-                border: "3px solid black",
-                width: "900px",
-                height: "400px",
-                backgroundColor: color,
-                textAlign: "center",
-                alignContent: "center",
-                alignItems: "center",
-                className: "test",
-                justifyContent : "center",
-                display: "flex"
-            }}
-            onClick = {onClick}>
-            여기를 클릭!
+        <div className="Q4B" style={{textAlign : "center", fontSize : "40px", justifyContent : "center", display : "grid"}}>
+            <div className="Q4BB">
+                Q. &nbsp;스피드 측정 (파란불이 들어오면 클릭하세요!)
+                <div style = {{
+                    border: "3px solid black",
+                    width: "900px",
+                    height: "400px",
+                    backgroundColor: color,
+                    textAlign: "center",
+                    alignContent: "center",
+                    alignItems: "center",
+                    className: "test",
+                    justifyContent : "center",
+                    display: "flex"
+                }}
+                onClick = {onClick}>
+                여기를 클릭!
+                </div>
             </div>
         </div>
     )

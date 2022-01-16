@@ -10,20 +10,22 @@ export default function Question2(props) {
         props.state[1]("3");
     }
     return (
-        <div>
-            <p style={{textAlign : "center", fontSize : "40px"}}>Q. 당신이 좋아하는 음식은?</p>
-            <div style={{display: "flex", justifyContent : "center"}}>
-            {arr.map(val => 
-                <div>
-                    <img src = {path + val} 
-                    style = {{margin: "10px", width: "280px", height: "290px", cursor: "pointer"}}
-                    alt = {val}
-                    id={text[arr.indexOf(val)]}
-                    onClick = {onClick}
-                    />
-                    <div style={{textAlign: "center", fontSize : "20px"}}>{text[arr.indexOf(val)]}</div>
-                </div>
-                )}
+        <div className="Q1B">
+            <div className="Q1BB">
+                <p style={{textAlign : "center", fontSize : "40px"}}>Q. 당신이 좋아하는 음식은?</p>
+                <div style={{display: "flex", justifyContent : "center"}}>
+                {arr.map(val => 
+                    <div>
+                        <img src = {path + val} 
+                        style = {{margin: "10px", width: "280px", height: "290px", cursor: "pointer"}}
+                        alt = {val}
+                        id={text[arr.indexOf(val)]}
+                        onClick = {onClick}
+                        />
+                        <div style={{textAlign: "center", fontSize : "20px"}}>{text[arr.indexOf(val)]}</div>
+                    </div>
+                    )}
+            </div>
             </div>
         </div>
     )
