@@ -18,9 +18,9 @@ const Layout = () => {
     <div className='wrap'>
       <ul className='wrap-nav'>
         <li className='wrap-logo'>
-          <div className='logo'>
-          <Link to ="/"></Link>
-          </div>
+          <Link to ="/">
+            <div className='logo'/>
+          </Link>
         </li>
         <li>
           <Link to ="/">HOME</Link>

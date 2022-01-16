@@ -1,52 +1,86 @@
-.ideal-container {
-    justify-content: center;
-    text-align: center;
-    /* margin: auto; */
-}
-
-/* .chat-mainbox {
-    width: 70%;
-    height: auto;
-    background-color: aquamarine;
-    margin: auto;
-} */
-
-.my-ideal-img {
-    border-radius: 100px;
-    width: 80%;
-    margin: auto
-}
-/* .ChatBox {
-    width: 40
-} */
-.ideal-box {
-    width: 45%;
-    height: auto;
-    padding-left: 0px;
-    text-align: center;
-    margin-top: 2%
-    /* margin: auto; */
-}
-.ideal-info-container {
-    margin-top: 0;
-}
-.Chat {
+.main-Chat {
+    width:25%;
+    font-weight: bolder;
+    font-size: 2rem;
     display: flex;
-    width: 20%;
-    /* background-color: blue; */
     margin: auto;
     flex-direction: column;
     height: auto;
     float: right;
-}
-.ideal-info-box{
-    width: 40%;
-}
-.chat-btn {
+  }
+  
+  .wrap-main-ideal-box {
+    border-radius: 15px;
+    margin: 0.5rem;
+    padding: 5rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #f28eff27, #84afff56);
+    height: 170px;
+    justify-content: space-between;
+    box-shadow: 0px 1px 5px #555;
+  }
+  
+  .wrap-main-ideal-box:hover{
+    transition: all 0.5s;
+    background-color: rgba(0,0,0,0.2);
+  }
+  
+  .roomname {
+  }
+  
+  .main-ideal-box {
+    width: 150px;
+    padding: 0.5rem;
+  
+  }
+  
+  .img-box{
+  
+  }
+  
+  .my-ideal-img {
+  
+  }
+  
+  .ideal-info-box{
+  
+  }
+  
+  .ideal-container {
+    justify-content: center;
+    text-align: center;
+    /* margin: auto; */
+  }
+  
+  /* .chat-mainbox {
+    width: 70%;
+    height: auto;
+    background-color: aquamarine;
+    margin: auto;
+  } */
+  
+  .my-ideal-img {
+    border-radius: 100px;
+    width: 80%;
+    margin: auto
+  }
+  /* .ChatBox {
+    width: 40
+  } */
+  
+  .ideal-info-container {
+    margin-top: 0;
+  }
+  
+  .chat-btn {
     width: 100px;
     height: auto;
-}
-
-.title {
+  }
+  
+  .main-title {
     margin-top: 0%;
-}
+  }
+  
+  

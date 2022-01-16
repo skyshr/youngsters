@@ -18,7 +18,7 @@ function Chat(props) {
   let minutes = today.getMinutes();
   let seconds = today.getSeconds();
 
-  const [nickname, setNickname] = useState(sessionStorage.getItem('id'))
+  const [nickname, setNickname] = useState(sessionStorage.getItem('username'))
   
   const [chatArr, setChatArr] = useState([]);
   const [chat, setChat] = useState([]);
@@ -69,7 +69,7 @@ function Chat(props) {
   const buttonHandler = useCallback((e) => {
     // 11월에 열때는 "0" 지우고 열기
     console.log('hi');
-    const timelog = year + "-" + "0" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
+    const timelog = year + "-" + "0" + month + "-" + day + " " + hours + ":" + minutes;
     chatInput.value = ""
     console.log(sessionStorage.getItem('idkey'));
     console.log(props.data);
@@ -132,9 +132,15 @@ function Chat(props) {
   return (
     <div className="App">
       <div className="Box">
+        <div className="topBarBox">
+          <button id="wrap-btn-gobackhome" onClick={backtoMenu}>
+          </button>
+          <div id="partnerName">{} 님</div>
+          <div></div>
+        </div>
         <div className="ChatBox" id="chatmessages">
           {chatArr.map((ele) => (
-            <>
+          <>
             <div className={classnames('Chat', {RChat : nickname == ele.username})}>
               <div className="chat-name">{ele.username}</div>
               <div className="chat-message">{ele.message}</div>
@@ -145,16 +151,17 @@ function Chat(props) {
               <div className="chat-message">{ele.message}</div>
               <div className="chat-time">{ele.timelog}</div>
             </div> */}
-           </>
+          </>
           )
           )}
           
         </div>
         <div className="InputBox">
-          <input placeholder="이름" onChange={changeName} value={nickname} id="usernick"></input>
-          <input placeholder="내용" onChange={changeMessage} onKeyPress={onKeyPress} className="message"></input>
-          <button onClick={backtoMenu}>챗홈으로 돌아가기</button>
-          <button onClick={buttonHandler} onKeyPress={onKeyPress} className="sendButton">등록</button>
+          <div className="wrap-input">
+            {/* <input placeholder="이름" onChange={changeName}></input> */}
+            <input placeholder="input message..." onChange={changeMessage} onKeyPress={onKeyPress} className="message" id="message"></input>
+            <button onClick={buttonHandler} onKeyPress={onKeyPress} className="message" id="btn-message">SEND</button>
+          </div>
         </div>
       </div>
     </div>

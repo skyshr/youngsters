@@ -74,13 +74,15 @@ export default function Match() {
     
     if (state) {
         return (
-            <div style={{margin: "auto"}}>
+            <div className="wrap-match">
                 {sessionStorage.getItem("gender")=="남자"
-                ? <h1>추천 여성</h1>
-                : <h1>추천 남성</h1>
+                ? <><span id="match-female">추천 여성</span>
+                &nbsp;&nbsp;&nbsp;<span className="match-text">알고리즘 추천 순으로 안내됩니다</span></>
+                : <><span id="match-male">추천 남성</span>
+                &nbsp;&nbsp;&nbsp;<span className="match-text">알고리즘 추천 순으로 안내됩니다</span></>
             }
-                <div style={{display: "flex", margin: "auto"}} >
-                    <div className="match-container">
+                <div className="match-container">
+                    {/* <div className="match-container">
                         <div>
                             <img src={info[0][2]} />
                         </div> 
@@ -109,12 +111,24 @@ export default function Match() {
                             <div>{info[2][1]} : {info[2][3].username}</div>    
                             <button onClick={onClick} value={info[2][3].idkey}>이상형 등록하기</button>
                         </div>
+                    </div>     */}
+                    {info.map(value => 
+                    // <div className="di" key={value[1]}>
+                    <div className="match-person">
+                        <div id="wrap-match-img">
+                            <img id="match-img" src={value[2]} />
+                        </div>
+                        <div id="match-user-info">
+                            <div id="match-name">이름 : {value[3].username}</div>  
+                            <div>나이 : {value[3].age}</div>  
+                            <div>지역 : {value[3].useraddr.split(" ",2).join(" ")}</div>  
+                            <div id="match-number">매칭점수 : {value[1]}</div>
+                            <div id="wrap-match-click">
+                                <button id="match-click" onClick={onClick} value={value[3].idkey}>이상형 등록</button>
+                            </div>
+                        </div>
                     </div>    
-                    {/* {info.map(value => 
-                    <div key={value[1]}>
-                        <img src={value[2]} /> {value[1]}
-                    </div>    
-                    )} */}
+                    )}
                 </div>
             </div>
         )

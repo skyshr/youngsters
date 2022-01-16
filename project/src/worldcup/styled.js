@@ -7,7 +7,7 @@ export const FlexBox = styled.div`
     .title {
         position: absolute;
         z-index: 2;
-        top: 5%;
+        top: 3%;
         left: 50%;
         transform: translateX(-50%);
         padding: 0px 30px;
