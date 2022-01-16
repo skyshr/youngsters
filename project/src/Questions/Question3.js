@@ -18,7 +18,8 @@ export default function Question3(props) {
         props.state[1]("4");
     }
     return (
-        <div>
+        <div className="Q1B">
+            <div className="Q3BB">
             <p style={{textAlign : "center", fontSize : "60px", fontWeight: "bold", color: "red"}}>Q. 당신이 좋아하는 캐릭터는?</p>
             <div style={{display: "flex", justifyContent: "center"}}>
             {set.map(val => 
@@ -34,6 +35,7 @@ export default function Question3(props) {
                     <div style={{textAlign: "center", fontSize : "35px", fontWeight: "bold"}}>{text[arr.indexOf(val)]}</div>
                 </div>
                 )}
+            </div>
             </div>
         </div>
     )

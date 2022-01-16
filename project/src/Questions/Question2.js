@@ -10,7 +10,8 @@ export default function Question2(props) {
         props.state[1]("3");
     }
     return (
-        <div>
+        <div className="Q1B">
+            <div className="Q2BB">
             <p style={{textAlign : "center", fontSize : "60px", color: "red", fontWeight: "bold"}}>Q. 당신이 좋아하는 음식은?</p>
             <div style={{display: "flex", justifyContent : "center"}}>
             {arr.map(val => 
@@ -25,6 +26,7 @@ export default function Question2(props) {
                     <div style={{textAlign: "center", fontSize : "35px", fontWeight: "bold"}}>{text[arr.indexOf(val)]}</div>
                 </div>
                 )}
+            </div>
             </div>
         </div>
     )

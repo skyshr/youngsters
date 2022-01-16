@@ -1,3 +1,5 @@
+import './background.css'
+
 export default function Question1(props) {
     // console.log('state: ' + props.state[0]);
     let path = './img/movie/'
@@ -15,7 +17,8 @@ export default function Question1(props) {
         // console.log(props.test);
     }
     return (
-        <div>
+        <div className="Q1B">
+            <div className="Q1BB">
             <p style={{textAlign : "center", fontSize : "60px",  color: "red", fontWeight: "bold"}}>Q. 당신이 좋아하는 영화는?</p>
             <div style={{display: "flex", justifyContent : "center"}}>
             {arr.map((val, index) => 
@@ -30,6 +33,7 @@ export default function Question1(props) {
                     <div style={{textAlign: "center", fontSize : "35px", fontWeight: "bold"}}>{text[arr.indexOf(val)]}</div>
                 </div>    
                 )}
+            </div>
             </div>
         </div>
     )

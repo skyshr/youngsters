@@ -1,0 +1,87 @@
+.Q1B {
+    background-image: url(./background.jpg);
+    background-size:cover;
+    background-repeat :no-repeat;
+    height: 100%;
+    /* position: absolute; */
+}
+
+.Q1BB {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+}
+.Q2BB {
+    position: absolute;
+    top: 20%;
+    left: 9%;
+}
+
+.Q3B {
+    background-image: url(./background.jpg);
+    background-size:cover;
+    background-repeat :no-repeat;
+    height: 100%;
+    /* position: absolute; */
+}
+
+.Q3BB {
+    position: absolute;
+    top: 20%;
+    left: 9%;
+}
+
+.Q4BB {
+    position: absolute;
+    top: 20%;
+    left: 20%
+}
+
+.Q4B {
+    background-image: url(./background.jpg);
+    background-size:cover;
+    background-repeat :no-repeat;
+    height: 100%;
+    /* position: absolute; */
+}
+
+.Q5B {
+    background-image: url(./background.jpg);
+    background-size:cover;
+    background-repeat :no-repeat;
+    height: 100%;
+    /* position: absolute; */
+}
+
+.Q5BB {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+}
+
+.Q7BB {
+    position: absolute;
+    top: 30%;
+    left: 15%;
+    width: 70%;
+}
+
+.Q8BB {
+    position: absolute;
+    top: 30%;
+    left: 17%;
+    width: 70%;
+}
+
+.game-content {
+    position: absolute;
+    width: 100%;
+    left: 1%;
+    top: 25%
+}
+
+.final {
+    width: 100%;
+    position: absolute;
+    top: 30%;
+}

@@ -43,6 +43,7 @@ export default function Question6(props){
 
     return(
     <>
+    <div className='Q1B'>
       <div className="game-content">
           <p style={{textAlign : "center", fontSize : "60px", fontWeight: "bold", color: "red"}} className="infotext">Q. 문제가 생겼을 때 대처법은?</p>
           <div className="game">
@@ -84,6 +85,7 @@ export default function Question6(props){
           {/* <button className="reset-btn" type="reset" onClick={resetButton}>다시 선택하기</button> */}
           {/* <button className="reset-btn" type="button" onClick={onSubmit}>선택완료</button> */}
           <div id='result'></div>
+      </div>
       </div>
     </>
     )
