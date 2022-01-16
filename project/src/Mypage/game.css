@@ -1,0 +1,49 @@
+.dataBox {
+    display: flex;
+    justify-content: center;
+    border: 1px solid orange;
+    border-radius: 5px ;
+    /* align-items: center; */
+}
+
+.ideal-container{
+    margin: 30px;
+    border: 2px solid slateblue;
+    border-radius: 3px;
+}
+.img-container {
+    width: 250px;
+    height: 320px;
+}
+
+.ideal-info-container {
+    font-size: large;
+}
+
+button {
+    width: 200px;
+    height: 40px;
+    border-radius: 5%;
+    margin-top: 4%;
+    font-size: 1.5rem;
+}
+
+.my-ideal-img:hover{
+    transform: scale(1.1);
+    /* opacity: 0.8; */
+}
+
+.my-ideal-img {
+    /* padding-top: 18%; */
+    display: block; 
+    /* margin: 0px auto; */
+    /* text-align: center; */
+    width: auto;
+    /* height: 60%; */
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.title {
+    padding-top: 5%;
+}

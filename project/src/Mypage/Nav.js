@@ -1,7 +1,7 @@
 import "./main.css"
 import React from "react"
 
-export default function Nav({page, setPage}) {
+export default function Nav() {
     // const onClick = (e) => {
     //     console.log(page)
     //     console.log(e.target.id);

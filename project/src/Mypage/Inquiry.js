@@ -14,7 +14,7 @@ export default function Inquiry() {
     num: "",
     title : "",
     message : "",
-    sessionid: sessionStorage.getItem('idkey'),
+    sessionname: sessionStorage.getItem('username'),
 })
 
   const {title, message} = inputs
@@ -42,7 +42,7 @@ export default function Inquiry() {
         console.log('idkey: ' + sessionStorage.getItem('idkey'));
         let tmp = []
         for (let data of json) {
-          if (data.idkey == sessionStorage.getItem('idkey')) {
+          if (data.name == sessionStorage.getItem('username')) {
             tmp.push(data)
           }
         }
@@ -57,7 +57,7 @@ export default function Inquiry() {
       num: e.target.id,
       title: e.target.innerHTML,
       message: e.target.value,
-      sessionid: sessionStorage.getItem('idkey')
+      sessionname: sessionStorage.getItem('username')
     })
     setCheck(false)
   }

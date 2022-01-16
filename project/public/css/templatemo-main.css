@@ -262,7 +262,7 @@ nav a:hover::before {
 
 .slides {
   width: 500vw;
-  height: 100vh;
+  height: 90vh;
   -webkit-transition: -webkit-transform 0.8s ease;
   transition: -webkit-transform 0.8s ease;
   transition: transform 0.8s ease;
@@ -343,7 +343,7 @@ nav a:hover::before {
 
 .first-content h2 {
 	font-size: 36px;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	font-weight: 700;
 	color: #fff;
 	letter-spacing: 0.5px;
@@ -357,7 +357,7 @@ nav a:hover::before {
 .first-content p {
 	color: #fff;
 	font-size: 13px;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	font-weight: 300;
 	letter-spacing: 2px;
 	line-height: 26px;

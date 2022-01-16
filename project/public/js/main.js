@@ -7,7 +7,7 @@ jQuery(document).ready(function($) {
         //     $(".sequence").delay(500).fadeOut("slow"); // will fade out the white DIV that covers the website.
         // })
       
-        console.log('hi');
+        // console.log('hi');
         $(function() {
   
         function showSlide(n) {
@@ -18,7 +18,7 @@ jQuery(document).ready(function($) {
           
             // increment slide number by n and keep within boundaries
             currSlide = Math.min(Math.max(0, currSlide + n), $slide.length-1);
-            console.log("current: " + currSlide);
+            // console.log("current: " + currSlide);
             
             var displacment = window.innerWidth*currSlide;
             // translate slides div across to appropriate slide
@@ -51,11 +51,11 @@ jQuery(document).ready(function($) {
             e.preventDefault();
         });
       
-        $(window).resize(function(){
-          // Keep current slide to left of window on resize
-          var displacment = window.innerWidth*currSlide;
-          $slides.css('transform', 'translateX(-'+displacment+'px)');
-        });
+        // $(window).resize(function(){
+        //   // Keep current slide to left of window on resize
+        //   var displacment = window.innerWidth*currSlide;
+        //   $slides.css('transform', 'translateX(-'+displacment+'px)');
+        // });
         
         // cache
         var $body = $('body');
@@ -67,22 +67,22 @@ jQuery(document).ready(function($) {
         $($('nav a')[0]).addClass('active');
         
         // add event listener for mousescroll
-        $body.bind('false', mouseEvent);
+        // $body.bind('false', mouseEvent);
     })        
 
 
-        $('#form-submit .date').datepicker({
-        });
+        // $('#form-submit .date').datepicker({
+        // });
 
 
-        $(window).on("scroll", function() {
-            if($(window).scrollTop() > 100) {
-                $(".header").addClass("active");
-            } else {
-                //remove the background property so it comes transparent again (defined in your css)
-               $(".header").removeClass("active");
-            }
-        });
+        // $(window).on("scroll", function() {
+        //     if($(window).scrollTop() > 100) {
+        //         $(".header").addClass("active");
+        //     } else {
+        //         //remove the background property so it comes transparent again (defined in your css)
+        //        $(".header").removeClass("active");
+        //     }
+        // });
 
 
 });

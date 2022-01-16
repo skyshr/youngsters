@@ -98,19 +98,62 @@ const items = [
     {
         src: "./img/women/w32.jpeg"
     },
-    
+    {
+        src: "./img/women/w33.jpeg"
+    },
+    {
+        src: "./img/women/w34.jpeg"
+    },
+    {
+        src: "./img/women/w35.jpeg"
+    },
+    {
+        src: "./img/women/w36.jpeg"
+    },
+    {
+        src: "./img/women/w37.jpeg"
+    },
+    {
+        src: "./img/women/w38.jpeg"
+    },
+    {
+        src: "./img/women/w39.jpeg"
+    },
+    {
+        src: "./img/women/w40.jpeg"
+    },
 ];
 
-export default function Women() {
+export default function Women(props) {
     const [women, setWomen] = useState([]);
     const [displays, setDisplays] = useState([]);
     const [winners, setWinners] = useState([]);
+    const [round, setRound] = useState(parseInt(props.game.slice(0,2)));
+    const [test, setTest] = useState(parseInt(round/2));
+    // console.log(typeof(round));
 
+    console.log(props.game);
+    console.log("round : " + round)
+    console.log("test : " + test)
     useEffect(() => {
         items.sort(() => Math.random() - 0.5);
-        setWomen(items);
+        setWomen(items.slice(0, round));
         setDisplays([items[0], items[1]]);
     }, []);
+
+    const backtoMenu = () => {
+        props.setState(true);
+    }
+
+    const reset = () => {
+        items.sort(() => Math.random() - 0.5);
+        setWomen(items.slice(0, round));
+        setDisplays([items[0], items[1]]);
+    }
+
+    const chooseIdeal = () => {
+        
+    }
 
     const clickHandler = wom => (event) => {
         if(women.length <= 2){
@@ -129,19 +172,55 @@ export default function Women() {
             console.log(displays)
         }
         console.log(wom)
-        
+        setTest(test-1);
+        // console.log(test);
+        if (test-1==0) {
+            if (round/2 > 2) {
+                setRound(parseInt(round/2))
+                setTest(round/4)
+            }
+            else if (round/2 == 2) {
+                setRound("결승")
+                setTest("결승!!!")
+            }
+        }
+
+        else if (test=="결승!!!") setRound("당신의 이상형은...")
     };
 
     return <FlexBox>
-        <h1 className="title">이상형월드컵</h1>
-        {displays.map(item => {
-            return <div
-                className="flex-1"
-                key={item.name}
-                onClick={clickHandler(item)}
-                >
-                <img className="imgs" src={item.src} alt="imgs"/>
+            <div className="dimmed_layer_wrapper">
+                <div className="full_layer">
+                    <div className="common_alert">
+                        <button type='button' id='postCode_btn' onClick={props.onClose}>X</button>
+                        {typeof(round) == "number"
+                        ? <h1 className="title">{round}강</h1>
+                        : <h1 className="title">{round}</h1>
+                        }
+                        {displays.length!=1 
+                        ? 
+                        displays.map(item => {
+                            return <div
+                                className="flex-1"
+                                key={item.name}
+                                onClick={clickHandler(item)}
+                                >
+                                <img className="imgs" src={item.src} alt="imgs"/>
+                            </div>
+                        })
+                        :
+                        <div className='winner'>
+                            <div>
+                                <img className="imgs" src={displays[0].src} alt="imgs" onClick={chooseIdeal}/>
+                            </div>
+                            <div>
+                                <button className="ideal-btn" onClick={backtoMenu}>메뉴로 돌아가기</button>
+                                <button className="reset-btb" onClick={reset}>다시하기</button>
+                            </div>
+                        </div>
+                        }
+                    </div>
+                </div>
             </div>
-        })}
     </FlexBox>;
 }

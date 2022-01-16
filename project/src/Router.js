@@ -9,6 +9,9 @@ import Signup from "./pages/signup";
 import Mypage from "./Mypage/Mypage";
 // import Board from "./components/Board";
 import Boardpage from "./components/Boardpage";
+// import Test from "./pages/TEST";
+import Chat from "./chat/Chat"
+import ChatMain from "./chat/ChatMain";
 
 export default function Router(){
   return(
@@ -20,6 +23,7 @@ export default function Router(){
           <Route path = "/mypage" element = {<Mypage />} />
           <Route path = "*" element = {<Nopage />} />
           <Route path = "/signup" element = {<Signup />} />
+          <Route path = "/chat" element = {<ChatMain />} />
           <Route path = "/login" element = {<Login />} />
         </Route>
       </Routes>

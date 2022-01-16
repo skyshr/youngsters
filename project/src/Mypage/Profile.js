@@ -56,8 +56,8 @@ useLayoutEffect(
                     psw: val.userpw,
                     adr: val.useraddr,
                 })
-                val.img = val.img.slice(2);
-                if (val.img=="img/test.gif") setImage("http://localhost:3000/" + val.img)
+                // val.img = val.img.slice(2);
+                if (val.img.slice(2)=="img/test.gif") setImage("http://localhost:3000/" + val.img)
                 else setImage("http://localhost:3001/" + val.img)
             }
         }
@@ -143,6 +143,7 @@ const btnClick = () => {
                 setCheck(true)
             });
         }
+        else setCheck(true)
     })
     
 

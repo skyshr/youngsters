@@ -33,7 +33,7 @@ function Board() {
         })   
         .then((res) => res.json())
         .then((json) => {
-            console.log(json);
+            // console.log(json);
             setData(json)
             setBoard("board")
         })
@@ -62,7 +62,7 @@ function Board() {
         setBoard("write");
     };
 
-    console.log(value);
+    // console.log(value);
 
     if(board=="board"){
     return(
