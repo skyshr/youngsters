@@ -4,10 +4,10 @@ export default function NavMw({page, setPage}) {
     // }
     return(
     <nav>
-        <div style={{height : "150px", marginLeft : "30%"}} className="logo">
+        <div className="logo">
         </div>
         
-        <ul style={{position: "absolute", top: "20%"}}>
+        <ul style={{position: "absolute", top: "15%"}}>
             <li>
                 <a href="#1"> <i className="fa fa-home"></i> <em>후기</em></a>
             </li>

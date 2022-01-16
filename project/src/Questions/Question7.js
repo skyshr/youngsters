@@ -31,9 +31,9 @@ export default function Question7(props){
     return(
     <>
       <div className="game-content">
-          <p className="infotext">Q. 문제가 생겼을 때 대처법은?</p>
+          <p style={{textAlign : "center", fontSize : "40px"}} className="infotext">Q. 문제가 생겼을 때 대처법은?</p>
           <div className="game">
-              <div className="type">
+              <div style={{textAlign : "center", fontSize : "30px", float : "left", width : "50%"}} className="type">
                   <label htmlFor="F">
                       <img id="mbti-f" alt=''/>
                       <br/> 이해가 안 되는데 공감은 감
@@ -49,7 +49,7 @@ export default function Question7(props){
                   readOnly
                   />  
               </div>
-              <div className="type">
+              <div style={{textAlign : "center", fontSize : "30px"}} className="type">
                   <label htmlFor="T">
                       <img id="mbti-t" alt=''/>
                       <br/> 이해가 되어야 공감을 하든 말든

@@ -11,7 +11,7 @@ function Review() {
                 <div className="row gx-4 gx-lg-5 justify-content-center">
                         <div style={{marginLeft : "17%", marginTop : "5%"}} className="col-lg-8 col-xl-6 text-center">
                             <h2 style={{
-                                fontSize : "36px",
+                                fontSize : "50px",
                                 textTransform : "uppercase",
                                 fontWeight : "700",
                                 color: "#fff",
@@ -20,16 +20,19 @@ function Review() {
                                 display: "inline-block",
                                 paddingBottom : "10px",
                                 marginBottom : "20px",
-                                marginTop : "0px"
+                                marginTop : "0px",
+                                textShadow : "0px 1px 2px #555"
+                                // textShadow: "0px 1px 2px #555"
                             }} className="mt-0">후기</h2>
                             <hr className="divider" />
                             <p style={{
-                                fontSize : "13px",
+                                fontSize : "16px",
                                 fontWeight : "300",
                                 color: "#fff",
                                 letterSpacing : "0.5px",
                                 lineHeight : "24px",
-                                marginBottom : "30px"
+                                marginBottom : "30px",
+                                textShadow : "0px 1px 2px #555"
                             }} className="text-muted mb-5">여러분들의 추억을 남겨보세요 !</p>
                         </div>
                     </div>

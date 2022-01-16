@@ -161,10 +161,10 @@ body {
 }
 
 nav {
-	top: 13vh;
+	top: 11vh;
 	bottom: 10vh;
   	text-align: center;
-  	background: #ffc0cb;
+  	background: rgba(0, 0, 0, 0.5);
   	position: fixed;
   	z-index: 100;
   	height: 80vh;
@@ -178,7 +178,7 @@ nav {
 nav em {
 	font-style: normal;
 	margin-left: 5px;
-	font-size: 14px;
+	font-size: 16px;
 }
 
 nav ul li i {
@@ -267,6 +267,7 @@ nav a:hover::before {
   transition: -webkit-transform 0.8s ease;
   transition: transform 0.8s ease;
   transition: transform 0.8s ease, -webkit-transform 0.8s ease;
+  /* background: linear-gradient(to right, #f28eff27, #84afff56); */
 }
 .slides .slide {
   height: 100vh;
@@ -281,7 +282,7 @@ nav a:hover::before {
   width: 70%;
   height: 80%;
   left: 30%;
-  top: 10%;
+  top: 2.5vh;
   bottom: 100%;
   background: rgba(0, 0, 0, 0.5);
 }
@@ -296,27 +297,27 @@ nav a:hover::before {
 }
 
 .slides .slide:nth-child(1) {
-  /* background-image: url(../img/first_bg.jpg); */
-  background: linear-gradient(to right,#fbc2eb, #a18cd1);
-}
+	/* background: linear-gradient(to right, #f28eff27, #84afff56); */
+}	
 .slides .slide:nth-child(2) {
   /* background-image: url(../img/first_bg.jpg); */
-  background: linear-gradient(to right,#fbc2eb, #a18cd1);
+  background: linear-gradient(to right, #f28eff27, #84afff56);
 }
 .slides .slide:nth-child(3) {
   /* background-image: url(../img/first_bg.jpg); */
-  background: linear-gradient(to right,#fbc2eb, #a18cd1);
+  background: linear-gradient(to right, #f28eff27, #84afff56);
 }
 .slides .slide:nth-child(4) {
   /* background-image: url(../img/first_bg.jpg); */
-  background: linear-gradient(to right,#fbc2eb, #a18cd1);
+  background: linear-gradient(to right, #f28eff27, #84afff56);
  }
 .slides .slide:nth-child(5) {
   /* background-image: url(../img/first_bg.jpg); */
-  background: linear-gradient(to right,#fbc2eb, #a18cd1);
+  background: linear-gradient(to right, #f28eff27, #84afff56);
 }
 .slides .slide img {
-  width: 100%;
+  width: 150%;
+  height: auto;
 }
 
 
@@ -436,7 +437,7 @@ nav a:hover::before {
 }
 
 .second-content h2 {
-	font-size: 36px;
+	font-size: 50px;
 	text-transform: uppercase;
 	font-weight: 700;
 	color: #fff;
@@ -446,15 +447,17 @@ nav a:hover::before {
 	padding-bottom: 10px;
 	margin-bottom: 20px;
 	margin-top: 0px;
+	text-shadow: 0px 1px 2px #555;
 }
 
 .second-content p {
-	font-size: 13px;
+	font-size: 16px;
 	color: #fff;
 	letter-spacing: 0.5px;
 	font-weight: 300;
 	line-height: 24px;
 	margin-bottom: 30px;
+	text-shadow: 0px 1px 2px #555;
 }
 
 .second-content a {
@@ -509,12 +512,12 @@ nav a:hover::before {
 }
 
 .third-content h2 {
-	font-size: 24px;
+	font-size: 30px;
 	text-transform: uppercase;
 	font-weight: 700;
 	color: black;
 	letter-spacing: 0.5px;
-	border-bottom: 2px solid #ffff;
+	border-bottom: 2px solid black;
 	display: inline-block;
 	padding-bottom: 10px;
 	margin-bottom: 20px;
@@ -522,7 +525,7 @@ nav a:hover::before {
 }
 
 .third-content p {
-	font-size: 13px;
+	font-size: 19px;
 	color: black;
 	letter-spacing: 0.5px;
 	font-weight: 300;

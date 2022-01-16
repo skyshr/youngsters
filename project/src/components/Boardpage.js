@@ -26,7 +26,7 @@ export default function Boardpage() {
       <div className="slides">
         <a id="1">
           <div className="slide" id="1">
-            <div className="content third-content" style={{backgroundColor: "#ffc0cb"}}>
+            <div className="content third-content" style={{backgroundColor: "rgba(0, 0, 0, 0.3)"}}>
               {/* <div className="container-fluid"> */}
                   <div>
                       <Review />
@@ -38,7 +38,7 @@ export default function Boardpage() {
 
         <a id="2">
           <div className="slide" id="2">
-            <div className="content second-content" style={{backgroundColor: "#ffc0cb"}}>
+            <div className="content second-content" style={{backgroundColor: "rgba(0, 0, 0, 0.3)"}}>
               {/* <div className="container-fluid"> */}
                 <div>
                     <Board />
@@ -50,7 +50,7 @@ export default function Boardpage() {
       
         <a id="3">
           <div className="slide" id="3">
-            <div className="content second-content" style={{backgroundColor: "#ffc0cb"}}>
+            <div className="content second-content" style={{backgroundColor: "rgba(0, 0, 0, 0.3)"}}>
               {/* <div className="container-fluid"> */}
                 <div>
                     <Inquire />
