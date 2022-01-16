@@ -135,7 +135,7 @@ function Chat(props) {
         <div className="topBarBox">
           <button id="wrap-btn-gobackhome" onClick={backtoMenu}>
           </button>
-          <div id="partnerName">이혜인 님</div>
+          <div id="partnerName">{} 님</div>
           <div></div>
         </div>
         <div className="ChatBox" id="chatmessages">
