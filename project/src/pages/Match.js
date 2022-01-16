@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import '../css/match.css';
 
 export default function Match() {
     const [info, setInfo] = useState("")
@@ -32,7 +33,7 @@ export default function Match() {
                     let matchPoint = questionCheck(qParams, Object.values(json['game'][value]));
                     if (sessionStorage.getItem('gender')=="남자") matchPoint.push('./img/women/' + json['userinfo'][value].img);
                     else matchPoint.push('./img/men/' + json['userinfo'][value].img);
-                    matchPoint.push(json['userinfo'][value].username);
+                    matchPoint.push(json['userinfo'][value]);
                     test.push(matchPoint);
                     // test1.push(json['userinfo'][value]);
                 }
@@ -48,24 +49,73 @@ export default function Match() {
             // setTmp(test1);
         })
     }, [])
+
+    const onClick = (e) => {
+        // console.log(e.target.value)
+        // console.log('button');
+        if (window.confirm("이상형으로 등록하시겠습니까?")) {
+            fetch("http://localhost:3001/ideal", {
+            method: "post",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({"value": e.target.value,
+        "idkey": sessionStorage.getItem('idkey')})
+        })
+        .then((res) => res.json())
+        .then((json)=> {
+            console.log(json);
+            if (json.messages=="success") alert("등록되었습니다.");
+            else if (json.messages=="already in use") alert("이미 등록된 정보입니다.");
+            else alert("등록은 4명까지만 가능합니다.");
+        })
+        }
+    }
     
     if (state) {
         return (
-            <div style={{display: "flex"}} >
-                <div>
-                    <img src={info[0][2]} /> {info[0][1]} : {info[0][3]}
+            <div style={{margin: "auto"}}>
+                {sessionStorage.getItem("gender")=="남자"
+                ? <h1>추천 여성</h1>
+                : <h1>추천 남성</h1>
+            }
+                <div style={{display: "flex", margin: "auto"}} >
+                    <div className="match-container">
+                        <div>
+                            <img src={info[0][2]} />
+                        </div> 
+                        
+                        <div className="info-box">
+                            <div>{info[0][1]} : {info[0][3].username}</div>    
+                            <button onClick={onClick} value={info[0][3].idkey}>이상형 등록하기</button>
+                        </div>
+                    </div>
+                    <div className="match-container">
+                        <div>
+                            <img src={info[1][2]} /> 
+                        </div>
+                        
+                        <div className="info-box">
+                            <div>{info[1][1]} : {info[1][3].username}</div>    
+                            <button onClick={onClick} value={info[1][3].idkey}>이상형 등록하기</button>
+                        </div>
+                    </div>  
+                    <div className="match-container">
+                        <div>
+                            <img src={info[2][2]} />
+                        </div>
+
+                        <div className="info-box">
+                            <div>{info[2][1]} : {info[2][3].username}</div>    
+                            <button onClick={onClick} value={info[2][3].idkey}>이상형 등록하기</button>
+                        </div>
+                    </div>    
+                    {/* {info.map(value => 
+                    <div key={value[1]}>
+                        <img src={value[2]} /> {value[1]}
+                    </div>    
+                    )} */}
                 </div>
-                <div>
-                    <img src={info[1][2]} /> {info[1][1]} : {info[1][3]}
-                </div>  
-                <div>
-                    <img src={info[2][2]} /> {info[2][1]} : {info[2][3]}
-                </div>    
-                {/* {info.map(value => 
-                <div key={value[1]}>
-                    <img src={value[2]} /> {value[1]}
-                </div>    
-                )} */}
             </div>
         )
     }

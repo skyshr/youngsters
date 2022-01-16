@@ -30,6 +30,25 @@ export default function Join(){
       [name] : value
     })
   }
+  //  //비밀번호 유효성 검사
+  //  const checkPassword = (e) => {
+  //   var regExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,10}$/ 
+  //   //  8 ~ 10자 영문, 숫자 조합
+  //   // 형식에 맞는 경우 true 리턴
+  //   if(!regExp.test(e.target.value)){
+  //     alert("비밀번호를 재설정하세요")
+  //   }
+  //   // console.log('비밀번호 유효성 검사 :: ', regExp.test(e.target.value))
+  // }
+  // // 이메일 유효성 검사
+  // const checkEmail = (e) => {
+  //     var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
+  //     // 형식에 맞는 경우 true 리턴
+  //     if(!regExp.test(e.target.value)){
+  //       alert("이메일 형식으로 입력하세요")
+  //     }
+  //     // console.log('이메일 유효성 검사 :: ', regExp.test(e.target.value))
+  // }
 
   const onSubmit = () => {
     if (inputs.id=="") alert("아이디를 입력하세요");
@@ -105,10 +124,12 @@ export default function Join(){
             <div className='join-middle'>
                 <div className='middle'>
                   <div>
+                    {/* <input id='id' name='id' value={id} type='email' placeholder='사용할 아이디(email 형식)' onChange={onChange}/> */}
                     <input id='id' name='id' value={id} type='email' placeholder='사용할 아이디(email 형식)' onChange={onChange} onBlur={checkEmail} />
                   </div>
                   <div>
-                    <input id='pw' name='pw' value={pw} type='password' minLength="4" placeholder='비밀번호(8 ~ 10자 영문, 숫자 조합)'  onChange={onChange} onBlur={checkPassword}/>
+                    {/* <input id='pw' name='pw' value={pw} type='password' minLength="8" placeholder='비밀번호(8 ~ 10자 영문, 숫자 조합)'  onChange={onChange} /> */}
+                    <input id='pw' name='pw' value={pw} type='password' minLength="8" placeholder='비밀번호(8 ~ 10자 영문, 숫자 조합)'  onChange={onChange} onBlur={checkPassword}/>
                   </div>
                   <div>
                     <input id='name' name='name' value={name}  type='text' placeholder='이름'  onChange={onChange} />

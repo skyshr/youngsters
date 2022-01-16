@@ -6,7 +6,9 @@ const bodyParser = require("body-parser");
 const pool = require("./mysqlcon"); 
 const multer = require("multer");
 const path = require('path');
-const { connect } = require("http2");
+// const { connect } = require("http2");
+const http = require("http").createServer(app);
+var io = require('socket.io')(http, {cors : {origin: "*"}});
 
 const corsOptions = {
     origin: true,
@@ -212,10 +214,69 @@ app.put("/inquiry", (req, res) => {
 })
 
 //기영
+app.get('/chat', (req, res) => {
+    console.log('get chat');
+    pool.getConnection((err, connection) => {
+        if (err) console.log("error");
+        connection.query('SELECT * FROM chat', (err, messages) => {
+            if (err) console.log("error1");
+            console.log(messages)
+            res.send(messages)
+        });
+    });
+});
+
+
+app.get('/ideal', (req, res) => {
+    console.log('ideal get');
+    // console.log(req.body);
+    pool.getConnection((err, connection) => {
+        if (err) throw err;
+        connection.query(`SELECT * FROM idealmatch`, (err, result) => {
+            if (err) throw err;
+            res.send(result);
+            connection.release();
+        })
+    })
+})
+
+app.post('/ideal', (req, res) => {
+    console.log('ideal');
+    console.log(req.body);
+    pool.getConnection((err,connection) => {
+        if (err) throw err;
+        connection.query(`SELECT * FROM idealmatch where useridkey=${req.body.idkey}`, (err, result) => {
+            if (err) throw err;
+            if (result.length > 3) {
+                console.log("하이");
+                console.log(result);
+                res.send({messages: "over limit"})
+                connection.release();
+            }
+            else {
+                for (let data of result) {
+                    console.log(data)
+                    if (data.chosenidkey == req.body.value) {
+                        res.send({messages: "already in use"});
+                        connection.release();
+                        return;
+                    }
+                }
+                connection.query(`INSERT into idealmatch (useridkey, chosenidkey) values (${req.body.idkey}, ${req.body.value})`, (err, result1) => {
+                    if (err) throw err;
+                    res.send({messages: "success"});
+                    connection.release();
+                })
+            }
+
+        })
+    })
+}) 
 
 app.get('/game', (req, res) => {
     console.log("game get!");
     pool.getConnection((err, connection) => {
+        if (err) throw err;
         console.log("connection success!");
         connection.query(`SELECT * FROM game`, (err, result) => {
             if (err) throw err;
@@ -386,7 +447,7 @@ app.put("/boardedit", (req, res) => {
     console.log(edit); 
     pool.getConnection((err, connection) => {
         if (err) throw err;
-        connection.query(`UPDATE board SET content=?, modidate=now() WHERE idx=${edit.idx}`, [edit.content],
+        connection.query(`UPDATE board SET content=?, title=?, modidate=now() WHERE idx=${edit.idx}`, [edit.content, edit.title],
         function(err, rows) {
             if(err) {
                 console.log("수정 실패")
@@ -443,7 +504,7 @@ app.post("/boardcomment", (req,res) => {
     console.log(comm);
     pool.getConnection((err, connection) => {
         if (err) throw err;
-        connection.query(`INSERT INTO comments (idx, userid, comments) values (${comm.idx},?,?)` ,[comm.userid, comm.comment],
+        connection.query(`INSERT INTO comments (idx, userid, comment, userlike) values (${comm.idx},?,?,0)` ,[comm.userid, comm.comment],
         function(err,rows) {
             if(err){ console.log("댓글 달기 실패" + rows)}
             else {
@@ -479,6 +540,50 @@ app.put("/hit", (req, res) => {
             }
         )
         // connection.release();
+    })
+})
+
+app.put("/boardlike", (req, res) => {
+    console.log(req.body)
+    const body = req.body;
+    const like = req.body.likeHeart;
+    pool.getConnection((err, connection) => {
+        if (err) throw err;
+            if(like == false){
+            connection.query(`UPDATE comments SET userlike=userlike-1 WHERE pk = ${body.pk}`,
+                function(err, rows, fields) {
+                    if(err) {
+                        console.log("좋아요 실패")
+                        // res.send(false)
+                    } else {
+                        console.log("좋아요 성공");
+                        connection.query(`SELECT * FROM comments`, (err, rows) => {
+                            if(err) throw err
+                            else res.send(rows);
+                            // console.log(rows);
+                            connection.release();
+                        })
+                    }
+                }
+            )
+        } else {
+                connection.query(`UPDATE comments SET userlike=userlike+1 WHERE pk = ${body.pk}`,
+                function(err, rows, fields) {
+                    if(err) {
+                        console.log("싫어요 실패")
+                        // res.send(false)
+                    } else {
+                        console.log("싫어요 성공");
+                        connection.query(`SELECT * FROM comments`, (err, rows) => {
+                            if(err) throw err
+                            else res.send(rows);
+                            // console.log(rows);
+                            connection.release();
+                        })
+                    }
+                }
+            )
+        }
     })
 })
 

@@ -4,6 +4,8 @@ import BoardWrite from './BoardWrite';
 import './css.css';
 
 function Board() {
+    // window.location.href = '/board';
+    const [test, setTest] = useState(true);
     const [value, setValue] = useState("");
     const [board, setBoard] = useState("");
     const [data, setData] = useState({
@@ -18,6 +20,10 @@ function Board() {
     });
 
     useEffect(() => {
+        if (test) {
+            setTest(false)
+            // window.location.href = '/board';
+        }
         console.log('board')
         fetch("http://localhost:3001/board", {
             method : "get",
@@ -27,7 +33,7 @@ function Board() {
         })   
         .then((res) => res.json())
         .then((json) => {
-            console.log(json);
+            // console.log(json);
             setData(json)
             setBoard("board")
         })
@@ -56,7 +62,7 @@ function Board() {
         setBoard("write");
     };
 
-    console.log(value);
+    // console.log(value);
 
     if(board=="board"){
     return(

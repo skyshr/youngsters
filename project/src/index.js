@@ -6,9 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import Homepage from './Home';
 import Router from './Router';
 import Routers from './routes/Routes';
+import Main from './worldcup/Main';
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* <Main /> */}
     <Homepage />
     {/* <Mypage /> */}
     {/* <Router /> */}

@@ -28,9 +28,10 @@ function BoardView({write}) {
         })
         .then((res) => res.json())
         .then((json) => {
-            // console.log(json);
+            console.log(json);
             for (let data of json) {
-                if (data.title == write.title && data.writer == write.writer && data.password == write.password && data.content == write.content) {
+                // console.log(data.title)
+                if (data.title == write.title  && data.content == write.content) {
                     // console.log(write);
                     // test.idx = data.idx
                     // test.regdate = data.regdate
@@ -58,8 +59,8 @@ function BoardView({write}) {
     if(view === "view"){
         return(
             <>
-                <div className="content second-content">
-                    <div className="container-fluid">
+                {/* <div className="content second-content"> */}
+                    {/* <div className="container-fluid"> */}
                         <section className="page-section" id="contact">
                             <div className="board_box">    
                                 <div className="row gx-4 gx-lg-5 justify-content-center">
@@ -103,8 +104,8 @@ function BoardView({write}) {
                                 </div>
                             </div>
                         </section>
-                    </div>
-                </div>
+                    {/* </div> */}
+                {/* </div> */}
             </>
         )
     }

@@ -45,7 +45,7 @@ const Layout = () => {
           { sessionStorage.getItem("loginstatus") != "okay"
           ? <Link to ="/login">LOGIN</Link>
           : <>
-            <Link to="/mypage"><p id='userwellcome'>안녕하세요 {sessonname} 님</p></Link>
+            <Link to="/mypage"><p id='userwellcome'>안녕하세요 {sessionStorage.getItem("username")} 님</p></Link>
             <Link to="/chat"><div id='chat'></div></Link>
             <Link id='userlogout' to ="/" onClick = {onClick}>
             <div id='logout'></div>
@@ -55,8 +55,9 @@ const Layout = () => {
         </li>
       </ul>
       <div className='wrap-outlet'>
-      <Outlet />
+        <Outlet />
       </div>
+      {/* <Outlet /> */}
     </div>
   )
 }

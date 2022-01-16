@@ -29,14 +29,15 @@ function BoardWrite() {
     
     const onSubmitView = () => {
         const post = {
-            idx : "",
-            hit: "",
-            regdate: "",
+            idx : write.idx,
+            hit: write.hit,
+            regdate: write.regdate,
+            modidate : write.modidate,
             title : write.title,
-            writer : sessionStorage.getItem('idkey'),
-            password : write.password,
+            writer : sessionStorage.getItem('id'),
             content : write.content
         };
+        console.log(post);
 
         fetch("http://localhost:3001/boardwrite", {
             method : "post",
@@ -60,8 +61,8 @@ function BoardWrite() {
     if(state === "write") {
         return(
             <>
-                <div className="content second-content">
-                    <div className="container-fluid">
+                {/* <div className="content second-content"> */}
+                    {/* <div className="container-fluid"> */}
                         <section className="page-section" id="contact">
                             <div className="board_box">    
                                 <div className="row gx-4 gx-lg-5 justify-content-center">
@@ -82,12 +83,13 @@ function BoardWrite() {
                                         <div className="info">
                                             <dl>
                                                 <dt>글쓴이</dt>
-                                                <dd><input name='writer' value={write.writer} type="text" placeholder="글쓴이 입력" onChange={onChange}/></dd>
+                                                <dd>{sessionStorage.getItem('id')}</dd>
+                                                {/* <dd><input name='writer' value={write.writer} type="text" placeholder="글쓴이 입력" onChange={onChange}/></dd> */}
                                             </dl>
-                                            <dl>
+                                            {/* <dl>
                                                 <dt>비밀번호</dt>
                                                 <dd><input name='password' value={write.password} type="password" placeholder="비밀번호 입력" onChange={onChange}/></dd>
-                                            </dl>
+                                            </dl> */}
                                         </div>
                                         <div className="cont">
                                             <textarea name='content' value={write.content} placeholder="내용 입력" onChange={onChange}></textarea>
@@ -100,8 +102,8 @@ function BoardWrite() {
                                 </div>
                             </div>
                         </section>
-                    </div>
-                </div>
+                    {/* </div> */}
+                {/* </div> */}
             </>
         )
     } else if(state === "view"){

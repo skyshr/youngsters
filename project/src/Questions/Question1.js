@@ -18,8 +18,8 @@ export default function Question1(props) {
         <div>
             <p>Q. 당신이 좋아하는 영화는?</p>
             <div style={{display: "flex"}}>
-            {arr.map(val => 
-                <div>
+            {arr.map((val, index) => 
+                <div key={index}>
                     <img src={path + val} 
                         style={{margin: "10px", width: "220px", height: "270px", cursor: "pointer"}}
                         alt={val}
