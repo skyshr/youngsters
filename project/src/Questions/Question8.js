@@ -30,9 +30,9 @@ export default function Question8(props){
     return(
     <>
       <div className="game-content">
-          <p style={{textAlign : "center", fontSize : "40px"}} className="infotext">Q. 문제가 생겼을 때 대처법은?</p>
+          <p style={{textAlign : "center", fontSize : "60px", fontWeight: "bold", color: "red"}} className="infotext">Q. 문제가 생겼을 때 대처법은?</p>
           <div className="game">
-              <div style={{textAlign : "center", fontSize : "30px", float : "left", width : "50%"}} className="type">
+              <div style={{textAlign : "center", fontWeight: "bold", fontSize : "50px", float : "left", width : "50%"}} className="type">
                   <label htmlFor="J">
                       <img id="mbti-j" alt=''/>
                       <br/> 한다면 함
@@ -45,10 +45,11 @@ export default function Question8(props){
                   checked={mbti === "J"}
                 //   onChange={onChange}
                   onClick={onSubmit}
+                  className="question-imgs"
                   readOnly
                   />  
               </div>
-              <div style={{textAlign : "center", fontSize : "30px"}} className="type">
+              <div style={{textAlign : "center", fontWeight: "bold", fontSize : "50px"}} className="type">
                   <label htmlFor="P">
                       <img id="mbti-p" alt=''/>
                       <br/> 뭐부터 하지?
@@ -61,6 +62,7 @@ export default function Question8(props){
                   checked={mbti === "P"}
                 //   onChange={onChange}
                   onClick={onSubmit}
+                  className="question-imgs"
                   readOnly
                   />
               </div>

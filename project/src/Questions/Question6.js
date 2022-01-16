@@ -44,9 +44,9 @@ export default function Question6(props){
     return(
     <>
       <div className="game-content">
-          <p style={{textAlign : "center", fontSize : "40px"}} className="infotext">Q. 문제가 생겼을 때 대처법은?</p>
+          <p style={{textAlign : "center", fontSize : "60px", fontWeight: "bold", color: "red"}} className="infotext">Q. 문제가 생겼을 때 대처법은?</p>
           <div className="game">
-              <div style={{textAlign : "center", fontSize : "30px", float : "left", width : "50%"}} className="type">
+              <div style={{textAlign : "center", fontSize : "50px", fontWeight: "bold", float : "left", width : "50%"}} className="type">
                   <label htmlFor="S">
                       <img id="mbti-s" alt=''/>
                       <br/> 그냥 그런가 보다
@@ -59,10 +59,11 @@ export default function Question6(props){
                   checked={mbti === "S"}
                 //   onChange={onChange}
                   onClick={onSubmit}
+                  className="question-imgs"
                   readOnly
                   />  
               </div>
-              <div style={{textAlign : "center", fontSize : "30px"}} className="type">
+              <div style={{textAlign : "center", fontSize : "50px", fontWeight: "bold"}} className="type">
                   <label htmlFor="N">
                       <img id="mbti-n" alt=''/>
                       <br/> 어떻게 그럴 수 있지
@@ -75,6 +76,7 @@ export default function Question6(props){
                   checked={mbti === "N"}
                 //   onChange={onChange}
                   onClick={onSubmit}
+                  className="question-imgs"
                   readOnly
                   />
               </div>
