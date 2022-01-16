@@ -18,11 +18,11 @@ export default function Boardpage() {
         <a id="1">
           <div className="slide" id="1">
             <div className="content third-content" style={{backgroundColor: "#ffc7c5"}}>
-              <div className="container-fluid">
+              {/* <div className="container-fluid"> */}
                   <div>
                       <Review />
                   </div>  
-              </div>
+              {/* </div> */}
             </div>
           </div>  
         </a> 
@@ -32,11 +32,11 @@ export default function Boardpage() {
         <a id="2">
           <div className="slide" id="2">
             <div className="content second-content" style={{backgroundColor: "#feb7c2"}}>
-              <div className="container-fluid">
+              {/* <div className="container-fluid"> */}
                 <div>
                     <Board />
                 </div>
-              </div>
+              {/* </div> */}
             </div>
           </div>
         </a>
@@ -46,11 +46,11 @@ export default function Boardpage() {
         <a id="3">
           <div className="slide" id="3">
             <div className="content second-content" style={{backgroundColor: "#fdc3c2"}}>
-              <div className="container-fluid">
+              {/* <div className="container-fluid"> */}
                 <div>
                     <Inquire />
                 </div>
-              </div>
+              {/* </div> */}
             </div>
           </div>
         </a>

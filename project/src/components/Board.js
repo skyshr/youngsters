@@ -67,7 +67,7 @@ function Board() {
     if(board=="board"){
     return(
         <>
-            {/* <div className="content second-content"> */}
+            <div style={{backgroundColor : "#ffb6c1"}} >
                 {/* <div className="container-fluid"> */}
                     <section className="page-section" id="contact">
                         <div className="board_box">    
@@ -106,8 +106,8 @@ function Board() {
                             </div>
                         </div>
                     </section>
-                {/* </div>
-            </div> */}
+                
+            </div>
         </>
     )} else if (board=="read"){
         return (

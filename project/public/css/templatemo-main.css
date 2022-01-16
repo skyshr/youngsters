@@ -161,10 +161,10 @@ body {
 }
 
 nav {
-	top: 10vh;
+	top: 13vh;
 	bottom: 10vh;
   	text-align: center;
-  	background: white;
+  	background: #ffb6c1;
   	position: fixed;
   	z-index: 100;
   	height: 80vh;

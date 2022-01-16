@@ -4,12 +4,7 @@ export default function NavMw({page, setPage}) {
     // }
     return(
     <nav>
-        <div className="logo">
-            <img src="img/logo.png" alt="" />
-        </div>
-
-        <div className="mini-logo">
-            <img src="img/mini_logo.png" alt="" />
+        <div style={{height : "150px", marginLeft : "30%"}} className="logo">
         </div>
         
         <ul style={{position: "absolute", top: "20%"}}>
