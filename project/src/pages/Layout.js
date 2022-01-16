@@ -1,9 +1,12 @@
 import {Outlet, Link} from 'react-router-dom'
 import { useState } from 'react'
 import '../css/layout.css';
+import PopupDom from '../chat/PopupDom';
+import ChatMain from '../chat/ChatMain';
 
 const Layout = () => {
   // const [login, setLogin] = useState(sessionStorage.getItem('loginstatus')||"logout");
+  const [state, setState] = useState(false)
   const onClick = () => {
     sessionStorage.clear();
     // setLogin("logout");
@@ -13,6 +16,10 @@ const Layout = () => {
   }
 
   // var sessonname = sessionStorage.getItem("name");
+
+  const chatPopup = () => {
+    setState(!state)
+  }
 
   return(
     <div className='wrap'>
@@ -46,7 +53,8 @@ const Layout = () => {
           ? <Link to ="/login">LOGIN</Link>
           : <>
             <Link to="/mypage"><p id='userwellcome'>안녕하세요 {sessionStorage.getItem("username")} 님</p></Link>
-            <Link to="/chat"><div id='chat'></div></Link>
+            {/* <Link to="/chat"><div id='chat'></div></Link> */}
+            <div id='chat' style={{cursor: "pointer"}} onClick={chatPopup} className='chat-link'></div>
             <Link id='userlogout' to ="/" onClick = {onClick}>
             <div id='logout'></div>
             </Link>
@@ -57,6 +65,11 @@ const Layout = () => {
       <div className='wrap-outlet'>
         <Outlet />
       </div>
+      {state && 
+          <PopupDom>
+            <ChatMain />
+          </PopupDom>  
+        }
       {/* <Outlet /> */}
     </div>
   )

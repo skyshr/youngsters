@@ -62,7 +62,7 @@ export default function ChatMain() {
                 <div className="wrap-main-ideal-box" id={data.idkey} onClick={onClick} >
                 <div className="main-ideal-box">
                     <div className="img-box">
-                      <img className="my-ideal-img" src={`img/${gender}/${data.img}`} id={data.idkey} onClick={onClick} alt="test" />
+                      <img className="my-ideal-img-c" src={`img/${gender}/${data.img}`} id={data.idkey} onClick={onClick} alt="test" />
                       {/* <button className="chat-btn">대화하기</button> */}
                     </div>
                 </div>

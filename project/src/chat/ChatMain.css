@@ -1,3 +1,7 @@
+/* * {
+    all: initial;
+} */
+
 .main-Chat {
     width:25%;
     font-weight: bolder;
@@ -6,7 +10,13 @@
     margin: auto;
     flex-direction: column;
     height: auto;
-    float: right;
+    /* float: right; */
+    position: absolute;
+    top: 15%;
+    right:0%;
+    z-index: 2;
+    /* border: 1px solid #f28eff27 */
+    /* background-color: aqua; */
   }
   
   .wrap-main-ideal-box {
@@ -17,6 +27,7 @@
     display: flex;
     align-items: center;
     background: linear-gradient(to right, #f28eff27, #84afff56);
+    /* background: linear-gradient(to right, rgb(13, 13, 221), #84afff56); */
     height: 170px;
     justify-content: space-between;
     box-shadow: 0px 1px 5px #555;
@@ -28,6 +39,7 @@
   }
   
   .roomname {
+      color: rgb(41, 1, 1)
   }
   
   .main-ideal-box {
@@ -61,7 +73,7 @@
     margin: auto;
   } */
   
-  .my-ideal-img {
+  .my-ideal-img-c {
     border-radius: 100px;
     width: 80%;
     margin: auto

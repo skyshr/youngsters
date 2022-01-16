@@ -23,7 +23,7 @@ export default function Router(){
           <Route path = "/mypage" element = {<Mypage />} />
           <Route path = "*" element = {<Nopage />} />
           <Route path = "/signup" element = {<Signup />} />
-          <Route path = "/chat" element = {<ChatMain />} />
+          {/* <Route path = "/chat" element = {<ChatMain />} /> */}
           <Route path = "/login" element = {<Login />} />
         </Route>
       </Routes>
