@@ -59,7 +59,7 @@ function BoardView({write}) {
     if(view === "view"){
         return(
             <>
-                {/* <div className="content second-content"> */}
+            <div>
                     {/* <div className="container-fluid"> */}
                         <section className="page-section" id="contact">
                             <div className="board_box">    
@@ -105,7 +105,7 @@ function BoardView({write}) {
                             </div>
                         </section>
                     {/* </div> */}
-                {/* </div> */}
+                </div>
             </>
         )
     }

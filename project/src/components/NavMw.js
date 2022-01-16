@@ -5,14 +5,9 @@ export default function NavMw({page, setPage}) {
     return(
     <nav>
         <div className="logo">
-            <img src="img/logo.png" alt="" />
-        </div>
-
-        <div className="mini-logo">
-            <img src="img/mini_logo.png" alt="" />
         </div>
         
-        <ul style={{position: "absolute", top: "20%"}}>
+        <ul style={{position: "absolute", top: "15%"}}>
             <li>
                 <a href="#1"> <i className="fa fa-home"></i> <em>후기</em></a>
             </li>

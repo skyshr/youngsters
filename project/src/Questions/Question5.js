@@ -39,9 +39,9 @@ export default function Question5(props){
     return(
     <>
       <div className="game-content">
-          <p className="infotext">Q. 문제가 생겼을 때 대처법은?</p>
+          <p style={{textAlign : "center", fontSize : "40px"}} className="infotext">Q. 문제가 생겼을 때 대처법은?</p>
           <div className="game">
-              <div className="type">
+              <div style={{textAlign : "center", fontSize : "30px", float : "left", width : "50%"}} className="type">
                   <label htmlFor="E">
                       <img id="mbti-e" alt=''/>
                       <br/> 말이 많아짐
@@ -55,9 +55,9 @@ export default function Question5(props){
                 //   onChange={onChange}
                   onClick={onSubmit}
                   readOnly
-                  />  
+                  />
               </div>
-              <div className="type">
+              <div style={{textAlign : "center", fontSize : "30px"}} className="type">
                   <label htmlFor="I">
                       <img id="mbti-i" alt=''/>
                       <br/> 생각이 많아짐

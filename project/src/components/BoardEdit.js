@@ -57,7 +57,7 @@ function BoardEdit({test}) {
     if(edit === "edit"){
         return(
             <>
-                {/* <div className="content second-content"> */}
+            <div>
                     {/* <div className="container-fluid"> */}
                         <section className="page-section" id="contact">
                             <div className="board_box">    
@@ -100,7 +100,7 @@ function BoardEdit({test}) {
                             </div>
                         </section>
                     {/* </div> */}
-                {/* </div> */}
+                </div>
             </>
         )
     } 

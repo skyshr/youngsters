@@ -61,7 +61,7 @@ function BoardWrite() {
     if(state === "write") {
         return(
             <>
-                {/* <div className="content second-content"> */}
+            <div>
                     {/* <div className="container-fluid"> */}
                         <section className="page-section" id="contact">
                             <div className="board_box">    
@@ -103,7 +103,7 @@ function BoardWrite() {
                             </div>
                         </section>
                     {/* </div> */}
-                {/* </div> */}
+                </div>
             </>
         )
     } else if(state === "view"){

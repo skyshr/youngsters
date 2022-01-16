@@ -18,10 +18,10 @@ export default function Homepage() {
 
             <Router setTest={setTest}/>
 
-            <div className="footer">
+            {/* <div className="footer">
                 <div className="content">
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }

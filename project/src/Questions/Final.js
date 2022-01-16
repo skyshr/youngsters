@@ -11,9 +11,11 @@ export default function Final(props) {
     }
     return (
         <div>
-            <p>내 매칭정보를 확인해 보세요</p>
+            <p style={{textAlign : "center", fontSize : "40px"}}>내 매칭정보를 확인해 보세요</p>
+            <span style={{display: "flex", justifyContent : "center"}}>
             <button onClick = {join}>회원가입</button>
             <button onClick = {login}>로그인</button>
+            </span>
         </div>
     )
 }
