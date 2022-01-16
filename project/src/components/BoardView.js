@@ -59,8 +59,8 @@ function BoardView({write}) {
     if(view === "view"){
         return(
             <>
-                <div className="content second-content">
-                    <div className="container-fluid">
+            <div style={{backgroundColor : "#ffb6c1"}} >
+                    {/* <div className="container-fluid"> */}
                         <section className="page-section" id="contact">
                             <div className="board_box">    
                                 <div className="row gx-4 gx-lg-5 justify-content-center">
@@ -104,7 +104,7 @@ function BoardView({write}) {
                                 </div>
                             </div>
                         </section>
-                    </div>
+                    {/* </div> */}
                 </div>
             </>
         )
