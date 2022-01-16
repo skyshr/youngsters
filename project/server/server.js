@@ -214,18 +214,80 @@ app.put("/inquiry", (req, res) => {
 })
 
 //기영
+
+    io.on("connection", (socket) => {
+      console.log("connection");
+  
+      // socket.on('room', (username)=>{   //username을 방 제목으로 정함
+      //   socket.join(username, ()=>{
+      //     console.log(username+'방으로 입장')
+      //   })
+      // })
+      
+      socket.on("init", (payload) => {
+        console.log(payload);
+      });
+  
+      socket.on("send message", (msg) => {
+        console.log("socket send message");
+        console.log(msg);
+        io.emit("receive message", { username : msg.username , message : msg.message, timelog : msg.timelog, value: msg.value});
+            console.log("socket 메시지 전송 확인!")
+            pool.getConnection((err, connection) => {
+                if (err) console.log("error");
+                connection.query(`SELECT * FROM chattable where (user1, user2) = ("${msg.idkey}", "${msg.value}") or (user1, user2) = ("${msg.value}", "${msg.idkey}")`, (err, result) => {
+                    if (err) console.log("error1");
+                    console.log(result)
+
+                    connection.query(`INSERT INTO chat (idx, username, messages, timelog) VALUES (${result[0].idx}, "${msg.username}", "${msg.message}", now())`, (err, result1) => {
+                        if (err) console.error("error1")
+                        else console.log("success!")
+                        connection.release();
+                    });
+        //         connection.query(`SELECT * FROM chat WHERE (username="${msg.username}")`, function (err, res) {
+        //         if (err) console.error("err : " + err)
+        //         io.emit('nickname', res)
+        //         connection.release();
+        //     });
+                });
+            });
+        });
+    });
 app.get('/chat', (req, res) => {
     console.log('get chat');
+    console.log(req.query);
     pool.getConnection((err, connection) => {
         if (err) console.log("error");
-        connection.query('SELECT * FROM chat', (err, messages) => {
+        connection.query(`SELECT * FROM chattable where (user1, user2) = ("${req.query.user1}", "${req.query.user2}") or (user1, user2) = ("${req.query.user2}", "${req.query.user1}")`, (err, result) => {
             if (err) console.log("error1");
-            console.log(messages)
-            res.send(messages)
+            if (result.length == 1) {
+                console.log("length1");
+                console.log(result[0]);
+                connection.query(`SELECT * FROM chat where idx=${result[0].idx}`, (err, result1) => {
+                    if (err) throw err;
+                    console.log(result1);
+                    res.send(result1);
+                    connection.release();
+                    console.log("messages sent!")
+                })
+            }
+            else {
+                console.log("length0");
+                connection.query(`INSERT INTO chattable (user1, user2) values ("${req.query.user1}","${req.query.user2}")`, (err, result2) => {
+                    if (err) console.log("error3");
+                    else {
+                        console.log("success!");
+                        res.send([]);
+                    }
+                    connection.release();
+                })
+            }
+            // console.log(result);
+            // res.send(result)
+            // connection.release();
         });
     });
 });
-
 
 app.get('/ideal', (req, res) => {
     console.log('ideal get');
@@ -603,6 +665,8 @@ app.get("/boardcommentview", (req, res) => {
     })
 })
 
-app.listen(port, ()=>{
+http.listen(port, ()=>{
     console.log(`Connect at http://localhost:${port}`);
 })
+
+// http.listen(3001);
