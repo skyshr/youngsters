@@ -19,18 +19,19 @@ export default function Question3(props) {
     }
     return (
         <div>
-            <p style={{textAlign : "center", fontSize : "40px"}}>Q. 당신이 좋아하는 캐릭터는?</p>
+            <p style={{textAlign : "center", fontSize : "60px", fontWeight: "bold", color: "red"}}>Q. 당신이 좋아하는 캐릭터는?</p>
             <div style={{display: "flex", justifyContent: "center"}}>
             {set.map(val => 
                 <div>
                     <img src={path + val} 
-                    style={{margin: "10px", width: "250px", height: "270px", 
+                    style={{margin: "30px", width: "300px", height: "330px", 
                             cursor: "pointer", border: "3px solid black"}}
                     alt={val} 
                     id={text[arr.indexOf(val)]}
                     onClick={onClick}
+                    className="question-imgs"
                     />
-                    <div style={{textAlign: "center", fontSize : "20px"}}>{text[arr.indexOf(val)]}</div>
+                    <div style={{textAlign: "center", fontSize : "35px", fontWeight: "bold"}}>{text[arr.indexOf(val)]}</div>
                 </div>
                 )}
             </div>

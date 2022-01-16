@@ -11,7 +11,7 @@ export default function Question9(props) {
     }
     return (
         <div>
-            <p style={{textAlign : "center", fontSize : "40px"}}>Q. 당신의 색상은 무엇인가요?</p>
+            <p style={{textAlign : "center", fontSize : "60px", fontWeight: "bold"}}>Q. 당신의 색상은 무엇인가요?</p>
             <div style={{display: "flex", justifyContent : "center"}}>
             {arr.map(val => 
                 <div>

@@ -8,6 +8,7 @@ import Question6 from './Question6'
 import Question7 from './Question7'
 import Question8 from './Question8'
 import Final from './Final'
+import '../css/question.css';
 
 export default function QHome(props) {
     const [state, setState] = useState("1");

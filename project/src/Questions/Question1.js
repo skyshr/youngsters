@@ -16,17 +16,18 @@ export default function Question1(props) {
     }
     return (
         <div>
-            <p style={{textAlign : "center", fontSize : "40px"}}>Q. 당신이 좋아하는 영화는?</p>
+            <p style={{textAlign : "center", fontSize : "60px",  color: "red", fontWeight: "bold"}}>Q. 당신이 좋아하는 영화는?</p>
             <div style={{display: "flex", justifyContent : "center"}}>
             {arr.map((val, index) => 
                 <div key={index}>
                     <img src={path + val} 
-                        style={{margin: "10px", width: "220px", height: "270px", cursor: "pointer"}}
+                        style={{margin: "20px", width: "300px", height: "330px", cursor: "pointer"}}
                         alt={val}
                         id={text[arr.indexOf(val)]}
                         onClick={onClick}
+                        className="question-imgs"
                     />
-                    <div style={{textAlign: "center", fontSize : "20px"}}>{text[arr.indexOf(val)]}</div>
+                    <div style={{textAlign: "center", fontSize : "35px", fontWeight: "bold"}}>{text[arr.indexOf(val)]}</div>
                 </div>    
                 )}
             </div>
