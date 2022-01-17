@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Nopage from "./pages/Nopage";
 import Signup from "./pages/signup";
+// import End from "./pages/End";
 import Mypage from "./Mypage/Mypage";
 // import Board from "./components/Board";
 import Boardpage from "./components/Boardpage";
@@ -25,6 +26,7 @@ export default function Router(){
           <Route path = "/signup" element = {<Signup />} />
           {/* <Route path = "/chat" element = {<ChatMain />} /> */}
           <Route path = "/login" element = {<Login />} />
+          {/* <Route path = "/end" element = {<End />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>
