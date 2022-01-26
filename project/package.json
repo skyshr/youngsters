@@ -14,6 +14,8 @@
     "clipboard-polyfill": "^3.0.3",
     "global": "^4.4.0",
     "jquery": "^3.6.0",
+    "multer": "^1.4.4",
+    "mysql": "^2.18.1",
     "react": "^17.0.2",
     "react-daum-postcode": "^3.0.1",
     "react-dom": "^17.0.2",

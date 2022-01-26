@@ -45,19 +45,20 @@ button:hover{
 /* 주소API 닫는 창 */
 #postCode_btn {
   position: absolute;
-  bottom: 9%;
+  bottom: 0%;
   right: 0%;
   padding: 5px;
   border-style: none;
   font-size: 2.5rem;
   font-weight: bold;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: #eabbf0;
+  /* border: violet 4px solid; */
   color: white;
 }
 
-#postCode_btn:hover{
-  color: #c24fd1;
-}
+/* #postCode_btn:hover{
+  color: violet;
+} */
 
 .addr {
   border: white 2px solid;

@@ -9,7 +9,6 @@ const socket = io.connect("http://localhost:3001");
 function Chat(props) {
   // const username = "user"
   // socket.emit('room',username);
-  console.log("props data: " + props.data);
 
   let today = new Date();
   let year = today.getFullYear();
@@ -32,18 +31,18 @@ function Chat(props) {
     }).then(res => res.data)
     const chatmessages = document.querySelector('#chatmessages')
     console.log('here');
-    // let nickname = document.querySelector('#usernick').value
+    let nickname = document.querySelector('#usernick').value
     console.log(result);
-    // console.log("nickname: "+ nickname);
+    console.log("nickname: "+ nickname);
     for(let i = 0; i < result.length; i++) {
       if(result[i].username === nickname) {
         let div = document.createElement('div')
 
         div.idx = result[i].idx
-        const dbChat = `<div class="Chat RChat">
-        <div class="chat-name">${result[i].username}</div>
-        <div class="chat-message">${result[i].messages}</div>
-        <div class="chat-time">${result[i].timelog}</div>
+        const dbChat = `<div className="Chat" style="display: flex; justify-content: start; align-items: center; width:50%; height:5%; border:1px solid black;">
+        <div className="chat-name" style="flex: 1;">${result[i].username}</div>
+        <div className="chat-message" style="flex: 1;">${result[i].messages}</div>
+        <div className="chat-time" style="flex: 1; font-size: 0.7rem;">${result[i].timelog}</div>
         </div>
         `
         div.innerHTML = dbChat

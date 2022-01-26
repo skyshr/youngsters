@@ -15,7 +15,7 @@ const Layout = () => {
     // props.history.push('/');
   }
 
-  // var sessonname = sessionStorage.getItem("name");
+  var sessonname = sessionStorage.getItem("name");
 
   const chatPopup = () => {
     setState(!state)

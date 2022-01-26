@@ -18,7 +18,6 @@ export default function Match() {
         .then((json) => {
             let test = []
             let qParams = [];
-
             for (let data of json['game']) {
                 if (data['idkey']==sessionStorage.getItem('idkey')){
                     qParams = [data['q1'], data['q2'], data['q3'], data['q4'], data['q5'], data['q6'], data['q7'], data['q8']];

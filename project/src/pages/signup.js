@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import PostApi from '../componants/postApi';
 import Login from './Login';
 
+
+
 export default function Join(){
   const [state, setState] = useState(true);
   const [inputs, setInputs] = useState({
@@ -18,6 +20,7 @@ export default function Join(){
   });
 
   const {id, pw, name, gender, year, age, useraddr, useraddrdet} = inputs;
+
 
   const onChange = (e) =>{
     const { name, value } = e.target;
@@ -51,8 +54,6 @@ export default function Join(){
 
   const onSubmit = () => {
     if (checkEmail(inputs.id) || checkPassword(inputs.pw)) return;
-    else if (inputs.name=="") alert("이름을 입력하세요");
-    else if (inputs.gender=="") alert("성별을 입력하세요");
     else if (inputs.year=="") alert("출생년도를 입력하세요");
     else if (inputs.age=="") alert("나이를 입력하세요");
     else if (inputs.useraddr=="") alert("주소를 입력하세요.");
@@ -92,6 +93,26 @@ export default function Join(){
   }
 
   if (state) {
+
+        //비밀번호 유효성 검사
+        const checkPassword = (e) => {
+          var regExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,10}$/ 
+          //  8 ~ 10자 영문, 숫자 조합
+          // 형식에 맞는 경우 true 리턴
+          if(!regExp.test(e.target.value)){
+            alert("비밀번호를 재설정하세요")
+          }
+          // console.log('비밀번호 유효성 검사 :: ', regExp.test(e.target.value))
+      }
+      // 이메일 유효성 검사
+      const checkEmail = (e) => {
+          var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
+          // 형식에 맞는 경우 true 리턴
+          if(!regExp.test(e.target.value)){
+            alert("이메일 형식으로 입력하세요")
+          }
+          // console.log('이메일 유효성 검사 :: ', regExp.test(e.target.value))
+      }
     return(
       <>
         <div className='signup'>
